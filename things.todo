@@ -5,16 +5,39 @@ All Ideas
     ✔ Create posts submission page @done (2020/03/17, 09:04:31)
     ✔ Add form to page @done (2020/03/17, 10:23:28)
     ✔ Ensure Posts.php is set up correctly @done (2020/03/17, 10:23:33)
-    ☐ Add modifiers and indexes to database valuues and regenerate
-    ☐ Add in dummy posts to work with
+    ✔ Add modifiers and indexes to database valuues and regenerate @done (2020/03/17, 17:39:25)
+    ✔ Add in dummy posts to work with @done (2020/03/17, 17:48:11)
 
     Build Task View
-    ☐ Pass posts table into task view
-    ☐ 
+    ✔ Pass posts table into task view @done (2020/03/17, 18:34:36)
+    ✔ Start styling columns @done (2020/03/17, 18:35:44)
+    ✔ Import Examples @done (2020/03/17, 19:26:59)
+        ✔ Fix Broken Columns @done (2020/03/17, 19:56:55)
+
+    ✔ Remove styling @done (2020/03/17, 20:08:53)
+    
+    Customize styling with conditions
+    ☐ Folder / Link on/off based on null value 
+    ☐ Date formatting
+    ☐ Colour Coded Priority and Status
+
+
+    ☐ Start linking Databases with $posts->user
+
+    public function create(Request $request) {
+
+        $message = new Message();
+        $message->title = $request->title;
+        $message->content = $request->content;
+
+        $message->save();
+
+        return redirect('/');
+
+    }
 
     Build Post View
     ☐ Create individual post ID view
-
 
     Build User Profiles
     ☐ Create profile ID view
