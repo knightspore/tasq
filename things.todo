@@ -1,0 +1,22 @@
+All Ideas
+
+    Posts
+    ✔ Create a model for posts @done (2020/03/17, 08:33:43)
+    ✔ Create posts submission page @done (2020/03/17, 09:04:31)
+    ✔ Add form to page @done (2020/03/17, 10:23:28)
+    ☐ Add in dummy posts to work with
+    ✔ Ensure Posts.php is set up correctly @done (2020/03/17, 10:23:33)
+    ☐ Create individual post ID view
+    
+    Task View
+    ☐ Pass posts table into task view
+    ☐ 
+
+    User Profiles
+    ☐ Create profiles page
+    ☐ Profiles should have:
+        ☐ name
+        ☐ picture
+        ☐ e-mail
+        ☐ level
+        ☐ KPI this month
