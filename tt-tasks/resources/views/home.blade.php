@@ -6,7 +6,7 @@
 
     <div class="table-container p-3">
 
-    	<h2 class="pl-1">{{ Auth::user()->name }}'s Tasks</h2>
+    	<h1 class="pl-1">{{ Auth::user()->name }}'s Tasks</h1>
     	<p class="pl-1">{{ Auth::user()->email }}</p>
 
         <table class="table table-bordered table-sm table-hover table-responsive-lg shadow">

@@ -34,13 +34,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                <a class="nav-link text-success" href="/home">Home</a>
+                <a class="nav-link text-light" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
-                <a class="nav-link text-success" href="#">Feedback</a>
+                <a class="nav-link text-light" href="#">Feedback</a>
                         </li>
                         <li class="nav-item">
-                <a class="nav-link text-success" href="#">KPI</a>
+                <a class="nav-link text-light" href="#">KPI</a>
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                <a class="nav-link text-info" href="/submit">+ Add Task</a>
                         </li>
                     </ul>
 
