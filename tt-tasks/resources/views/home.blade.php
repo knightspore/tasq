@@ -7,7 +7,8 @@
 <div class="table-container mt-4 px-5">
 
     <h1 class="pl-1">Today's Tasks</h1>
-    <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}" class="text-info">{{ Auth::user()->email }}</a></p>
+    <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}"
+            class="text-info">{{ Auth::user()->email }}</a></p>
 
     <table class="table table-bordered table-sm table-hover table-responsive-lg shadow">
         <thead class="thead-lg thead-dark text-center">
@@ -22,7 +23,7 @@
                 <th scope="col" id="col-task">Task</th>
                 <th scope="col" id="col-points">KPI 🔥</th>
                 <th scope="col" id="col-status">Status<br></th>
-                <th scope="col" id="col-folder">📁</th>
+                <th scope="col" id="col-folder"></th>
                 <th scope="col" id="col-comment">Comment</th>
                 <th scope="col" id="col-editor">Editor</th>
                 <th scope="col" id="col-completed">Completed</th>
@@ -32,11 +33,11 @@
         <tobdy>
 
             <!--BEGIN TABLE SCRIPT-->
-            
+
             @foreach($posts as $post)
             <tr scope="row">
 
-                <!--POST PRIORTY- high prio - text-white bg-danger--> 
+                <!--POST PRIORTY- high prio - text-white bg-danger-->
                 <td class="text-center" id="row-prio">{{ $post->priority }}</td>
 
                 <!--POST LEVEL-->
@@ -68,7 +69,13 @@
                 <td class="text-center" id="row-stat">{{ $post->progress }}</td>
 
                 <!--FOLDER LINK-->
+                @isset($post->folder)
                 <td class="text-center" id="row-src"><a href="{{ $post->folder }}" target="_blank">📁</a></td>
+                @endisset
+
+                @empty($post->folder)
+                <td></td>
+                @endempty
 
                 <!--COMMENTS-->
                 <td class="" id="row-cmt">{{ $post->comment }}</td>
@@ -80,7 +87,13 @@
                 <td class="" id="row-compl">{{ $post->completed }}</td>
 
                 <!--LIVE LINK-->
+                @isset($post->live)
                 <td class="text-center" id="row-live"><a href="{{ $post->live }}" target="_blank">🌐</a></td>
+                @endisset
+
+                @empty($post->live)
+                <td></td>
+                @endempty
 
             </tr>
             @endforeach
@@ -99,7 +112,7 @@
                 <td class="text-center"><a href="#">📁</a></td>
                 <td>Client Sheet<br></td>
                 <td>Tyla O</td>
-                <td>May</td>                
+                <td>May</td>
                 <td class="text-center" id="row-live"><a href="#" target="_blank">🌐</a></td>
 
             </tr>

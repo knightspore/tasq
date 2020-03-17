@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/submit', 'SubmitController@index')->name('submit');
+
+Route::get('/post', 'PostController@index')->name('post');
