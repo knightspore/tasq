@@ -15,22 +15,22 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('priority');
-            $table->integer('level');
-            $table->date('due-date');
-            $table->string('user');
-            $table->string('project');
-            $table->string('site');
-            $table->string('type');
-            $table->text('task');
-            $table->integer('points');
-            $table->string('progress');
-            $table->string('folder');
-            $table->text('comment');
-            $table->string('editor');
-            $table->date('complete-date');
-            $table->string('live-link');
-            $table->string('created-by');
+            $table->integer('priority');        //In
+            $table->integer('level');           //In
+            $table->date('due');           //In
+            $table->string('user')->nullable();
+            $table->string('project');          //In
+            $table->string('site');             //In
+            $table->string('type');             //In
+            $table->text('task');               //In
+            $table->integer('points');          //In
+            $table->string('progress')->nullable();         
+            $table->string('folder')->nullable();           
+            $table->text('comment')->nullable();            
+            $table->string('editor')->nullable();           
+            $table->date('completed')->nullable();
+            $table->string('live')->nullable();
+            $table->string('created-by')->nullable();
             $table->timestamps();
         });
     }

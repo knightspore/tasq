@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-sm navbar-light bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
                     TT Task Manager
@@ -44,7 +44,7 @@
                         </li>
                         </li>
                         <li class="nav-item">
-                <a class="nav-link text-info" href="/submit">+ Add Task</a>
+                <a class="nav-link text-info ml-5" href="/submit">+ Add Task</a>
                         </li>
                     </ul>
 
