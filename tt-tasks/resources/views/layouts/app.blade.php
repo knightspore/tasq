@@ -36,13 +36,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="/home">Tasks</a>
+                            <a class="nav-link text-light" href="/home">Task Sheet</a>
                         </li>
                         <li>
-                            <a class="nav-link text-light" href="/post">Card View</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Feedback</a>
+                            <a class="nav-link text-light" href="/post">Cards</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">KPI</a>
