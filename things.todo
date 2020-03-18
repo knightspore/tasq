@@ -18,30 +18,23 @@ All Ideas
     
     Customize styling with conditions
     ✔ Folder / Link on/off based on null value @done (2020/03/18, 15:20:10)
-    ☐ Date formatting
     ✔ Colour Coded Priority and Status @done (2020/03/18, 15:35:37)
+    ✔ Date formatting @done (2020/03/18, 23:26:45)
 
+    ✔ Add larger dataset for scaling tests @done (2020/03/18, 21:25:13)
 
-    ☐ Start linking Databases with $posts->user
+    ☐ Create KPI Blade
 
-    public function create(Request $request) {
+    ☐ Start linking Databases with between posts and users
+        ☐ Create $post->userid
+        ☐ Create $user->posts[postid]
 
-        $message = new Message();
-        $message->title = $request->title;
-        $message->content = $request->content;
-
-        $message->save();
-
-        return redirect('/');
-
-    }
+    ☐ Create Add post functionality
 
     Build Post View
     ☐ Create individual post ID view
-
-    Build User Profiles
-    ☐ Create profile ID view
-    ☐ Profiles should have:
+        ☐ All cols except ID and time
+    ☐ Create individual profile view
         ☐ name
         ☐ picture
         ☐ e-mail
@@ -54,5 +47,3 @@ All Ideas
     Build KPI View
     ☐ Import users=>username & display as Col
     ☐ Import posts=>kpi, month
-
-    ☐ Cell display: sum(posts.kpi) where (user=$thisrow.user) && (month=$thiscol.month)

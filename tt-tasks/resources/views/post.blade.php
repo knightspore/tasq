@@ -40,22 +40,16 @@
                     <h6 class="badge text-light badge-secondary text-secondary mb-1">Not picked up</h6> <h6 class="badge badge-info">{{ $post->site }}</h6> <h6 class="badge badge-info">{{ $post->points }} points</h6>
                     @endif
                     @isset($post->due)
-                    <h6 class="badge text-light badge-info text-secondary mb-1">Due {{ $post->due }}</h6>
+                    <h6 class="badge text-light badge-info text-secondary mb-1">Due {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </h6>
                     @endisset
                     </div>
                     @isset($post->user)
-                    <h6 class="badge text-light badge-primary text-secondary mb-1">{{ $post->user }}</h6>
+                    <h6 class="badge text-light badge-dark mb-1">{{ $post->user }}</h6>
                     @endisset
                 </div>
 
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2">{{ $post->type }}</h6>
-                    @isset($post->user)
-                    <hr>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $post->user }} is working on this post</h6>
-                    @endisset
-                    @empty($post->user)
-                    @endempty
 
                     @isset($post->comment)
                     <hr>
