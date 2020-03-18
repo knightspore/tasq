@@ -17,9 +17,9 @@ All Ideas
     ✔ Remove styling @done (2020/03/17, 20:08:53)
     
     Customize styling with conditions
-    ☐ Folder / Link on/off based on null value 
+    ✔ Folder / Link on/off based on null value @done (2020/03/18, 15:20:10)
     ☐ Date formatting
-    ☐ Colour Coded Priority and Status
+    ✔ Colour Coded Priority and Status @done (2020/03/18, 15:35:37)
 
 
     ☐ Start linking Databases with $posts->user

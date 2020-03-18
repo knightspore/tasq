@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Tasks')
+
 @section('content')
 
 <!--Main Task Table-->
@@ -32,92 +34,81 @@
 
             <!--BEGIN TABLE SCRIPT-->
 
-            @foreach($posts as $post)
+            @foreach($posts->sortByDesc('priority') as $post)
 
             <tr scope="row">
 
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
-                <td class="align-middle text-center" id="row-prio">{{ $post->priority }}</td>
+                @if (($post->priority) <= 6) <td class="align-middle text-center bg-light" id="row-prio">
+                    {{ $post->priority }}</td>
+                    @elseif (($post->priority) <= 8) <td class="align-middle text-center bg-warning" id="row-prio">
+                        {{ $post->priority }}</td>
+                        @else
+                        <td class="align-middle text-center bg-danger" id="row-prio">{{ $post->priority }}</td>
+                        @endif
 
-                <!--POST LEVEL-->
-                <td class="align-middle text-muted text-center" id="row-id">{{ $post->level }}</td>
+                        <!--POST LEVEL-->
+                        <td class="align-middle text-muted text-center" id="row-id">{{ $post->level }}</td>
 
-                <!--DUE DATE-->
-                <td class="align-middle text-center" id="row-due">{{ $post->due }}</td>
+                        <!--DUE DATE-->
+                        <td class="align-middle text-center" id="row-due">{{ $post->due }}</td>
 
-                <!--POST OWNER-->
-                <td class="align-middle " id="row-user">{{ $post->user }}</td>
+                        <!--POST OWNER-->
+                        <td class="align-middle " id="row-user">{{ $post->user }}</td>
 
-                <!--CLIENT / INTERNAL-->
-                <td class="align-middle text-muted text-center" id="row-proj"><a href="https://{{ $post->site }}"
-                        target="_blank">{{ $post->project }}</a></td>
+                        <!--CLIENT / INTERNAL-->
+                        <td class="align-middle text-muted text-center" id="row-proj"><a
+                                href="https://{{ $post->site }}" target="_blank">{{ $post->project }}</a></td>
 
 
-                <!--TASK TYPE-->
-                <td class="align-middle " id="row-type">{{ $post->type }}</td>
+                        <!--TASK TYPE-->
+                        <td class="align-middle " id="row-type">{{ $post->type }}</td>
 
-                <!--TASK NAME-->
-                <td class="align-middle " id="row-task">{{ $post->task }}</td>
+                        <!--TASK NAME-->
+                        <td class="align-middle " id="row-task">{{ $post->task }}</td>
 
-                <!--TASK POINTS-->
-                <td class="align-middle text-center" id="row-pts">{{ $post->points }}</td>
+                        <!--TASK POINTS-->
+                        <td class="align-middle text-center" id="row-pts">{{ $post->points }}</td>
 
-                <!--PROGRESS STATUS-->
-                @if (($post->progress) == "Complete")
-                <td class="align-middle text-light bg-success" id="row-stat">{{ $post->progress }}</td>
-                @elseif (($post->progress) == "WIP")
-                <td class="align-middle text-center text-warning" id="row-stat">{{ $post->progress }}</td>
-                @else (($post->progress) == null)
-                <td class="align-middle text-center text-secondary" id="row-stat">{{ $post->progress }}</td>
-                @endif
+                        <!--PROGRESS STATUS-->
+                        @if (($post->progress) == "Complete")
+                        <td class="align-middle text-light bg-success" id="row-stat">{{ $post->progress }}</td>
+                        @elseif (($post->progress) == "WIP")
+                        <td class="align-middle text-center bg-warning text-white" id="row-stat">{{ $post->progress }}
+                        </td>
+                        @else (($post->progress) == null)
+                        <td class="align-middle text-center text-secondary" id="row-stat">{{ $post->progress }}</td>
+                        @endif
 
-                <!--FOLDER LINK-->
-                @isset($post->folder)
-                <td class="align-middle text-center" id="row-src"><a href="{{ $post->folder }}" target="_blank">📁</a>
-                </td>
-                @endisset
+                        <!--FOLDER LINK-->
+                        @isset($post->folder)
+                        <td class="align-middle text-center" id="row-src"><a href="{{ $post->folder }}"
+                                target="_blank">📁</a>
+                        </td>
+                        @endisset
 
-                @empty($post->folder)
-                <td></td>
-                @endempty
+                        @empty($post->folder)
+                        <td></td>
+                        @endempty
 
-                <!--COMMENTS-->
-                <td class="align-middle" id="row-cmt">{{ $post->comment }}</td>
+                        <!--COMMENTS-->
+                        <td class="align-middle" id="row-cmt">{{ $post->comment }}</td>
 
-                <!--EDITOR NAME-->
-                <td class="align-middle" id="row-edtr">{{ $post->editor }}</td>
+                        <!--EDITOR NAME-->
+                        <td class="align-middle" id="row-edtr">{{ $post->editor }}</td>
 
-                <!--LIVE LINK-->
-                @isset($post->live)
-                <td class="align-middletext-center" id="row-live"><a href="{{ $post->live }}" target="_blank">🌐</a>
-                </td>
-                @endisset
+                        <!--LIVE LINK-->
+                        @isset($post->live)
+                        <td class="align-middletext-center" id="row-live"><a href="{{ $post->live }}"
+                                target="_blank">🌐</a>
+                        </td>
+                        @endisset
 
-                @empty($post->live)
-                <td></td>
-                @endempty
-
+                        @empty($post->live)
+                        <td></td>
+                        @endempty
             </tr>
             @endforeach
-
-            <tr scope="row">
-                <td class="text-center">0<br></td>
-                <td class="text-muted text-center">4</td>
-                <td>03 May 2020<br></td>
-                <td>Katja S<br></td>
-                <td><a href="https://travelvivi.com">Client</a></td>
-                <td>Audit</td>
-                <td class="text-left">Medium Audit</td>
-                <td class="text-center">15000</td>
-                <td class="text-light bg-success">Complete </td>
-                <td class="text-center"><a href="#">📁</a></td>
-                <td class="text-left">Client Sheet<br></td>
-                <td>Tyla O</td>
-                <td class="text-center" id="row-live"><a href="#" target="_blank">🌐</a></td>
-
-            </tr>
-            </tr>
-
             </tbody>
     </table>
 
