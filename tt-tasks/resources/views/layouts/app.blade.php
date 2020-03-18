@@ -20,8 +20,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm">
+            <div class="container text-center">
                 <a class="navbar-brand text-light d-grid" href="{{ url('/home') }}">
                     <img src="img/web-icon.png" style="width: 2rem;" class="mr-2" alt="Travel Tractions Logo">
                     TT Task Manager
@@ -61,15 +61,22 @@
                         @else
 
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary btn-sm nav-link text-light" href="/submit" role="button">+
+                            <a class="btn btn-outline-primary btn nav-link text-light" href="/submit" role="button">+
                                 Add Task</a>
                         </li>
+
+                        <form class="form-inline mx-auto">
+                                    <input class="form-control mx-4" type="search" placeholder="🔍 Search"
+                                        aria-label="Search">
+                        </form>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link text-light dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 ⚙ <span class="caret"></span>
                             </a>
+
+                            
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/user/{{ Auth::user()->id }}"
