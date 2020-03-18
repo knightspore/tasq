@@ -22,7 +22,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-light d-grid" href="{{ url('/') }}">
+                <a class="navbar-brand text-light d-grid" href="{{ url('/home') }}">
                     <img src="img/web-icon.png" style="width: 2rem;" class="mr-2" alt="Travel Tractions Logo">
                     TT Task Manager
                 </a>

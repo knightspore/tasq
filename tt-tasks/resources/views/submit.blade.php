@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Add new Task')
+
 @section('content')
 
 <div class="upload container p-3">
