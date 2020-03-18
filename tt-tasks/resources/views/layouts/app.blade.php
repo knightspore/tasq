@@ -13,17 +13,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-sm navbar-light bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-light d-grid" href="{{ url('/') }}">
                     <img src="img/web-icon.png" style="width: 2rem;" class="mr-2" alt="Travel Tractions Logo">
@@ -65,9 +62,10 @@
                         </li>
                         @endif
                         @else
-                        
+
                         <li class="nav-item">
-                                <a class="btn btn-outline-primary btn-sm nav-link text-light" href="/submit" role="button">+ Add Task</a>
+                            <a class="btn btn-outline-primary btn-sm nav-link text-light" href="/submit" role="button">+
+                                Add Task</a>
                         </li>
 
                         <li class="nav-item dropdown">

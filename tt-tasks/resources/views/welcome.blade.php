@@ -4,10 +4,9 @@
 
     <!--Welcome Text-->
 
-	<div class="flex-center position-ref">
-            
-                  	<h1 class="text-center mt-5">Travel Tractions Task Manager</h1>
-
+	<div class="flex-center position-ref text-center">            
+            <div><h1 class=" mt-5">Welcome to Travel Tractions Task Manager</h1></div>
+            <button class="btn btn-secondary text-light"><a href="/login">Sign in</a></button>
     </div>
 
 @endsection
