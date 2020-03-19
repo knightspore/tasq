@@ -18,10 +18,9 @@
         <h1><badge class="badge badge-danger">{{ $task->priority}}</badge> {{ $task->task }}</h1>
         @endif
 
-        <h2 class="text-secondary">{{ $task->progress }}</h2>
         <h3>Due {{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</h3>
         <h3 class="text-primary"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></h3> 
-        <div class="row ml-sm-2">
+        <div class="row ml-2">
             @isset ($task->folder)
             <h6><a href="{{ $task->folder }} "target="_blank">📁 View Folder</a></h6>
             @endisset

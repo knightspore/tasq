@@ -23,7 +23,7 @@ All Ideas
 
     ✔ Add larger dataset for scaling tests @done (2020/03/18, 21:25:13)
 
-    ☐ Create KPI Blade
+    ✔ Create KPI Blade @done (2020/03/19, 00:04:54)
 
     ☐ Start linking Databases with between posts and users
         ☐ Create $post->userid
