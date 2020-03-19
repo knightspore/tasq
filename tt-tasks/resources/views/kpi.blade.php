@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row pt-5 pt-5">
-<div class="card mx-auto">
+<div class="card mx-auto mb-5">
   <h5 class="card-header">Coming Soon!</h5>
   <div class="card-body">
     <h5 class="card-title">Like what you see?</h5>
@@ -14,5 +14,9 @@
   </div>
 </div>
 </div>
+<div class="row">
+<button class="btn btn-outline-secondary mx-auto"><a href="{{ URL::previous() }}" class="text-secondary">Back</a></button>
+</div>
+
 
 @endsection

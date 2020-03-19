@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm">
             <div class="container text-center">
                 <a class="navbar-brand text-light d-grid" href="{{ url('/home') }}">
-                    <img src="img/web-icon.png" style="width: 2rem;" class="mr-2" alt="Travel Tractions Logo">
+                    <img src="/img/web-icon.png" style="width: 2rem;" class="mr-2" alt="Travel Tractions Logo">
                     TT Task Manager
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"

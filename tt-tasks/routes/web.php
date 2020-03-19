@@ -26,3 +26,5 @@ Route::get('/submit', 'SubmitController@index')->name('submit');
 Route::get('/post', 'PostController@index')->name('post');
 
 Route::get('/kpi', 'KpiController@index')->name('kpi');
+
+Route::get('/post/{id}', 'PostController@view')->name('kpi');

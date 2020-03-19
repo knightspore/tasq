@@ -33,4 +33,26 @@ class PostController extends Controller
 
         return view('post');
     }
+    /*
+    public function create(Request $request)
+    {
+        $newPost = new Posts();
+        $newPost->taskname = $request->task;
+        
+        //{Posts the Databse}
+        $newPost->save();
+
+        return redirect('/');
+
+
+    }
+    */
+
+    public function view($id) {
+        $postId = Posts::findOrFail($id);
+
+        return view('task', [
+            'task'=>$postId
+        ]);
+    }
 }

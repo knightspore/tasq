@@ -9,13 +9,13 @@
     <p class="pl-1 mb-4">Logged in as <a href="mailto:{{ Auth::user()->email }}"
             class="text-info">{{ Auth::user()->email }}</a></p>
 
-            <button class="btn btn-primary d-block mx-auto mb-4"><a href="/home" class="text-light p1">🔃 Refresh</a></button>
+            <button class="btn btn-primary d-block mx-auto mb-4"><a href="/post" class="text-light p1">🔃 Refresh</a></button>
 
     <div class="row masonry-grid">
 
         <!--Generate Post Cards from Database-->
         @foreach ($posts->sortByDesc('priority') as $post)
-        <div class="col-lg-3 col-sm-4 masonry-column">
+        <div class="col-lg-3 col-sm-6 masonry-column">
 
             <div class="card card-outline-primary mb-2 shadow">
                 <div class="card-header">
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="#" class="card-link">View Task</a>
+                    <a href="/post/{{ $post->id }}" class="card-link">View Task</a>
                 </div>
 
             </div>

@@ -8,13 +8,13 @@
 
     <h1>Add new task as {{ Auth::user()->name}}</h1>
 
-    <form action="">
+    <form action="/create">
 
         <div class="row">
             <!--Task Name-->
             <div class="form-group col-sm">
                 <label for="postTask">Task Name</label>
-                <input type="text" id="postTask" class="form-control" placeholder="Enter task name">
+                <input name="taskname"type="text" id="postTask" class="form-control" placeholder="Enter task name">
             </div>
 
             <!--Task Website-->
@@ -110,7 +110,7 @@
         <!--Submit Single Task (post)-->
 
         <div class="mt-3">
-            <button class="btn btn-info" id="btnSubmit">Submit</button>
+            <button class="btn btn-info" type="submit" id="btnSubmit">Submit</button>
         </div>
 
     </form>
@@ -124,6 +124,8 @@
             <input type="file" class="form-control-file" id="uploadPostsCsv">
             
         </div>
+
+        {{ csrf_field() }}
 
         <button class="btn btn-info" id="btnUpload">Upload</button>
 
