@@ -5,11 +5,12 @@
 @section('content')
 <div class="container">
 
-<h1 class="pl-1">Today's Tasks</h1>
+<h1 class="pl-1">Task Cards</h1>
     <p class="pl-1 mb-4">Logged in as <a href="mailto:{{ Auth::user()->email }}"
             class="text-info">{{ Auth::user()->email }}</a></p>
 
-            <button class="btn btn-primary d-block mx-auto mb-4"><a href="/post" class="text-light p1">🔃 Refresh</a></button>
+            <div class="row mb-4"><button class="btn btn-primary mx-auto"><a href="/post" class="text-light">🔃 Refresh</a></button><button class="btn btn-outline-secondary mx-auto"><a href="{{ URL::previous() }}" class="text-secondary">Back</a></button></div>
+
 
     <div class="row masonry-grid">
 
@@ -20,15 +21,19 @@
             <div class="card card-outline-primary mb-2 shadow">
                 <div class="card-header">
                     <div>
-                    @if (($post->priority) < 3)
+                    @if (($post->priority) == 0)
+                    <h5 class="card-title"><span class="badge badge-dark">{{ $post->priority }}</span> {{ $post->task }}</h5>
+                    @elseif (($post->priority) <= 3)
                     <h5 class="card-title"><span class="badge badge-info">{{ $post->priority }}</span> {{ $post->task }}</h5>
-                    @elseif (($post->priority) < 6)
+                    @elseif (($post->priority) <= 5)
                     <h5 class="card-title"><span class="badge badge-primary">{{ $post->priority }}</span> {{ $post->task }}</h5>
-                    @elseif (($post->priority) < 9)
+                    @elseif (($post->priority) <= 8)
                     <h5 class="card-title"><span class="badge badge-warning">{{ $post->priority }}</span> {{ $post->task }}</h5>
                     @else
                     <h5 class="card-title"><span class="badge badge-danger">{{ $post->priority }}</span> {{ $post->task }}</h5>
                     @endif
+
+                        <hr>
 
                     </div>
                     <div> 
@@ -53,7 +58,7 @@
 
                     @isset($post->comment)
                     <hr>
-                    <h6 class="card-subtitle text-muted">{{ $post->comment }}</h6>
+                    <h6 class="card-subtitle text-muted">{{ Str::limit($post->comment, 140) }}</h6>
                     @endisset
                     @empty($post->comment)
                     @endempty

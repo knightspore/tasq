@@ -45,9 +45,9 @@
                 @if (($post->priority) == 0)
                 <td class=" bg-dark" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 3)                         
-                <td class=" bg-primary" id="row-prio">{{ $post->priority }}</td>
-                @elseif (($post->priority) <= 6) 
                 <td class=" bg-info" id="row-prio">{{ $post->priority }}</td>
+                @elseif (($post->priority) <= 6) 
+                <td class=" bg-primary" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 8) 
                 <td class=" bg-warning" id="row-prio">{{ $post->priority }}</td>
                 @else
@@ -100,7 +100,7 @@
                 @endempty
 
                 <!--COMMENTS-->
-                <td class="" id="row-cmt">{{ Str::limit($post->comment, 50) }}</td>
+                <td class="" id="row-cmt">{{ Str::limit($post->comment, 35) }}</td>
 
                 <!--EDITOR NAME-->
                 @if (($post->progress) == 'WIP')

@@ -4,8 +4,8 @@
 
 @section('content')
 
-<div class="row pt-5 pt-5">
-<div class="card mx-auto mb-5">
+<div class="row pt-5 pt-5  m-5">
+<div class="card mx-auto">
   <h5 class="card-header">Coming Soon!</h5>
   <div class="card-body">
     <h5 class="card-title">Like what you see?</h5>
