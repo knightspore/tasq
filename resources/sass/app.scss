@@ -1,5 +1,9 @@
 // Variables
 @import 'variables';
 
+$font-family-sans-serif: 'Sen', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

@@ -37119,8 +37119,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\cslem\Desktop\Dev Projects\tt-taskmgmt-app\tt-tasks\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\cslem\Desktop\Dev Projects\tt-taskmgmt-app\tt-tasks\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\cslem\Desktop\Dev Projects\tt-taskmgmt-app\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\cslem\Desktop\Dev Projects\tt-taskmgmt-app\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -15,7 +15,7 @@
     <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}"
             class="text-info">{{ Auth::user()->email }}</a></p>
 
-    <table class="table table-bordered table-sm table-hover table-responsive-lg shadow">
+    <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
         <thead class="thead-sm thead-dark text-center">
             <tr scope="row">
                 <th scope="col" id="col-priority">📣</th>
@@ -43,80 +43,79 @@
 
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
                 @if (($post->priority) == 0)
-                <td class=" bg-dark" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-dark" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 3)                         
-                <td class=" bg-info" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-info" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 6) 
-                <td class=" bg-primary" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-primary" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 8) 
-                <td class=" bg-warning" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-warning" id="row-prio">{{ $post->priority }}</td>
                 @else
-                <td class=" bg-danger text-light" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-danger text-light" id="row-prio">{{ $post->priority }}</td>
                 @endif
 
                 <!--POST LEVEL-->
-                <td class=" text-muted" id="row-id">{{ $post->level }}</td>
+                <td class="align-middle text-muted" id="row-id">{{ $post->level }}</td>
 
                 <!--DUE DATE-->
                 @if (Str::contains(\Carbon\Carbon::parse($post->due)->diffForHumans(), 'from'))
-                <td class="" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
+                <td class="align-middle" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
                 @else
-                <td class="text-muted" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
+                <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
                 @endif
 
                 <!--POST OWNER-->
-                <td class=" " id="row-user">{{ $post->user }}</td>
+                <td class="align-middle" id="row-user">{{ $post->user }}</td>
 
                 <!--CLIENT / INTERNAL-->
-                <td class=" text-muted " id="row-proj"><a href="https://{{ $post->site }}" target="_blank">{{ $post->project }}</a></td>
+                <td class="align-middle text-muted " id="row-proj"><a href="https://{{ $post->site }}" target="_blank">{{ $post->project }}</a></td>
 
 
                 <!--TASK TYPE-->
-                <td class=" " id="row-type">{{ $post->type }}</td>
+                <td class="align-middle" id="row-type">{{ $post->type }}</td>
 
                 <!--TASK NAME-->
-                <td class=" font-weight-bold" id="row-task"><a href="/post/{{ $post->id }}" class="text-dark">{{ $post->task }}</a></td>
+                <td class="align-middle font-weight-bold" id="row-task"><a href="/post/{{ $post->id }}" class="text-dark">{{ $post->task }}</a></td>
 
                 <!--TASK POINTS-->
-                <td class=" bg-dark text-light" id="row-pts">{{ $post->points }}</td>
+                <td class="align-middle bg-dark text-light" id="row-pts">{{ $post->points }}</td>
 
                 <!--PROGRESS STATUS-->
                 @if (($post->progress) == "Complete")
-                <td class=" text-light bg-success" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle text-light bg-success" id="row-stat">{{ $post->progress }}</td>
                 @elseif (($post->progress) == "WIP")
-                <td class="  bg-warning text-white" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle bg-warning text-white" id="row-stat">{{ $post->progress }}</td>
                 @else (($post->progress) == null)
-                <td class="  text-secondary" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle text-secondary" id="row-stat">{{ $post->progress }}</td>
                 @endif
 
                 <!--FOLDER LINK-->
                 @isset($post->folder)
-                <td class=" " id="row-src"><a href="{{ $post->folder }} "target="_blank">📁</a>
-                </td>
+                <td class="align-middle" id="row-src"><a href="{{ $post->folder }} "target="_blank">📁</a></td>
                 @endisset
 
                 @empty($post->folder)
-                <td></td>
+                <td class="align-middle"></td>
                 @endempty
 
                 <!--COMMENTS-->
-                <td class="" id="row-cmt">{{ Str::limit($post->comment, 35) }}</td>
+                <td class="align-middle" id="row-cmt">{{ Str::limit($post->comment, 35) }}</td>
 
                 <!--EDITOR NAME-->
                 @if (($post->progress) == 'WIP')
-                <td class="" id="row-edtr"><a href="#">✖</a></td>
+                <td class="align-middle" id="row-edtr"><a href="#">✖</a></td>
                 @else
-                <td class="" id="row-edtr">{{ $post->editor }}</td>
+                <td class="align-middle" id="row-edtr">{{ $post->editor }}</td>
                 @endif
 
                 <!--LIVE LINK-->
                 @isset($post->live)
-                <td class="bg-dark" id="row-live"><a href="{{ $post->live }}" target="_blank">🌐</a>
+                <td class="align-middle bg-dark" id="row-live"><a href="{{ $post->live }}" target="_blank">🌐</a>
                 </td>
                 @endisset
 
                 @empty($post->live)
-                <td class="bg-dark"></td>
+                <td class="align-middle bg-dark"></td>
                 @endempty
             </tr>
             @endforeach
