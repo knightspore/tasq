@@ -31,7 +31,7 @@
       <tbody>
       @foreach( $people as $person)
         <tr>
-          <th scope="row">{{ $person->name }}</th>
+          <th scope="row">{{ $person->email }}</th>
           <td>0</td>
           <td>0</td>
           <td>0</td>

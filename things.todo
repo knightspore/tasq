@@ -26,8 +26,22 @@ All Ideas
     ✔ Create KPI Blade @done (2020/03/19, 00:04:54)
 
     ☐ Start linking Databases with between posts and users
-        ☐ Create $post->userid
-        ☐ Create $user->posts[postid]
+        
+        ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
+
+            Sum of the total KPI points from posts where the user is 
+
+            Find the user                < that user and the month is 
+                            
+            Find the month                < that month
+
+            if ($users->user == this.user && )
+
+            @foreach ($posts->sort as $post)
+            sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
+            @endforeach
+
+    
 
     ☐ Create Add post functionality
 
