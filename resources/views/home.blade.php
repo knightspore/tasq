@@ -13,7 +13,7 @@
 
     <h1 class="pl-1">Today's Tasks</h1>
     <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}"
-            class="text-info">{{ Auth::user()->email }}</a></p>
+            class="text-info">{{ Auth::user()->name }}</a></p>
 
     <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
         <thead class="thead-sm thead-dark text-center">

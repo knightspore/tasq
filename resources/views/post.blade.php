@@ -7,7 +7,7 @@
 
 <h1 class="pl-1">Task Cards</h1>
     <p class="pl-1 mb-4">Logged in as <a href="mailto:{{ Auth::user()->email }}"
-            class="text-info">{{ Auth::user()->email }}</a></p>
+            class="text-info">{{ Auth::user()->name }}</a></p>
 
             <div class="row mb-4"><button class="btn btn-primary mx-auto"><a href="/post" class="text-light">🔃 Refresh</a></button><button class="btn btn-outline-secondary mx-auto"><a href="{{ URL::previous() }}" class="text-secondary">Back</a></button></div>
 

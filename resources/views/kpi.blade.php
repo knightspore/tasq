@@ -4,18 +4,51 @@
 
 @section('content')
 
-<div class="row pt-5 pt-5  m-5">
-<div class="card mx-auto">
-  <h5 class="card-header">Coming Soon!</h5>
-  <div class="card-body">
-    <h5 class="card-title">Like what you see?</h5>
-    <p class="card-text">Consider a giving it star on GitHub! Thanks to <a href="https://traveltractions.com/" target="_blank">Travel Tractions</a> team for their data in the examples.</p>
-    <a href="https://github.com/knightspore/travel-tractions-task-manager/" class="btn btn-primary" target="_blank">Visit Repo</a>
-  </div>
-</div>
-</div>
-<div class="row">
-<button class="btn btn-outline-secondary mx-auto"><a href="{{ URL::previous() }}" class="text-secondary">Back</a></button>
+<div class="table-container mt-4 px-lg-5">
+
+  <h1 class="pl-1">This Month's KPI 🔥</h1>
+  <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}"
+          class="text-info">{{ Auth::user()->name }}</a></p>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Jan</th>
+          <th scope="col">Feb</th>
+          <th scope="col">March</th>
+          <th scope="col">April</th>
+          <th scope="col">May</th>
+          <th scope="col">Jun</th>
+          <th scope="col">Jul</th>
+          <th scope="col">Aug</th>
+          <th scope="col">Sep</th>
+          <th scope="col">Oct</th>
+          <th scope="col">Nov</th>
+          <th scope="col">Dec</th>
+        </tr>
+      </thead>
+      <tbody>
+      @foreach( $people as $person)
+        <tr>
+          <th scope="row">{{ $person->name }}</th>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      @endforeach
+      </tbody>
+    </table>
+
 </div>
 
 

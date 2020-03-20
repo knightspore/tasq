@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Users;
-use App\Posts;
+use App\User;
 use Illuminate\Http\Request;
 
 class KpiController extends Controller
@@ -13,10 +12,10 @@ class KpiController extends Controller
     public function index()
     {
 
-        $posts = Posts::all();
+        $people = User::all();
 
         return view('kpi', [
-            'posts' => $posts
+            'people' => $people
         ]);
 
         return view('kpi');
