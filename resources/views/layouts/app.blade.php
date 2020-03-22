@@ -17,14 +17,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!--Font Imports-->
-    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
 
 
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg shadow-sm">
+        <nav class="navbar navbar-expand-lg shadow-sm mb-3">
             <div class="container text-center">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     <img src="/img/web-icon.png" style="width: 2rem;" alt="Travel Tractions Logo">
@@ -32,7 +33,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-dark navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -73,7 +74,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link text-dark dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Menu<span class="caret"></span>
+                                Menu<span class="caret text-dark"></span>
                             </a>
 
                             

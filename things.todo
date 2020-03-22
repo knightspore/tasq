@@ -30,24 +30,19 @@ All Ideas
         ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
 
             Sum of the total KPI points from posts where the user is 
+                Find the user                < that user and the month is               
+                Find the month                < that month
+                if ($users->user == this.user && )
 
-            Find the user                < that user and the month is 
-                            
-            Find the month                < that month
+                @foreach ($posts->sort as $post)
+                    sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
+                @endforeach
 
-            if ($users->user == this.user && )
-
-            @foreach ($posts->sort as $post)
-            sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
-            @endforeach
-
-    
-
-    ☐ Create Add post functionality
+    ✔ Create Add post functionality
 
     Build Post View
-    ☐ Create individual post ID view
-        ☐ All cols except ID and time
+    ✔ Create individual post ID view
+        ✔ All cols except ID and time
     ☐ Create individual profile view
         ☐ name
         ☐ picture
@@ -59,5 +54,5 @@ All Ideas
 
 
     Build KPI View
-    ☐ Import users=>username & display as Col
+    ✔ Import users=>username & display as Col
     ☐ Import posts=>kpi, month

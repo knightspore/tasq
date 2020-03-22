@@ -6,27 +6,43 @@
 
 <div class="upload container p-3">
 
-    <h1>Add new task as {{ Auth::user()->name}}</h1>
+    <h1>Add a new task</h1>
+    <hr>
+        @if (Session::has('success'))
+        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading">🎉 Added!</h4>
+        <p>{{ Session::get('success') }}</p>
+        </div>
+        @endif
 
-    <form action="/create">
+        @if (Session::has('danger'))
+        <div class="alert alert-danger" role="alert" style="bottom:10px; position: fixed; left:2%; z-index:100">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading">That didn't work... 🤔 Message support if this keeps happening.</h4>
+        <p>{{ Session::get('danger') }}</p>
+        </div>
+        @endif
 
-        <div class="row">
+    <form action="submit" method="POST">
+    {{ csrf_field() }}
+        <div class="row input-group">
             <!--Task Name-->
             <div class="form-group col-sm">
                 <label for="postTask">Task Name</label>
-                <input name="taskname"type="text" id="postTask" class="form-control" placeholder="Enter task name">
+                <input name="taskname"type="text" id="postTask" class="form-control" placeholder="Enter task name" required>
             </div>
 
             <!--Task Website-->
             <div class="form-group col-sm">
                 <label for="postSite">Site</label>
-                <input type="text" id="postSite" class="form-control" placeholder="example.com">
+                <input name="site" type="text" id="postSite" class="form-control" placeholder="example.com" required>
             </div>
 
             <!--Due-date-->
             <div class="form-group col-sm">
                 <label for="postDuedate">Due Date</label>
-                <input type="date" id="postDuedate" class="form-control">
+                <input name="due" type="date" id="postDuedate" class="form-control" required>
             </div>
         </div>
 
@@ -34,7 +50,7 @@
             <!--Priority-->
             <div class="form-group col-sm">
                 <label for="postPriority">Priority</label>
-                <select class="form-control" id="postPriority">
+                <select name="priority" class="form-control" id="postPriority" required>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -51,7 +67,7 @@
             <!--level-->
             <div class="form-group col-sm">
                 <label for="postLevel">Level</label>
-                <select id="postLevel" class="form-control">
+                <select name="level" id="postLevel" class="form-control" required>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -63,7 +79,7 @@
             <!--Type-->
             <div class="form-group col-sm">
                 <label for="postType">Task Type</label>
-                <select id="postType" class="form-control">
+                <select name="type" id="postType" class="form-control" required>
                     <option>Info Post</option>
                     <option>List Post</option>
                     <option>Content Mine</option>
@@ -79,23 +95,23 @@
             <!--Points-->
             <div class="form-group col-sm">
                 <label for="postPoints">Points</label>
-                <input type="number" id="postPoints" class="form-control" placeholder="1000">
+                <input name="points" type="number" id="postPoints" class="form-control" placeholder="1000" required>
             </div>
 
         </div>
 
         <!--Project-->
-        <div class="form-group">
+        <div class="form-group" required>
             <div class="">
                 <label>Client or Internal Project?</label></div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="postProjectClient"
-                    value="option1">
+                    value="Client">
                 <label class="form-check-label" for="postProject">Client</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="postProjectInternal"
-                    value="option2">
+                    value="Internal">
                 <label class="form-check-label" for="postProjectInternal">Internal</label>
             </div>
         </div>
@@ -104,7 +120,7 @@
 
         <div class="form-group">
             <label for="postComment">Comments</label>
-            <textarea class="form-control" id="postComment" cols="10" rows="3"></textarea>
+            <textarea name="comments" class="form-control" id="postComment" cols="10" rows="3"></textarea>
         </div>
 
         <!--Submit Single Task (post)-->
@@ -125,9 +141,7 @@
             
         </div>
 
-        {{ csrf_field() }}
-
-        <button class="btn btn-info" id="btnUpload">Upload</button>
+        <button type="submit" class="btn btn-info" id="btnUpload" href="#">Upload</button>
 
     </form>
 

@@ -43,11 +43,11 @@
 
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
                 @if (($post->priority) == 0)
-                <td class="align-middle bg-dark" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-dark text-light" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 3)                         
-                <td class="align-middle bg-info" id="row-prio">{{ $post->priority }}</td>
-                @elseif (($post->priority) <= 6) 
                 <td class="align-middle bg-primary" id="row-prio">{{ $post->priority }}</td>
+                @elseif (($post->priority) <= 6) 
+                <td class="align-middle bg-info" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 8) 
                 <td class="align-middle bg-warning" id="row-prio">{{ $post->priority }}</td>
                 @else
@@ -64,7 +64,7 @@
                 <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
                 @endif
 
-                <!--POST OWNER-->
+                <!--ASSIGNEE-->
                 <td class="align-middle" id="row-user">{{ $post->user }}</td>
 
                 <!--CLIENT / INTERNAL-->
@@ -122,7 +122,7 @@
             </tbody>
     </table>
 
-    <button class="btn btn-info d-block"><a href="/home" class="text-light p1">🔃 Refresh</a></button>
+    <button class="btn btn-info d-block mb-5"><a href="/home" class="text-light p1">🔃 Refresh</a></button>
 
 </div>
 
