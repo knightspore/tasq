@@ -136,7 +136,7 @@
     <h2 class="mt-3">Add Multiple Tasks as CSV</h2>
     <form>
         <div class="form-group">
-            <label for="uploadPostsCsv"><a href="#">Click here</a> for an example .csv file.</label>
+            <label for="uploadPostsCsv"><a href="/task-template.csv">Click here</a> for an example .csv file.</label>
             <input type="file" class="form-control-file" id="uploadPostsCsv">
             
         </div>
