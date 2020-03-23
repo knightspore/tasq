@@ -73,7 +73,6 @@
                 <td class="align-middle" id="row-type">{{ $post->type }}</td>
 
                 <!--TASK NAME-->
-                @if (($post->task == 'Not Picked Up'))
                 <td class="align-middle font-weight-bold" id="row-task"><a href="/post/{{ $post->id }}" class="text-dark">{{ $post->task }}</a></td>
 
                 <!--TASK POINTS-->
