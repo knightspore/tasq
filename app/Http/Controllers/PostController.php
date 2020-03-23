@@ -35,6 +35,8 @@ class PostController extends Controller
         return view('post');
     }
 
+    
+
     /*
     public function create(Request $request)
     {
