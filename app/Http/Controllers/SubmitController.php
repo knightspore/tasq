@@ -55,7 +55,6 @@ class SubmitController extends Controller
         $post->save();
         
         //Complete
-        
         Session::flash('success', 'Let the team know!');
         return view('submit');
 

@@ -27,7 +27,9 @@ Route::get('/kpi', 'KpiController@index')->name('kpi');
 //Add Posts to Database
 Route::post('submit', 'SubmitController@store');
 
-//View Indovidual Posts
+//Add live link to Article
+
+//View Individual Posts
 Route::get('/post/{id}', 'PostController@view')->name('kpi');
 
 Route::redirect('/cannabis-oil.co.za', 'https://docs.google.com/spreadsheets/d/1trD-4E03KMg_MFCF6J33JrepcT2VuuXjXQJnsAKUw4U/edit#gid=358460968', 301);

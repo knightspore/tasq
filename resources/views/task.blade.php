@@ -57,7 +57,7 @@
 
                 
             </div>
-
+            
             <div class="card bg-info text-white m-2">
             <div class="card-body">
                 <h2 class="card-title"><strong>{{ $task->type }}</strong> 🎯 {{ $task->points }} Points</h2>
@@ -70,13 +70,73 @@
             </div>
         <hr class="mb-3">
        
+        
         <div class="d-grid m-2">
         @empty ($task->folder)
-        <a href="#" class="text-muted"><p>📁 Add Post Folder</p></a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#postfolder">
+        📁 Add Task Folder
+        </button>
+        <!--Modal Popup-->
+        <div class="modal fade" id="postfolder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a Google Drive link</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <label for="postfolder">Double check your sharing settings</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">https://drive.google.com/</span>
+                    </div>
+                    <input type="text" class="form-control" id="postfolder" aria-describedby="basic-addon3">
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
         @endempty
 
         @empty ($task->live)
-        <a href="#" class="text-muted"><p>🔗 Add Live Link</p></a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#livelink">
+        🔗 Add Live Link
+        </button>
+        <!--Modal Popup-->
+        <div class="modal fade" id="livelink" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a live link</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="live-link">Use a clean url</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">https://example.com/post-name/</span>
+                        </div>
+                        <input type="text" class="form-control" id="live-link" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
         @endempty
 
 
@@ -84,6 +144,7 @@
        <a href="#" class="text-muted"><p>😴 Archive Task</p></a>
         @endif
         </div>
+
 
         
         <hr class="mb-3">

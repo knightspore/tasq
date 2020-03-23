@@ -44,14 +44,12 @@
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
                 @if (($post->priority) == 0)
                 <td class="align-middle bg-dark text-light" id="row-prio">{{ $post->priority }}</td>
-                @elseif (($post->priority) <= 3)                         
-                <td class="align-middle bg-primary" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 6) 
-                <td class="align-middle bg-info" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-light" id="row-prio">{{ $post->priority }}</td>
                 @elseif (($post->priority) <= 8) 
                 <td class="align-middle bg-warning" id="row-prio">{{ $post->priority }}</td>
                 @else
-                <td class="align-middle bg-danger text-light" id="row-prio">{{ $post->priority }}</td>
+                <td class="align-middle bg-success text-light" id="row-prio">{{ $post->priority }}</td>
                 @endif
 
                 <!--POST LEVEL-->
@@ -75,16 +73,23 @@
                 <td class="align-middle" id="row-type">{{ $post->type }}</td>
 
                 <!--TASK NAME-->
+                @if (($post->task == 'Not Picked Up'))
                 <td class="align-middle font-weight-bold" id="row-task"><a href="/post/{{ $post->id }}" class="text-dark">{{ $post->task }}</a></td>
 
                 <!--TASK POINTS-->
-                <td class="align-middle bg-dark text-light" id="row-pts">{{ $post->points }}</td>
+                @if (($post->progress) == "Complete")
+                <td class="align-middle" id="row-pts">✔</td>
+                @else
+                <td class="align-middle text-dark" id="row-pts">{{ $post->points }}</td>
+                @endif
 
                 <!--PROGRESS STATUS-->
                 @if (($post->progress) == "Complete")
-                <td class="align-middle text-light bg-success" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle" id="row-stat">{{ $post->progress }}</td>
                 @elseif (($post->progress) == "WIP")
-                <td class="align-middle bg-warning text-white" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle text-warning" id="row-stat">{{ $post->progress }}</td>
+                @elseif (($post->progress) == "Not Picked Up")
+                <td class="align-middle text-success" id="row-stat">{{ $post->progress }}</td>
                 @else (($post->progress) == null)
                 <td class="align-middle text-secondary" id="row-stat">{{ $post->progress }}</td>
                 @endif

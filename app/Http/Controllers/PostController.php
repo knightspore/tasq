@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Posts;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -33,6 +34,7 @@ class PostController extends Controller
 
         return view('post');
     }
+
     /*
     public function create(Request $request)
     {
