@@ -43,6 +43,14 @@ All Ideas
     Build Post View
     ✔ Create individual post ID view
         ✔ All cols except ID and time
+    
+    Create Functions
+        ☐ Archive Post (Se priority to 0)
+        ☐ Add Folder Link to Post
+        ☐ Add live link to Post
+        ☐ Edit Post Form
+    
+
     ☐ Create individual profile view
         ☐ name
         ☐ picture
@@ -51,8 +59,3 @@ All Ideas
         ☐ KPI this month
         ☐ Current Posts
         ☐ Completed Posts
-
-
-    Build KPI View
-    ✔ Import users=>username & display as Col
-    ☐ Import posts=>kpi, month

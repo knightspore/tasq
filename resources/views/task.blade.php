@@ -20,12 +20,12 @@
 
         <h3>Due {{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</h3>
         <h3 class="text-primary"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></h3> 
-        <div class="row ml-2">
+        <div class="">
             @isset ($task->folder)
-            <h6><a href="{{ $task->folder }} "target="_blank">📁 View Folder</a></h6>
+            <h6><a class="mr-sm-2" href="{{ $task->folder }} "target="_blank">📁 View Folder</a></h6>
             @endisset
             @isset ($task->live)
-            <h6><a class="ml-sm-2" href="{{ $task->live }} "target="_blank">🌐 View Live Link</a></h6>
+            <h6><a class="" href="{{ $task->live }} "target="_blank">🌐 View Live Link</a></h6>
             @endisset
             </div>
 
@@ -57,14 +57,20 @@
 
                 
             </div>
-            
+
+            @if (($task->progress) == "Complete")
+            <div class="card m-2">
+            @else
             <div class="card bg-info text-white m-2">
+            @endif
+
             <div class="card-body">
                 <h2 class="card-title"><strong>{{ $task->type }}</strong> 🎯 {{ $task->points }} Points</h2>
                 <h4></h4>
                 <p>{{ $task->comment }}</p>
                 <hr>
-                <p><a href="/{{ $task->site }}" class="text-light" target="_blank">View Site SOP</a></p>
+                <p><a href="/{{ $task->site }}" class="text-dark" target="_blank">View Site SOP</a></p>
+                
             </div>
                 
             </div>
@@ -141,7 +147,8 @@
 
 
        @if ($task->progress == 'Complete')
-       <a href="#" class="text-muted"><p>😴 Archive Task</p></a>
+       <button class="btn btn-sm btn-outline-secondary">
+       <a href="#" class="text-muted">😴 Archive Task</a></button>
         @endif
         </div>
 
@@ -155,5 +162,6 @@
        
 
     </div>
+
 
 @endsection

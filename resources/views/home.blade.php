@@ -23,7 +23,7 @@
                 <th scope="col" id="col-due">Due</th>
                 <th scope="col" id="col-user">Assignee</th>
                 <th scope="col" id="col-project">Project<br></th>
-                <th scope="col" id="col-type">Type<br></th>
+                <th scope="col" id="col-site">Site<br></th>
                 <th scope="col" id="col-task">Task</th>
                 <th scope="col" id="col-points">🎯</th>
                 <th scope="col" id="col-status">Status<br></th>
@@ -38,7 +38,7 @@
             <!--BEGIN TABLE SCRIPT-->
 
             @foreach($posts->sortByDesc('priority') as $post)
-
+            @if ($post->priority > 0)
             <tr scope="row">
 
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
@@ -53,7 +53,7 @@
                 @endif
 
                 <!--POST LEVEL-->
-                <td class="align-middle text-muted" id="row-id">{{ $post->level }}</td>
+                <td class="align-middle text-muted font-weight-light" id="row-id">{{ $post->level }}</td>
 
                 <!--DUE DATE-->
                 @if (Str::contains(\Carbon\Carbon::parse($post->due)->diffForHumans(), 'from'))
@@ -66,14 +66,17 @@
                 <td class="align-middle" id="row-user">{{ $post->user }}</td>
 
                 <!--CLIENT / INTERNAL-->
-                <td class="align-middle text-muted " id="row-proj"><a href="https://{{ $post->site }}" target="_blank">{{ $post->project }}</a></td>
+                <td class="align-middle text-muted font-weight-light" id="row-proj">{{ $post->project }}</td>
 
-
-                <!--TASK TYPE-->
-                <td class="align-middle" id="row-type">{{ $post->type }}</td>
+                <!--SITE-->
+                <td class="align-middle font-weight-light" id="row-site"><a href="https://{{ $post->site }}" target="_blank">{{ $post->site }}</a></td>
 
                 <!--TASK NAME-->
-                <td class="align-middle font-weight-bold" id="row-task"><a href="/post/{{ $post->id }}" class="text-dark">{{ $post->task }}</a></td>
+                @if (($post->progress) == "Not Picked Up")
+                <td class="align-middle" id="row-task"><a href="/post/{{ $post->id }}"><span class="font-weight-bold text-success">{{ $post->task }}</span></a> <span class="font-weight-light"> - {{ $post->type }}</span></td>
+                @else
+                <td class="align-middle" id="row-task"><a href="/post/{{ $post->id }}"><span class="font-weight-bold text-dark">{{ $post->task }}</span></a> <span class="font-weight-light"> - {{ $post->type }}</span></td>
+                @endif
 
                 <!--TASK POINTS-->
                 @if (($post->progress) == "Complete")
@@ -84,13 +87,13 @@
 
                 <!--PROGRESS STATUS-->
                 @if (($post->progress) == "Complete")
-                <td class="align-middle" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle text-muted" id="row-stat">{{ $post->progress }}</td>
                 @elseif (($post->progress) == "WIP")
                 <td class="align-middle text-warning" id="row-stat">{{ $post->progress }}</td>
                 @elseif (($post->progress) == "Not Picked Up")
                 <td class="align-middle text-success" id="row-stat">{{ $post->progress }}</td>
                 @else (($post->progress) == null)
-                <td class="align-middle text-secondary" id="row-stat">{{ $post->progress }}</td>
+                <td class="align-middle" id="row-stat">{{ $post->progress }}</td>
                 @endif
 
                 <!--FOLDER LINK-->
@@ -103,14 +106,10 @@
                 @endempty
 
                 <!--COMMENTS-->
-                <td class="align-middle" id="row-cmt">{{ Str::limit($post->comment, 35) }}</td>
+                <td class="align-middle" id="row-cmt">{{ Str::limit($post->comment, 15) }}</td>
 
                 <!--EDITOR NAME-->
-                @if (($post->progress) == 'WIP')
-                <td class="align-middle" id="row-edtr"><a href="#">✖</a></td>
-                @else
                 <td class="align-middle" id="row-edtr">{{ $post->editor }}</td>
-                @endif
 
                 <!--LIVE LINK-->
                 @isset($post->live)
@@ -122,6 +121,7 @@
                 <td class="align-middle bg-dark"></td>
                 @endempty
             </tr>
+            @endif
             @endforeach
             </tbody>
     </table>
