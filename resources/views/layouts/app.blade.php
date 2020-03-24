@@ -51,11 +51,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/kpi">KPI</a>
                         </li>
+                        @auth
                         @if (Auth::user()->level > 4)
                         <li class="nav-item">
                             <a class="nav-link text-success" href="/submit" role="button">+ New Task</a>
                         </li>
                         @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
