@@ -9,9 +9,8 @@
             <!--Guest Welcome Area-->
 
             @guest
-            <div class="align-middle">
-            <h1 class="">Welcome to Travel Tractions Task Manager</h1>
-            <button class="btn btn-outline-primary text-dark"><a class="text-light" href="/login">Sign in</a></button>
+            <div style="padding-top: 15em;">
+            <h1 class="">Welcome to <span class="text-success">Travel Tractions</span> Task Manager</h1>
             </div>
             @endguest
 
