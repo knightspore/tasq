@@ -30,24 +30,32 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg shadow-sm mb-3">
             <div class="container text-center">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/img/web-icon.png" style="width: 2rem;" alt="Travel Tractions Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-dark navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon bg-dark rounded-circle"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/home">Tasks</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/post">Cards</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/kpi">KPI</a>
                         </li>
+                        @if (Auth::user()->level > 4)
+                        <li class="nav-item">
+                            <a class="nav-link text-success" href="/submit" role="button">+ New Task</a>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,12 +72,9 @@
                         @endif
                         @else
 
-                        <li class="nav-item">
-                            <a class="btn btn-outline-primary btn-sm nav-link text-dark" href="/submit" role="button">+
-                                Add Task</a>
-                        </li>
+                        
 
-                        <form class="form-inline mx-auto">
+                        <form class="form-inline">
                                     <input class="form-control mx-4" type="search" placeholder="Search"
                                         aria-label="Search">
                         </form>
