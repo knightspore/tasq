@@ -36,7 +36,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon bg-dark rounded-circle"></span>
+                    <span class="navbar-toggler-icon bg-dark rounded-circle text-center"></span>
                 </button>
 
                 <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
