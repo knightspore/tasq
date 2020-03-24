@@ -42,6 +42,7 @@
                 <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @auth
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/home">Tasks</a>
                         </li>
@@ -51,7 +52,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/kpi">KPI</a>
                         </li>
-                        @auth
                         @if (Auth::user()->level > 4)
                         <li class="nav-item">
                             <a class="nav-link text-success" href="/submit" role="button">+ New Task</a>
