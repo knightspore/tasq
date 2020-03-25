@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('role')->default('Intern');
+            $table->string('avatar')->default('https://blaq38zrmy32comx24qdya90-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/tt-blank-avi.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('level')->default('1');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('role')->default('Intern');
-            $table->string('avatar')->default('https://blaq38zrmy32comx24qdya90-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/tt-blank-avi.jpg');
         });
     }
 

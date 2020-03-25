@@ -33,7 +33,6 @@ class CreatePostsTable extends Migration
             $table->string('created-by')->nullable();
             $table->boolean('archived')->default('0');
             $table->timestamps();
-            $table->string('dump');
         });
     }
 
