@@ -47,7 +47,7 @@
         <div class="col-md-4 text-left">
             
             
-            <div class="container text-center">@include('components.weather')</div>
+            <div class="container mx-auto pt-4">@include('components.weather')
 
             <h4 class="py-4">🎯 Tasks you're working on</h4>
 
@@ -58,6 +58,7 @@
 
             @endif
             @endforeach
+            </div>
             <hr>
             <h4 class="py-4">🔥 KPI this Month</h4>
 

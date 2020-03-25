@@ -1,6 +1,6 @@
 <!--Mini tasks as seen on the dashboard-->
 
-<div class="card bg-dark text-light shadow mb-4">
+<div class="card mx-auto bg-dark text-light shadow mb-4">
     <img src="" alt="" class="card-image">
     <div class="card-body">
         <h5 class="card-title">{{ $task->task }}</h5>
