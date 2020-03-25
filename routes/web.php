@@ -31,7 +31,7 @@ Route::post('submit', 'SubmitController@store');
 //Add live link to Article
 
 //View Individual Posts
-Route::get('/post/{id}', 'PostController@view')->name('kpi');
+Route::get('/post/{id}', 'PostController@view')->name('task');
 
 Route::redirect('/cannabis-oil.co.za', 'https://docs.google.com/spreadsheets/d/1trD-4E03KMg_MFCF6J33JrepcT2VuuXjXQJnsAKUw4U/edit#gid=358460968', 301);
 Route::redirect('/sa-airlines.co.za', 'https://docs.google.com/spreadsheets/d/1IACNzqdMb-nP0EBPxsaS8u80Jk0bpdPaT0lqx8lnKqQ/edit#gid=0', 301);

@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') · TT Task Manager</title>
+    <title>@yield('title') · Task Manager</title>
+    <meta name="description" content="Travel Tractions Task Management App" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
@@ -24,6 +26,22 @@
     gtag('config', 'G-RQ8DRPD1SQ');
     </script>
 
+    <!--Social Metia & Opengraph Tags-->
+    <!-- Open Graph data -->
+    <meta property="og:title" content="@yield('title') · Task Manager" />
+    <meta property="og:type" content="app" />
+    <meta property="og:url" content="{{ asset('') }}" />
+    <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
+    <meta property="og:description" content="Description Here" /> 
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:site" content="@traveltractions">
+    <meta name="twitter:title" content="@yield('title') · Task Manager">
+    <meta name="twitter:description" content="Travel Tractions Task Management App">
+    <meta name="twitter:creator" content="@parabyl">
+    <!-- Twitter Summary card images must be at least 120x120px -->
+    <meta name="twitter:image" content="{{ asset('img/webicon.png') }}"> 
+
 </head>
 
 <body>
@@ -31,7 +49,7 @@
         <nav class="navbar navbar-expand-lg shadow-sm mb-3">
             <div class="container text-center">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/img/web-icon.png" style="width: 2rem;" alt="Travel Tractions Logo">
+                    <img src="{{ asset('img/web-icon.png') }}" style="width: 2rem;" alt="Travel Tractions Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

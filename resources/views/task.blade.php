@@ -1,5 +1,7 @@
 @extends('layouts.app')
+
 <!--This is the individual Task or "Post Listing" View-->
+
 @section('title', $task->task )
 
 @section('content')
@@ -102,8 +104,7 @@
                 </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Add link</button>
                 </div>
                 </div>
             </div>
@@ -135,8 +136,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Add Link</button>
                 </div>
                 </div>
             </div>

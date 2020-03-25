@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe2fd98eff9d7937fedc1fd931472c20",
+    "content-hash": "c0d66ecac5bdcba33e930d6d4b8e4a68",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1306,6 +1306,31 @@
                 "php"
             ],
             "time": "2019-11-08T13:50:10+00:00"
+        },
+        {
+            "name": "olek/weather",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olekjs/laravel-weather.git",
+                "reference": "4d984d27ee2f0cbc4905a1b86e1201c6c44708db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olekjs/laravel-weather/zipball/4d984d27ee2f0cbc4905a1b86e1201c6c44708db",
+                "reference": "4d984d27ee2f0cbc4905a1b86e1201c6c44708db",
+                "shasum": ""
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Olek Kaim",
+                    "email": "kontakt@olekkaim.pl"
+                }
+            ],
+            "description": "Simple weather API",
+            "time": "2018-11-07T14:02:00+00:00"
         },
         {
             "name": "opis/closure",
@@ -5498,7 +5523,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "olek/weather": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
