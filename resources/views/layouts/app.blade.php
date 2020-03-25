@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') · Task Manager</title>
@@ -15,17 +14,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--Font Imports-->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQ8DRPD1SQ"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-RQ8DRPD1SQ');
     </script>
-
     <!--Social Metia & Opengraph Tags-->
     <!-- Open Graph data -->
     <meta property="og:title" content="@yield('title') · Task Manager" />
@@ -33,7 +29,6 @@
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
     <meta property="og:description" content="Description Here" /> 
-
     <!-- Twitter Card data -->
     <meta name="twitter:site" content="@traveltractions">
     <meta name="twitter:title" content="@yield('title') · Task Manager">
@@ -41,7 +36,6 @@
     <meta name="twitter:creator" content="@parabyl">
     <!-- Twitter Summary card images must be at least 120x120px -->
     <meta name="twitter:image" content="{{ asset('img/webicon.png') }}"> 
-
 </head>
 
 <body>
@@ -92,13 +86,6 @@
                         @endif
                         @else
 
-                        
-
-                        <form class="form-inline">
-                                    <input class="form-control mx-4" type="search" placeholder="Search"
-                                        aria-label="Search">
-                        </form>
-
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link text-dark dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -108,8 +95,7 @@
                             
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/user/{{ Auth::user()->id }}"
-                                    onclick="event.preventDefault();">
+                                <a class="dropdown-item" href="/user/{{ Auth::user()->id }}/">
                                     {{ __('Profile') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

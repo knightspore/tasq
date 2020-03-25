@@ -38,7 +38,7 @@
                     @if ($task->user == NULL)
                     <button class="btn btn-outline-secondary">➕ Pick up Task</button>
                     @else
-                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong>{{ $task->user }}</strong<></button>}
+                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong>{{ $task->user }}</strong<></button>
                     @if ($task->editor == NULL)
                     <button class="btn btn-outline-warning m-1 mx-auto">Edit ✏</button>
                     @else

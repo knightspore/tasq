@@ -25,7 +25,13 @@ All Ideas
 
     ✔ Create KPI Blade @done (2020/03/19, 00:04:54)
 
-    ☐ Start linking Databases with between posts and users
+    ✔ Create Add post functionality
+
+    Build Post View
+    ✔ Create individual post ID view
+        ✔ All cols except ID and time
+    
+        ☐ Start linking Databases with between posts and users
         
         ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
 
@@ -38,12 +44,6 @@ All Ideas
                     sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
                 @endforeach
 
-    ✔ Create Add post functionality
-
-    Build Post View
-    ✔ Create individual post ID view
-        ✔ All cols except ID and time
-    
     Create Functions
         ☐ Archive Post (Set priority to 0)
         ☐ Add Folder Link to Post

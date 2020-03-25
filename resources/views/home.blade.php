@@ -4,16 +4,11 @@
 
 @section('content')
 
-<?php use Carbon\Carbon; ?>
-
-
 <!--Main Task Table-->
 
 <div class="table-container mt-4 px-lg-5">
 
-    <h1 class="pl-1">Today's Tasks</h1>
-    <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}"
-            class="text-info">{{ Auth::user()->name }}</a></p>
+    <h1 class="mb-4">Task Tracker</h1>
 
     <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
         <thead class="thead-sm thead-dark text-center">

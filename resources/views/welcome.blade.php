@@ -48,7 +48,8 @@
             
             
             <div class="container mx-auto pt-4">@include('components.weather')
-
+            
+            </div>
             <h4 class="py-4">🎯 Tasks you're working on</h4>
 
             @foreach($tasks as $task)
@@ -58,8 +59,6 @@
 
             @endif
             @endforeach
-            </div>
-            <hr>
             <h4 class="py-4">🔥 KPI this Month</h4>
 
         </div>

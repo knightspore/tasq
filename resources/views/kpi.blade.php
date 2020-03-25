@@ -7,9 +7,6 @@
 <div class="container mt-4 px-lg-5">
 
   <h1 class="pl-1">Team KPI Points🔥</h1>
-  <p class="pl-1">Logged in as <a href="mailto:{{ Auth::user()->email }}"
-          class="text-info">{{ Auth::user()->name }}</a></p>
-
     <table class="table table-dark shadow">
       <thead>
         <tr>

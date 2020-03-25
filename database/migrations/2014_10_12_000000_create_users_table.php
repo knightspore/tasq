@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('role')->default('Intern');
+            $table->string('avatar')->default('https://blaq38zrmy32comx24qdya90-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/tt-blank-avi.jpg');
         });
     }
 
