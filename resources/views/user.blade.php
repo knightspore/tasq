@@ -23,6 +23,10 @@
         <div class="col-md-8 py-3 shadow-sm">
             <h2>🎯 Assigned Tasks</h2>
 
+            @foreach($posts as $post)
+            <h1>Test</h1>
+            @endforeach
+            
         </div>
     </div>
 </div>

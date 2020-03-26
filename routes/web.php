@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/submit', 'SubmitController@index')->name('submit');
 Route::get('/post', 'PostController@index')->name('post');
 Route::get('/kpi', 'KpiController@index')->name('kpi');
-Route::get('/user/{id}', 'UserController@index')->name('user');
+Route::get('/user', 'UserController@index')->name('user');
 
 //Add Posts to Database
 Route::post('submit', 'SubmitController@store');

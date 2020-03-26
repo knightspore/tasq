@@ -44,7 +44,7 @@ All Ideas
                     sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
                 @endforeach
 
-    Create Functions
+    Create Interaction Functions
         ☐ Archive Post (Set priority to 0)
         ☐ Add Folder Link to Post
         ☐ Add live link to Post

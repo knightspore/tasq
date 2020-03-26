@@ -1,5 +1,68 @@
 All Ideas
 
+    --Finish Adding Redirects
+    --Create newer, bigger dataset
+
+    Create Basic Post Functions
+        ☐ Pick Up Task 
+            
+            Set $post->user to Auth::user()->id,
+            Refresh
+
+        ☐ Edit Post
+
+            Set $post->editor to Auth::user()->id,
+            Refresh  
+
+
+        ☐ Complete Task
+
+            onClick($post->progress == 'Complete')    
+
+        ☐ Add Folder Link to Post
+
+            Set $post->folder to [input]
+
+        ☐ Add live link to Post
+
+             Set $post->live to [input]
+
+        ☐ Archive Post (Set priority to 0)
+
+            Set $post->priority == 0 (Will be hidden from the main view)
+
+
+    
+    ☐ Start linking Databases between posts and users
+    
+    ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
+
+        Sum of the total KPI points from posts where the user is 
+            Find the user                < that user and the month is               
+            Find the month                < that month
+            if ($users->user == this.user && )
+
+            @foreach ($posts->sort as $post)
+                sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
+            @endforeach
+    
+
+    ☐ Create individual profile view
+        ☐ name
+        ☐ picture
+        ☐ e-mail
+        ☐ level
+        ☐ KPI this month
+        ☐ Current Posts
+        ☐ Completed Posts
+
+=========================================================
+=========================================================
+=========================================================
+
+Completed Ideas
+
+
     Creating Posts Table Posts
     ✔ Create a model for posts @done (2020/03/17, 08:33:43)
     ✔ Create posts submission page @done (2020/03/17, 09:04:31)
@@ -30,32 +93,3 @@ All Ideas
     Build Post View
     ✔ Create individual post ID view
         ✔ All cols except ID and time
-    
-        ☐ Start linking Databases with between posts and users
-        
-        ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
-
-            Sum of the total KPI points from posts where the user is 
-                Find the user                < that user and the month is               
-                Find the month                < that month
-                if ($users->user == this.user && )
-
-                @foreach ($posts->sort as $post)
-                    sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
-                @endforeach
-
-    Create Functions
-        ☐ Archive Post (Set priority to 0)
-        ☐ Add Folder Link to Post
-        ☐ Add live link to Post
-        ☐ Edit Post Form
-    
-
-    ☐ Create individual profile view
-        ☐ name
-        ☐ picture
-        ☐ e-mail
-        ☐ level
-        ☐ KPI this month
-        ☐ Current Posts
-        ☐ Completed Posts
