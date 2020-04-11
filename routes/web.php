@@ -19,12 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'WelcomeController@index')->name('welcome');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/submit', 'SubmitController@index')->name('submit');
-Route::get('/post', 'PostController@index')->name('post');
-Route::get('/kpi', 'KpiController@index')->name('kpi');
-Route::get('/user', 'UserController@index')->name('user');
+Route::get('/', 'WelcomeController@index')->name('welcome');        // Dashboard Welcome Page
+Route::get('/home', 'HomeController@index')->name('home');          // Home Page - Task Sheet View
+Route::get('/submit', 'SubmitController@index')->name('submit');    // Add new Post
+Route::get('/post', 'PostController@index')->name('post');          // Card
+Route::get('/kpi', 'KpiController@index')->name('kpi');             // KPI Page
+Route::get('/user', 'UserController@index')->name('user');          // User
 
 //Add Posts to Database
 Route::post('submit', 'SubmitController@store');

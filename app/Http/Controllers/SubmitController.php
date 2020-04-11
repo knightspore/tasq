@@ -50,6 +50,7 @@ class SubmitController extends Controller
         $post->progress = "Not Picked Up";
         $post->project = request('inlineRadioOptions');
         $post->comment = request('comments');
+        $post->dump = "";
 
         //Save post values
         $post->save();
