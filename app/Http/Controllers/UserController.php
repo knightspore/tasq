@@ -11,10 +11,14 @@ class UserController extends Controller
     //Setup for /id/ profiles
     public function view($id) {
         $userId = User::findOrFail($id);
+        $posts = Posts::all();
 
         return view('user', [
-            'user'=>$userId
+            'user'=>$userId,
+            'posts'=>$posts
         ]);
     }
+
+    
 
 }

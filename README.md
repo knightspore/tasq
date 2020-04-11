@@ -5,37 +5,26 @@ All Ideas
 
     Create Basic Post Functions
         ☐ Pick Up Task 
-            
             Set $post->user to Auth::user()->id,
             Refresh
 
         ☐ Edit Post
-
             Set $post->editor to Auth::user()->id,
             Refresh  
 
-
         ☐ Complete Task
-
             onClick($post->progress == 'Complete')    
 
         ☐ Add Folder Link to Post
-
             Set $post->folder to [input]
 
         ☐ Add live link to Post
-
              Set $post->live to [input]
 
         ☐ Archive Post (Set priority to 0)
-
             Set $post->priority == 0 (Will be hidden from the main view)
 
-
-    
-    ☐ Start linking Databases between posts and users
-    
-    ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
+    ☐ ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
 
         Sum of the total KPI points from posts where the user is 
             Find the user                < that user and the month is               
@@ -45,16 +34,16 @@ All Ideas
             @foreach ($posts->sort as $post)
                 sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
             @endforeach
-    
 
-    ☐ Create individual profile view
-        ☐ name
-        ☐ picture
-        ☐ e-mail
-        ☐ level
+    ✔ Create individual profile view
+        ✔ name
+        ✔ picture
+        ✔ e-mail
+        ✔ level
         ☐ KPI this month
-        ☐ Current Posts
-        ☐ Completed Posts
+        ✔ Current Posts
+        ✔ Edited Posts
+        ✔ Completed Posts
 
 =========================================================
 =========================================================

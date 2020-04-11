@@ -42,7 +42,7 @@
             <h4>{{ $task['task'] }} <span class="text-muted">- {{ $task['type'] }}</span></h4>
             <h5 class="text-info">{{ $task['site'] }}</h5>
             <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
-                    class="btn btn-sm btn-outline-info mb-5 shadow-sm">View Task</button></a>
+                    class="btn btn-sm btn-outline-info shadow-sm">View Task</button></a>
             </div>
             @endforeach
 
@@ -62,8 +62,6 @@
 
             @endif
             @endforeach
-            <h4 class="py-4">🔥 KPI this Month</h4>
-
         </div>
     </div>
 

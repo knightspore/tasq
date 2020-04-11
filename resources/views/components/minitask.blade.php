@@ -17,8 +17,14 @@
         <p class="card-text">
             <strong>Due:</strong> {{ \Carbon\Carbon::parse($task->due)->diffForHumans() }}
             <br>
+            <strong>For:</strong> {{ $task->site }}
+            <br>
             <strong>Status:</strong> {{ $task->progress }}
+            @if (($task->user) != Auth::user()->name)
+            <br>
+            <strong>Assigned to:</strong> {{ $task->user }}
+            @endif
         </p>
-        <a href="/post/{{ $task->id }}" class="btn btn-sm btn-light text-success">View Task</a>
+        <a href="/post/{{ $task->id }}" class="btn btn-sm btn-light text-dark">View Task</a>
     </div>
 </div>
