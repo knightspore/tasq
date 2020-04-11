@@ -25,22 +25,25 @@
             <!--TOP 3 PRIORTY-->
             <h2 class="py-3">❕ Top Priority Pickups</h2>
 
-            @foreach(array_slice($tasks->sortByDesc('priority')->toArray(), 0, 3) as $task)
+            @foreach(array_slice($tasks->sortByDesc('due')->toArray(), 0, 3) as $task)
+            <div class="border rounded shadow-sm p-3 mb-2">
             <h4>{{ $task['task'] }} <span class="text-muted">- {{ $task['type'] }}</span></h4>
             <h5 class="text-success">{{ $task['site'] }}</h5>
             <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
-                    class="btn btn-sm btn-outline-success mb-5 shadow-sm">View Task</button></a>
+                    class="btn btn-sm btn-outline-success shadow-sm">View Task</button></a>
+            </div>
             @endforeach
 
-            <hr>
             <!--RECENTLY ADDED TASKS-->
             <h2 class="py-3">📫 Recently Added</h2>
             <!--Gets the latest 5 posts and puts them in an array-->
             @foreach(array_slice($tasks->sortByDesc('created_at')->toArray(), 0, 3) as $task)
+            <div class="border rounded shadow-sm p-3 mb-2">
             <h4>{{ $task['task'] }} <span class="text-muted">- {{ $task['type'] }}</span></h4>
             <h5 class="text-info">{{ $task['site'] }}</h5>
             <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
                     class="btn btn-sm btn-outline-info mb-5 shadow-sm">View Task</button></a>
+            </div>
             @endforeach
 
         </div>

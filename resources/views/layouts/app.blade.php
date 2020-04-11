@@ -14,21 +14,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--Font Imports-->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQ8DRPD1SQ"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RQ8DRPD1SQ');
-    </script>
     <!--Social Metia & Opengraph Tags-->
     <!-- Open Graph data -->
     <meta property="og:title" content="@yield('title') · Task Manager" />
     <meta property="og:type" content="app" />
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
-    <meta property="og:description" content="Description Here" /> 
+    <meta property="og:description" content="" /> 
     <!-- Twitter Card data -->
     <meta name="twitter:site" content="@traveltractions">
     <meta name="twitter:title" content="@yield('title') · Task Manager">

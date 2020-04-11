@@ -28,7 +28,7 @@
       <tbody>
       @foreach( $people as $person)
         <tr>
-          <th scope="row">{{ $person->name }}</th>
+          <th scope="row"><a href="/user/{{ $person->id }}" class="text-white">{{ $person->name }}</a></th>
           <td class="bg-light text-dark">0</td>
           <td class="bg-light text-dark">0</td>
           <td class="bg-light text-dark">0</td>
