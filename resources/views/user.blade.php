@@ -9,7 +9,7 @@
 <div class="container pt-3">
 
     <div class="row mt-2">
-        <div class="col-md-4 py-3">
+        <div class="col-md-4 py-3 text-center">
         <div class="mx-auto">
         <img src="{{ $user->avatar }}" alt="{{ $user->name }} Profile Picture" class="responsive-image w-75 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         </div>
