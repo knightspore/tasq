@@ -3,7 +3,9 @@ All Ideas
     --Finish Adding Redirects
     --Create newer, bigger dataset
 
-    Create Basic Post Functions
+    
+
+    ## Individual Post view
         ☐ Pick Up Task 
             Set $post->user to Auth::user()->id,
             Refresh
@@ -35,7 +37,11 @@ All Ideas
                 sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
             @endforeach
 
-    ✔ Create individual profile view
+    ## home view
+        ✔ Link Assignee with User ID
+        ✔ Link Editor with User ID
+
+    ## Create individual profile view
         ✔ name
         ✔ picture
         ✔ e-mail
@@ -51,6 +57,7 @@ All Ideas
 
 Completed Ideas
 
+    -- Changed 'created-by' to 'created_by' so that it can be processed correctly in the submission form.
 
     Creating Posts Table Posts
     ✔ Create a model for posts @done (2020/03/17, 08:33:43)

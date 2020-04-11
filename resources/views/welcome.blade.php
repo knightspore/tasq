@@ -56,7 +56,7 @@
             <h4 class="py-4">🎯 Tasks you're working on</h4>
 
             @foreach($tasks as $task)
-            @if(($task->user) == Auth::user()->name && (($task->progress) === "Complete"))
+            @if(($task->user) == Auth::user()->id && (($task->progress) === "Complete"))
 
             @include('components.minitask')
 

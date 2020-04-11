@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Posts;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -54,9 +55,11 @@ class PostController extends Controller
 
     public function view($id) {
         $postId = Posts::findOrFail($id);
+        $users = User::all();
 
         return view('task', [
-            'task'=>$postId
+            'task'=>$postId,
+            'users' => $users
         ]);
     }
 

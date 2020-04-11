@@ -23,7 +23,6 @@
                 <th scope="col" id="col-points">🎯</th>
                 <th scope="col" id="col-status">Status<br></th>
                 <th scope="col" id="col-folder"></th>
-                <th scope="col" id="col-comment">Comment</th>
                 <th scope="col" id="col-editor">Editor</th>
                 <th scope="col" id="col-live">Live</th>
             </tr>
@@ -32,89 +31,99 @@
 
             <!--BEGIN TABLE SCRIPT-->
 
-            @foreach($posts->sortByDesc('priority') as $post)
-            @if ($post->priority > 0)
+            @foreach($posts->sortByDesc('priority') as $task)
+            @if ($task->priority > 0)
             <tr scope="row">
 
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
-	                @if (($post->priority) == 0)
-	                <td class="align-middle bg-dark text-light" id="row-prio">{{ $post->priority }}</td>
-	                @elseif (($post->priority) <= 6) 
-	                <td class="align-middle bg-light" id="row-prio">{{ $post->priority }}</td>
-	                @elseif (($post->priority) <= 8) 
-	                <td class="align-middle bg-warning" id="row-prio">{{ $post->priority }}</td>
+	                @if (($task->priority) == 0)
+	                <td class="align-middle bg-dark text-light" id="row-prio">{{ $task->priority }}</td>
+	                @elseif (($task->priority) <= 6) 
+	                <td class="align-middle bg-light" id="row-prio">{{ $task->priority }}</td>
+	                @elseif (($task->priority) <= 8) 
+	                <td class="align-middle bg-warning" id="row-prio">{{ $task->priority }}</td>
 	                @else
-	                <td class="align-middle bg-success text-light" id="row-prio">{{ $post->priority }}</td>
+	                <td class="align-middle bg-success text-light" id="row-prio">{{ $task->priority }}</td>
 	                @endif
 
                 <!--POST LEVEL-->
-                	<td class="align-middle text-muted font-weight-light" id="row-id">{{ $post->level }}</td>
+                	<td class="align-middle text-muted font-weight-light" id="row-id">{{ $task->level }}</td>
 
                 <!--DUE DATE-->
-	                @if (Str::contains(\Carbon\Carbon::parse($post->due)->diffForHumans(), 'from'))
-	                <td class="align-middle" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
+	                @if (Str::contains(\Carbon\Carbon::parse($task->due)->diffForHumans(), 'from'))
+	                <td class="align-middle" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
 	                @else
-	                <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($post->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
+	                <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
 	                @endif
 
                 <!--ASSIGNEE-->
-                	<td class="align-middle" id="row-user">{{ $post->user }}</td>
+				
+                <td class="align-middle" id="row-user">
+				@foreach ($users as $user)
+				@if ($task->user == $user->id)
+				<a href="/user/{{ $user->id }}" class="text-dark" style="text-decoration: none;">{{ $user->name }}</a>
+				@endif
+				@endforeach
+				</td>
 
                 <!--CLIENT / INTERNAL-->
-                	<td class="align-middle text-muted font-weight-light" id="row-proj">{{ $post->project }}</td>
+                	<td class="align-middle text-muted font-weight-light" id="row-proj">{{ $task->project }}</td>
 
                 <!--SITE-->
-                	<td class="align-middle font-weight-light" id="row-site"><a href="https://{{ $post->site }}" target="_blank">{{ $post->site }}</a></td>
+                	<td class="align-middle font-weight-light" id="row-site"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></td>
 
                 <!--TASK NAME-->
-	                @if (($post->progress) == "Not Picked Up")
-	                <td class="align-middle" id="row-task"><a href="/post/{{ $post->id }}"><span class="font-weight-bold text-success">{{ $post->task }}</span></a> <span class="font-weight-light"> - {{ $post->type }}</span></td>
-	                @elseif (($post->progress) == "Complete")
-	                <td class="align-middle" id="row-task"><a href="/post/{{ $post->id }}"><span class="font-weight-bold text-muted">{{ $post->task }}</span></a> <span class="font-weight-light text-muted"> - {{ $post->type }}</span></td>
+	                @if (($task->progress) == "Not Picked Up")
+	                <td class="align-middle" id="row-task"><a href="/post/{{ $task->id }}"><span class="font-weight-bold text-success">{{ $task->task }}</span></a> <span class="font-weight-light"> - {{ $task->type }}</span></td>
+	                @elseif (($task->progress) == "Complete")
+	                <td class="align-middle" id="row-task"><a href="/post/{{ $task->id }}"><span class="font-weight-bold text-muted">{{ $task->task }}</span></a> <span class="font-weight-light text-muted"> - {{ $task->type }}</span></td>
 	                @else
-	                <td class="align-middle" id="row-task"><a href="/post/{{ $post->id }}"><span class="font-weight-bold text-dark">{{ $post->task }}</span></a> <span class="font-weight-light"> - {{ $post->type }}</span></td>
+	                <td class="align-middle" id="row-task"><a href="/post/{{ $task->id }}"><span class="font-weight-bold text-dark">{{ $task->task }}</span></a> <span class="font-weight-light"> - {{ $task->type }}</span></td>
 	                @endif
 
                 <!--TASK POINTS-->
-	                @if (($post->progress) == "Complete")
+	                @if (($task->progress) == "Complete")
 	                <td class="align-middle" id="row-pts">✔</td>
 	                @else
-	                <td class="align-middle text-dark" id="row-pts">{{ $post->points }}</td>
+	                <td class="align-middle text-dark" id="row-pts">{{ $task->points }}</td>
 	                @endif
 
                 <!--PROGRESS STATUS-->
-	                @if (($post->progress) == "Complete")
-	                <td class="align-middle text-muted" id="row-stat">{{ $post->progress }}</td>
-	                @elseif (($post->progress) == "WIP")
-	                <td class="align-middle text-warning" id="row-stat">{{ $post->progress }}</td>
-	                @elseif (($post->progress) == "Not Picked Up")
-	                <td class="align-middle text-success" id="row-stat">{{ $post->progress }}</td>
-	                @else (($post->progress) == null)
-	                <td class="align-middle" id="row-stat">{{ $post->progress }}</td>
+	                @if (($task->progress) == "Complete")
+	                <td class="align-middle text-muted" id="row-stat">{{ $task->progress }}</td>
+	                @elseif (($task->progress) == "WIP")
+	                <td class="align-middle text-warning" id="row-stat">{{ $task->progress }}</td>
+	                @elseif (($task->progress) == "Not Picked Up")
+	                <td class="align-middle text-success" id="row-stat">{{ $task->progress }}</td>
+	                @else (($task->progress) == null)
+	                <td class="align-middle" id="row-stat">{{ $task->progress }}</td>
 	                @endif
 
                 <!--FOLDER LINK-->
-	                @isset($post->folder)
-	                <td class="align-middle" id="row-src"><a href="{{ $post->folder }} "target="_blank">📁</a></td>
+	                @isset($task->folder)
+	                <td class="align-middle" id="row-src"><a href="{{ $task->folder }} "target="_blank">📁</a></td>
 	                @endisset
 
-	                @empty($post->folder)
+	                @empty($task->folder)
 	                <td class="align-middle"></td>
 	                @endempty
 
-                <!--COMMENTS-->
-                	<td class="align-middle" id="row-cmt">{{ Str::limit($post->comment, 15) }}</td>
-
                 <!--EDITOR NAME-->
-                	<td class="align-middle" id="row-edtr">{{ $post->editor }}</td>
+                	<td class="align-middle" id="row-edtr">
+					@foreach ($users as $user)
+					@if ($task->editor == $user->id)
+					<a href="/user/{{ $user->id }}" class="text-dark" style="text-decoration: none;">{{ $user->name }}</a>
+					@endif
+					@endforeach
+					</td>
 
                 <!--LIVE LINK-->
-	                @isset($post->live)
-	                <td class="align-middle bg-dark" id="row-live"><a href="{{ $post->live }}" target="_blank">🌐</a>
+	                @isset($task->live)
+	                <td class="align-middle bg-dark" id="row-live"><a href="{{ $task->live }}" target="_blank">🌐</a>
 	                </td>
 	                @endisset
 
-	                @empty($post->live)
+	                @empty($task->live)
 	                <td class="align-middle bg-dark"></td>
 	                @endempty
             </tr>

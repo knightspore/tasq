@@ -24,14 +24,15 @@ class CreatePostsTable extends Migration
             $table->string('type');             //In
             $table->text('task');               //In
             $table->integer('points');          //In
-            $table->string('progress')->nullable();         
+            $table->string('progress')->default('Not Picked Up');         
             $table->string('folder')->nullable();           
             $table->text('comment')->nullable();            
             $table->string('editor')->nullable();           
             $table->date('completed')->nullable();
             $table->string('live')->nullable();
-            $table->string('created-by')->nullable();
+            $table->string('created_by')->nullable();
             $table->boolean('archived')->default('0');
+            $table->string('dump')->nullable();
             $table->timestamps();
         });
     }

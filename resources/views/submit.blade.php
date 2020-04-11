@@ -27,6 +27,7 @@
     <form action="submit" method="POST">
     {{ csrf_field() }}
         <div class="row input-group">
+        <input type="hidden" name="created_by" value="{{Auth::user()->id}}"/>
             <!--Task Name-->
             <div class="form-group col-sm">
                 <label for="postTask">Task Name</label>

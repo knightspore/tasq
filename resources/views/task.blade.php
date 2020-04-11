@@ -71,7 +71,14 @@
                 <p>{{ $task->comment }}</p>
                 <hr>
                 <p><a href="/{{ $task->site }}" class="text-dark" target="_blank">View Site SOP</a></p>
-                
+                @if (Auth::user()->level >= 5)
+                    @foreach ($users as $user)
+                    @if ($user->id == $task->created_by)
+                    <p class="text-dark">This task was created by <a href="/user/{{ $user->id }}" class="text-dark">{{ $user->name }}</a>.</p>
+                    @endif
+                    @endforeach
+                @endif
+
             </div>
                 
             </div>

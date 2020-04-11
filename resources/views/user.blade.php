@@ -26,7 +26,7 @@
         <!--Assigned Tasks-->
             <h2 class="pb-3">🎯 Working On</h2>
             @foreach($posts as $task)
-            @if(($task->user) == $user->name && (($task->progress) != "Complete"))
+            @if(($task->user) == $user->id && (($task->progress) != "Complete"))
 
             @include('components.minitask')
 
@@ -35,7 +35,7 @@
         <!--Editing Tasks-->
             <h2 class="pb-3">📝 Editing</h2>
             @foreach($posts as $task)
-            @if (($task->editor) == $user->name && (($task->progress) != "Complete"))
+            @if (($task->editor) == $user->id && (($task->progress) != "Complete"))
 
             @include('components.minitask')
 

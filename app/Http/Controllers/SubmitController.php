@@ -40,6 +40,7 @@ class SubmitController extends Controller
         $post->task = request('taskname');
         $post->priority = request('priority');
         $post->due = request('due');
+        $post->created_by = request('created_by');
         $post->created_at = request(date('Y-m-d H:i:s'));
         $post->updated_at = request(date('Y-m-d H:i:s'));
         $post->site = request('site');
