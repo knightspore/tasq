@@ -14,7 +14,7 @@
         <img src="{{ $user->avatar }}" alt="{{ $user->name }} Profile Picture" class="responsive-image w-75 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         </div>
         
-        <h1><span class="text-success mb-5">{{ $user->name }}'s Profile</span></h1>
+        <h1><span class="text-success mb-5">{{ $user->name }}</span></h1>
         
         <h4 class="text-muted">{{ $user->role }} </h4>
             <h4><a href="mailto:{{ $user->email }}" class="badge badge-primary">📧</a>
