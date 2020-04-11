@@ -94,7 +94,7 @@
 	                @elseif (($task->progress) == "WIP")
 	                <td class="align-middle text-warning" id="row-stat">{{ $task->progress }}</td>
 	                @elseif (($task->progress) == "Not Picked Up")
-	                <td class="align-middle text-success" id="row-stat">{{ $task->progress }}</td>
+	                <td class="align-middle text-success" id="row-stat">New</td>
 	                @else (($task->progress) == null)
 	                <td class="align-middle" id="row-stat">{{ $task->progress }}</td>
 	                @endif

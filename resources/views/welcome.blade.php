@@ -17,43 +17,26 @@
     <!--User Dashboard-->
 
     @auth
-    <h1>Welcome, <span class="text-success">{{ Auth::user()->name }}</span>.</h1>
-    <h5 class="mb-4">What are we working on today?</h5>
+    <h1><span class="text-success text-medium">Dashboard</span>.</h1>
 
     <div class="row">
-        <div class="col-md-8 text-left shadow-sm">
+        <div class="col-md-8 text-left">
             <!--TOP 3 PRIORTY-->
-            <h2 class="py-3">❕ Top Priority Pickups</h2>
+            <h2 class="py-3">📫 Top Priority Pickups</h2>
 
-            @foreach(array_slice($tasks->sortByDesc('due')->toArray(), 0, 3) as $task)
+            @foreach(array_slice($tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority')->toArray(), 0, 3) as $task)
             <div class="border rounded shadow-sm p-3 mb-2">
-            <h4>{{ $task['task'] }} <span class="text-muted">- {{ $task['type'] }}</span></h4>
-            <h5 class="text-success">{{ $task['site'] }}</h5>
+            <h4><span class="badge badge-dark">{{ $task['priority'] }}</span> {{ $task['task'] }} <span class="text-muted">| {{ $task['type'] }}</span></h4>
+            <h5 class="text-dark">{{ $task['site'] }}</h5>
+            <p>{{$task['user']}}</p>
             <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
                     class="btn btn-sm btn-outline-success shadow-sm">View Task</button></a>
             </div>
             @endforeach
 
-            <!--RECENTLY ADDED TASKS-->
-            <h2 class="py-3">📫 Recently Added</h2>
-            <!--Gets the latest 5 posts and puts them in an array-->
-            @foreach(array_slice($tasks->sortByDesc('created_at')->toArray(), 0, 3) as $task)
-            <div class="border rounded shadow-sm p-3 mb-2">
-            <h4>{{ $task['task'] }} <span class="text-muted">- {{ $task['type'] }}</span></h4>
-            <h5 class="text-info">{{ $task['site'] }}</h5>
-            <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
-                    class="btn btn-sm btn-outline-info shadow-sm">View Task</button></a>
-            </div>
-            @endforeach
-
         </div>
         <div class="col-md-4 text-left">
-            
-            
-            <div class="container mx-auto pt-4">@include('components.weather')
-            
-            </div>
-            <h4 class="py-4">🎯 Tasks you're working on</h4>
+            <h4 class="pt-4 pb-3">🎯 Tasks you're working on</h4>
 
             @foreach($tasks as $task)
             @if(($task->user) == Auth::user()->id && (($task->progress) === "Complete"))
