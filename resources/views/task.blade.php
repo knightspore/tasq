@@ -38,11 +38,20 @@
                     @if ($task->user == NULL)
                     <button class="btn btn-outline-secondary">➕ Pick up Task</button>
                     @else
-                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong>{{ $task->user }}</strong<></button>
+                    @foreach ($users as $user)
+                    @if ($task->user == $user->id)
+                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong>{{ $user->name }}</strong<></button>
+                    @endif
+                    @endforeach
+
                     @if ($task->editor == NULL)
                     <button class="btn btn-outline-warning m-1 mx-auto">Edit ✏</button>
                     @else
-                    <button type="submit" class="btn btn-warning m-1 mx-auto">Edited by {{$task->editor}} ✔</button>
+                    @foreach ($users as $user)
+					@if ($task->editor == $user->id)
+                    <button type="submit" class="btn btn-warning m-1 mx-auto">Edited by {{$user->name}} ✔</button>
+					@endif
+					@endforeach
                     @endif
 
                     @if ($task->progress == 'Complete')
@@ -74,9 +83,10 @@
                 @if (Auth::user()->level >= 5)
                     @foreach ($users as $user)
                     @if ($user->id == $task->created_by)
-                    <p class="text-dark">This task was created by <a href="/user/{{ $user->id }}" class="text-dark">{{ $user->name }}</a>.</p>
+                <p class="text-dark">This task was created by <a href="/user/{{ $user->id }}" class="text-dark">{{ $user->name }}</a>.</p>
                     @endif
                     @endforeach
+                <button class="btn btn-light btn-sm shadow-sm">Edit Task</button>
                 @endif
 
             </div>

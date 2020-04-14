@@ -48,17 +48,14 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/home">Tasks</a>
+                            <a class="nav-link text-dark" href="/home">Sheet</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/post">Cards</a>
                         </li>
+                        @if (Auth::user()->level >= 4)
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/kpi">KPI</a>
-                        </li>
-                        @if (Auth::user()->level > 4)
-                        <li class="nav-item">
-                            <a class="nav-link text-success" href="/submit" role="button">+ New Task</a>
+                            <a class="nav-link text-success" href="/submit" role="button">+ Create Task</a>
                         </li>
                         @endif
                         @endauth
@@ -87,8 +84,14 @@
                             
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/user/{{ Auth::user()->id }}/">
+                                <a class="dropdown-item" href="/user/{{ Auth::user()->id }}">
                                     {{ __('Profile') }}
+                                </a>
+                                <a class="dropdown-item" href="/kpi">
+                                    {{ __('KPI') }}
+                                </a>
+                                <a class="dropdown-item" href="/team">
+                                    {{ __('Team') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

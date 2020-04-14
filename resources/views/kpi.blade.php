@@ -6,7 +6,7 @@
 
 <div class="container mt-4">
 
-  <h1>Team KPI Points🔥</h1>
+  <h1>🔥 Team KPI Points</h1>
     <table class="table table-dark shadow">
       <thead>
         <tr>
