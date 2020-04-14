@@ -31,11 +31,6 @@ class HomeController extends Controller
         return view('home', [
             'posts' => $posts,
             'users' => $users,
-        ]);
-
-        return view('home');
-    }
-
-        
+        ]);       
 
 }
