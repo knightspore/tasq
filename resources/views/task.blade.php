@@ -8,6 +8,7 @@
 
 <div class="container pt-5">
     
+        <!-- POST PRIORITY -->
         @if (($task->priority) == 0)
         <h1><badge class="badge badge-dark">{{ $task->priority}}</badge> {{ $task->task }}</h1>
         @elseif (($task->priority) <= 3)                         
@@ -19,6 +20,7 @@
         @else
         <h1><badge class="badge badge-danger">{{ $task->priority}}</badge> {{ $task->task }}</h1>
         @endif
+        
 
         <h3>Due {{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</h3>
         <h3 class="text-primary"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></h3> 
@@ -35,13 +37,22 @@
 
         <div class="m-2">
 
+                    <!-- PICK UP TASK -->
                     @if ($task->user == NULL)
-                    <button class="btn btn-outline-secondary">➕ Pick up Task</button>
+                    <form action="update" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+                    <button class="btn btn-outline-secondary" type="submit" value= "UPDATE" href="#">➕ Pick up Task</button>
+                    </form>
                     @else
+
+                    <!-- DISPLAY TASK USER -->
                     @foreach ($users as $user)
+
                     @if ($task->user == $user->id)
-                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong>{{ $user->name }}</strong<></button>
+                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong><a href="/user/{{ $task->user }}" target="_blank">{{ $user->name }}</a></strong<></button>
                     @endif
+
                     @endforeach
 
                     @if ($task->editor == NULL)

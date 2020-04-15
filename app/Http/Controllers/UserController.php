@@ -12,10 +12,12 @@ class UserController extends Controller
     public function view($id) {
         $userId = User::findOrFail($id);
         $posts = Posts::all();
+        $users = User::all();
 
         return view('user', [
             'user'=>$userId,
-            'posts'=>$posts
+            'posts'=>$posts,
+            'users'=>$users
         ]);
     }
 

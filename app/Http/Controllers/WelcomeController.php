@@ -11,9 +11,11 @@ class WelcomeController extends Controller
     public function index()
     {
         $tasks = Posts::all();
+        $users = User::all();
 
         return view('welcome', [
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'users' => $users,
         ]);
 
         return view('welcome');

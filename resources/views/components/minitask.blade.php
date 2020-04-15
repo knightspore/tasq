@@ -22,7 +22,11 @@
             <strong>Status:</strong> {{ $task->progress }}
             @if (($task->user) != Auth::user()->name)
             <br>
-            <strong>Assigned to:</strong> {{ $task->user }}
+            @foreach ($users as $user)
+            @if ($task->user == $user->id)
+            <strong>Assigned to:</strong> {{ $user->name }}
+            @endif
+            @endforeach
             @endif
         </p>
         <a href="/post/{{ $task->id }}" class="btn btn-sm btn-light text-dark">View Task</a>

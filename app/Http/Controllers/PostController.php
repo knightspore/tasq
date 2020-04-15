@@ -24,35 +24,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-
         $posts = Posts::all();
-
         return view('post', [
             'posts' => $posts
         ]);
-
-        return view('post');
     }
 
-    
-
-    /*
-    public function create(Request $request)
-    {
-        $newPost = new Posts();
-        $newPost->taskname = $request->task;
-        
-        //{Posts the Databse}
-        $newPost->save();
-
-        return redirect('/');
-
-
-    }
-    */
-
+    // VIEW INDIVIDUAL POST
     public function view($id) {
         $postId = Posts::findOrFail($id);
         $users = User::all();
@@ -61,6 +42,20 @@ class PostController extends Controller
             'task'=>$postId,
             'users' => $users
         ]);
+    }
+
+    // ADD USER TO TASK
+    public function update() 
+    {
+        $user = request('user_id');
+
+        //Fill Post User
+        Posts::where('id', $id)->update(['user', $user]);
+        
+        //Success
+        Session::flash('success', 'You picked up a new task.');
+        return view('/');
+
     }
 
 }

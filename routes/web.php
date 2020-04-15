@@ -25,10 +25,13 @@ Route::get('/submit', 'SubmitController@index')->name('submit');    // Add new P
 Route::get('/post', 'PostController@index')->name('post');          // Card
 Route::get('/kpi', 'KpiController@index')->name('kpi');             // KPI Page
 Route::get('/user', 'UserController@index')->name('user');          // User
-Route::get('/team', 'TeamController@index')->name('team');          // User
+Route::get('/team', 'TeamController@index')->name('team');          // Team
 
 //Add Posts to Database
 Route::post('submit', 'SubmitController@store');
+
+//Add user as assignee
+Route::post('update', 'PostController@update');
 
 //Add live link to Article
 
