@@ -30,12 +30,8 @@
 
         <!-- ASSIGNEE IF NOT SELF -->
             @if (($task->user) != Auth::user()->id)
-            @foreach ($users as $user)
-            @if ($task->user == $user->id)
-            <strong>Assigned to:</strong> {{ $user->name }}
+            <strong>Assigned to:</strong> {{ $task->owner->name }}
             <br>
-            @endif
-            @endforeach
             @else
             <strong>Assigned to You</strong>
             <br>
@@ -43,11 +39,7 @@
 
         <!-- EDITOR -->
             @isset ($task->editor)
-            @foreach ($users as $user)
-            @if ($task->editor == $user->id)
-            <strong>Editor: </strong> {{ $user->name }}
-            @endif
-            @endforeach
+            <strong>Editor: </strong> {{ $task->edited->name }}
             @endisset
         </p>
         <a href="/post/{{ $task->id }}" class="btn btn-sm btn-light text-dark">View Task</a>

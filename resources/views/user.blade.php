@@ -38,8 +38,8 @@
             @endforeach
         <!--Completed Tasks-->
             <h2 class="pb-3">✅ Recently Completed</h2>
-            @foreach($posts as $task)
-            @if (($task->user) == $user->name && (($task->progress) == "Complete") && (($task->priority) >= 1))
+            @foreach($user->task as $task)
+            @if (($task->progress) === "Complete" && ($task->priority) > 0)
 
             @include('components.minitask')
 

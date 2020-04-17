@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function task()
     {
-        return $this->hasMany('App\Posts', 'foreign_key', 'local_key');
+        return $this->hasMany('App\Posts', 'user');
     }
 }

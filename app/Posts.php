@@ -20,9 +20,14 @@ class Posts extends Model
     //Table Associated with the Model
     protected $table = 'posts';
 
-    public function user()
+    public function owner()
     {
-        return $this->belongsTo('App\User', 'foreign_key', 'local_key');
+        return $this->hasOne('App\User', 'id', 'user');
+    }
+
+    public function edited()
+    {
+        return $this->hasOne('App\User', 'id', 'editor');
     }
 
 }

@@ -56,15 +56,12 @@
 	                <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
 	                @endif
 
-                <!--ASSIGNEE-->
-				
-                <td class="align-middle" id="row-user">
-				@foreach ($users as $user)
-				@if ($task->user == $user->id)
-				<a href="/user/{{ $user->id }}" class="text-dark" style="text-decoration: none;">{{ $user->name }}</a>
-				@endif
-				@endforeach
-				</td>
+				<!--ASSIGNEE-->
+					<td class="align-middle" id="row-user">
+					@isset ($task->user)
+					<a href="/user/{{ $task->owner->id }}" class="text-dark" style="text-decoration: none;">{{ $task->owner->name }}</a>
+					@endisset
+					</td>
 
                 <!--CLIENT / INTERNAL-->
                 	<td class="align-middle text-muted font-weight-light" id="row-proj">{{ $task->project }}</td>
@@ -100,32 +97,29 @@
 	                @endif
 
                 <!--FOLDER LINK-->
+	                <td class="align-middle" id="row-src">
 	                @isset($task->folder)
-	                <td class="align-middle" id="row-src"><a href="{{ $task->folder }} "target="_blank">📁</a></td>
-	                @endisset
+					<a href="{{ $task->folder }} "target="_blank">📁</a>
+					@endisset
+					</td>
 
-	                @empty($task->folder)
-	                <td class="align-middle"></td>
-	                @endempty
-
-                <!--EDITOR NAME-->
+				<!--EDITOR NAME-->
+					
                 	<td class="align-middle" id="row-edtr">
-					@foreach ($users as $user)
-					@if ($task->editor == $user->id)
-					<a href="/user/{{ $user->id }}" class="text-dark" style="text-decoration: none;">{{ $user->name }}</a>
-					@endif
-					@endforeach
+					@isset($task->editor)
+					<a href="/user/{{ $task->edited->id }}" class="text-dark" style="text-decoration: none;">{{ $task->edited->name }}</a>
+					@endisset
 					</td>
 
                 <!--LIVE LINK-->
-	                @isset($task->live)
-	                <td class="align-middle bg-dark" id="row-live"><a href="{{ $task->live }}" target="_blank">🌐</a>
+	                
+	                <td class="align-middle bg-dark" id="row-live">
+					@isset($task->live)
+					<a href="{{ $task->live }}" target="_blank">🌐</a>
+					@endisset
 	                </td>
-	                @endisset
+	                
 
-	                @empty($task->live)
-	                <td class="align-middle bg-dark"></td>
-	                @endempty
             </tr>
             @endif
             @endforeach

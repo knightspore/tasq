@@ -28,9 +28,10 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Posts::all();
+        $tasks = Posts::all();
+        
         return view('post', [
-            'posts' => $posts
+            'tasks' => $tasks
         ]);
     }
 

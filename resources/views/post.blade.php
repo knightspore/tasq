@@ -11,7 +11,7 @@
 
     <div class="row">
         
-        @foreach ($posts->sortByDesc('priority') as $post)
+        @foreach ($tasks->sortByDesc('priority') as $task)
             @include('components.taskcards')
         @endforeach
         

@@ -10,9 +10,9 @@
 
         <!-- SUCCESS -->
         @if (Session::has('success'))
-        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 350px;">
+        <div class="alert alert-succes text-center" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 300px; text-align: center;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading p-1">Success! ✅</h4>
+        <h4 class="alert-heading p-1">Success!</h4>
         <p class="p-1">{{ Session::get('success') }}</p>
         </div>
         @endif
