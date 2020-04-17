@@ -49,12 +49,12 @@ class PostController extends Controller
     public function pickup() 
     {
         $user = request('user_id');
-        $taskid = request('task_id');
+        $taskId = request('task_id');
 
         //Fill Post User
-        $selectedtask = Posts::findOrFail($taskid);
-        $selectedtask->update(['user' => $user]);
-        $selectedtask->update(['progress' => 'WIP']);
+        $currentTask = Posts::findOrFail($taskId);
+        $currentTask->update(['user' => $user]);
+        $currentTask->update(['progress' => 'WIP']);
 
         //Return View
         $users = User::all();
@@ -63,12 +63,35 @@ class PostController extends Controller
         //Success
         Session::flash('success', 'You picked up a new task.');
        
-        return view('task', [
-            'task' => $selectedtask,
+        return view('welcome', [
+            'tasks' => $tasks,
             'users' => $users
         ]);
 
+    }
 
+    // ADD EDITOR TO TASK
+    public function editing() 
+    {
+        $user = request('user_id');
+        $taskId = request('task_id');
+
+        //Fill Post Editor
+        $currentTask = Posts::findOrFail($taskId);
+        $currentTask->update(['editor' => $user]);
+        $currentTask->update(['progress' => 'Editing']);
+
+        //Return View
+        $users = User::all();
+        $tasks = Posts::all();
+
+        //Success
+        Session::flash('success', 'You are now the editor.');
+       
+        return view('welcome', [
+            'tasks' => $tasks,
+            'users' => $users
+        ]);
     }
 
 }

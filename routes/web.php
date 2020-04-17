@@ -32,6 +32,8 @@ Route::post('submit', 'SubmitController@store');
 
 //Add user to task
 Route::post('pickup', 'PostController@pickup');
+// Edit Task
+Route::post('editing', 'PostController@editing');
 
 //Add live link to Article
 

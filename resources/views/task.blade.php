@@ -12,14 +12,14 @@
         @if (Session::has('success'))
         <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading">🚩 You've got a new task!</h4>
+        <h4 class="alert-heading">⛳</h4>
         <p>{{ Session::get('success') }}</p>
         </div>
         @endif
     
-        <!-- POST PRIORITY -->
+        <!-- POST PRIORITY & NAME-->
         @if (($task->priority) == 0)
-        <h1><badge class="badge badge-dark">{{ $task->priority}}</badge> {{ $task->task }}</h1>
+        <h1><badge class="badge badge-dark">{{ $task->priority}}</badge> {{ $task->task }} 📋</h1>
         @elseif (($task->priority) <= 3)                         
         <h1><badge class="badge badge-info">{{ $task->priority}}</badge> {{ $task->task }}</h1>
         @elseif (($task->priority) <= 6) 
@@ -30,7 +30,7 @@
         <h1><badge class="badge badge-danger">{{ $task->priority}}</badge> {{ $task->task }}</h1>
         @endif
         
-
+        <!-- DUE DATE, SITE, FOLDER, LIVE LINK -->
         <h3>Due {{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</h3>
         <h3 class="text-primary"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></h3> 
         <div class="">
@@ -52,25 +52,31 @@
                     @csrf
                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
                     <input type="hidden" name="task_id" value="{{ $task->id }}"/>
-                    <button class="btn btn-outline-secondary" type="submit" value= "UPDATE" href="#">➕ Pick up Task</button>
+                    <button class="btn btn-outline-secondary" type="submit">➕ Pick up Task</button>
                     </form>
                     @else
 
                     <!-- DISPLAY TASK USER -->
                     @foreach ($users as $user)
-
                     @if ($task->user == $user->id)
                     <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong><a href="/user/{{ $task->user }}" target="_blank">{{ $user->name }}</a></strong<></button>
                     @endif
-
                     @endforeach
 
+                    <!-- BECOME TASK EDITOR -->
                     @if ($task->editor == NULL)
-                    <button class="btn btn-outline-warning m-1 mx-auto">Edit ✏</button>
+                    <form action="/editing" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <button class="btn btn-outline-warning m-1 mx-auto" type="submit">Edit ✏</button>
+                    </form>
                     @else
+
+
                     @foreach ($users as $user)
 					@if ($task->editor == $user->id)
-                    <button type="submit" class="btn btn-warning m-1 mx-auto">Edited by {{$user->name}} ✔</button>
+                    <button type="submit" class="btn btn-warning m-1 mx-auto"><strong>Editor:</strong> {{$user->name}}</button>
 					@endif
 					@endforeach
                     @endif

@@ -15,19 +15,40 @@
         @endif
 
         <p class="card-text">
+        <!-- DUE -->
             <strong>Due:</strong> {{ \Carbon\Carbon::parse($task->due)->diffForHumans() }}
             <br>
+
+        <!-- SITE -->
             <strong>For:</strong> {{ $task->site }}
             <br>
+
+        <!-- PROGRESS -->
             <strong>Status:</strong> {{ $task->progress }}
-            @if (($task->user) != Auth::user()->name)
             <br>
+            
+
+        <!-- ASSIGNEE IF NOT SELF -->
+            @if (($task->user) != Auth::user()->id)
             @foreach ($users as $user)
             @if ($task->user == $user->id)
             <strong>Assigned to:</strong> {{ $user->name }}
+            <br>
             @endif
             @endforeach
+            @else
+            <strong>Assigned to You</strong>
+            <br>
             @endif
+
+        <!-- EDITOR -->
+            @isset ($task->editor)
+            @foreach ($users as $user)
+            @if ($task->editor == $user->id)
+            <strong>Editor: </strong> {{ $user->name }}
+            @endif
+            @endforeach
+            @endisset
         </p>
         <a href="/post/{{ $task->id }}" class="btn btn-sm btn-light text-dark">View Task</a>
     </div>
