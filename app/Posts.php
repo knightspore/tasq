@@ -30,4 +30,9 @@ class Posts extends Model
         return $this->hasOne('App\User', 'id', 'editor');
     }
 
+    public function proj()
+    {
+        return $this->belongsTo('App\Project', 'site', 'site');
+    }
+
 }

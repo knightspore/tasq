@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,9 +37,12 @@ Route::get('/kpi', 'KpiController@index')->name('kpi');                         
 Route::get('/user', 'UserController@index')->name('user');                          // User
 Route::get('/user/{id}', 'UserController@view')->name('profile');                   //View Individual Users
 Route::get('/team', 'TeamController@index')->name('team');                          // Team
+Route::get('/projects', 'ProjectController@index')->name('Project');                          // User
+Route::get('/project/{id}', 'ProjectController@view')->name('project');             // View Individual Project
 
 // SOP Redirects
 Route::redirect('/cannabis-oil.co.za', 'https://docs.google.com/spreadsheets/d/1trD-4E03KMg_MFCF6J33JrepcT2VuuXjXQJnsAKUw4U/edit#gid=358460968', 301);
 Route::redirect('/sa-airlines.co.za', 'https://docs.google.com/spreadsheets/d/1IACNzqdMb-nP0EBPxsaS8u80Jk0bpdPaT0lqx8lnKqQ/edit#gid=0', 301);
 Route::redirect('/domesticflights-southafrica.co.za', 'https://docs.google.com/spreadsheets/d/1IACNzqdMb-nP0EBPxsaS8u80Jk0bpdPaT0lqx8lnKqQ/edit#gid=0', 301);
+Route::redirect('/url', 'link', 301);
 

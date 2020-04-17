@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     //Setup for /id/ profiles
     public function view($id) {
+        //Imports
         $userId = User::findOrFail($id);
         $posts = Posts::all();
         $users = User::all();
@@ -19,6 +20,11 @@ class UserController extends Controller
             'posts'=>$posts,
             'users'=>$users
         ]);
+
+        
+
+
+
     }
 
     
