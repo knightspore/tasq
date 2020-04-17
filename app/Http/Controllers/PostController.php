@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Posts;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Session;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -45,16 +46,28 @@ class PostController extends Controller
     }
 
     // ADD USER TO TASK
-    public function update() 
+    public function pickup() 
     {
         $user = request('user_id');
+        $taskid = request('task_id');
 
         //Fill Post User
-        Posts::where('id', $id)->update(['user', $user]);
+        $selectedtask = Posts::findOrFail($taskid);
+        $selectedtask->update(['user' => $user]);
+        $selectedtask->update(['progress' => 'WIP']);
+
+        //Return View
+        $users = User::all();
+        $tasks = Posts::all();
         
         //Success
         Session::flash('success', 'You picked up a new task.');
-        return view('/');
+       
+        return view('task', [
+            'task' => $selectedtask,
+            'users' => $users
+        ]);
+
 
     }
 

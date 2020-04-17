@@ -27,16 +27,18 @@ Route::get('/kpi', 'KpiController@index')->name('kpi');             // KPI Page
 Route::get('/user', 'UserController@index')->name('user');          // User
 Route::get('/team', 'TeamController@index')->name('team');          // Team
 
-//Add Posts to Database
+//Add Tasks to Database
 Route::post('submit', 'SubmitController@store');
 
-//Add user as assignee
-Route::post('update', 'PostController@update');
+//Add user to task
+Route::post('pickup', 'PostController@pickup');
 
 //Add live link to Article
 
 //View Individual Posts
 Route::get('/post/{id}', 'PostController@view')->name('task');
+
+
 //View Individual Users
 Route::get('/user/{id}', 'UserController@view')->name('profile');
 

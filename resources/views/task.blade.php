@@ -7,6 +7,15 @@
 @section('content')
 
 <div class="container pt-5">
+
+        <!-- SUCCESS PICKUP POST -->
+        @if (Session::has('success'))
+        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading">🚩 You've got a new task!</h4>
+        <p>{{ Session::get('success') }}</p>
+        </div>
+        @endif
     
         <!-- POST PRIORITY -->
         @if (($task->priority) == 0)
@@ -39,9 +48,10 @@
 
                     <!-- PICK UP TASK -->
                     @if ($task->user == NULL)
-                    <form action="update" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+                    <form action="/pickup" method="POST">
+                    @csrf
                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
                     <button class="btn btn-outline-secondary" type="submit" value= "UPDATE" href="#">➕ Pick up Task</button>
                     </form>
                     @else
