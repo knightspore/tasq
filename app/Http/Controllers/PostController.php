@@ -55,18 +55,11 @@ class PostController extends Controller
         $currentTask = Posts::findOrFail($taskId);
         $currentTask->update(['user' => $user]);
         $currentTask->update(['progress' => 'WIP']);
-
-        //Return View
-        $users = User::all();
-        $tasks = Posts::all();
         
         //Success
         Session::flash('success', 'You picked up a new task.');
        
-        return view('welcome', [
-            'tasks' => $tasks,
-            'users' => $users
-        ]);
+        return back();
 
     }
 
@@ -81,17 +74,68 @@ class PostController extends Controller
         $currentTask->update(['editor' => $user]);
         $currentTask->update(['progress' => 'Editing']);
 
-        //Return View
-        $users = User::all();
-        $tasks = Posts::all();
-
         //Success
         Session::flash('success', 'You are now the editor.');
        
-        return view('welcome', [
-            'tasks' => $tasks,
-            'users' => $users
-        ]);
+        return back();
     }
+
+    public function complete() 
+    {   
+        $taskId = request('task_id');
+
+        //Set Status to Complete
+        $currentTask = Posts::findOrFail($taskId);
+        $currentTask->update(['progress' => 'Complete']);
+
+        //Success
+        Session::flash('success', 'You marked this task complete.');
+       
+        return back();
+    }
+
+    public function folder() 
+    {
+        $taskId = request('task_id');
+        $folder = request('postfolder');
+
+        //Set task folder
+        $currentTask = Posts::findOrFail($taskId);
+        $currentTask->update(['folder' => $folder]);
+
+        //Success
+        Session::flash('success', 'Folder Link Added.');
+       
+        return back();
+    }
+
+    public function livelink() 
+    {
+        $taskId = request('task_id');
+        $livelink = request('livelink');
+
+        //Set live link
+        $currentTask = Posts::findOrFail($taskId);
+        $currentTask->update(['live' => $livelink]);
+
+        //Success
+        Session::flash('success', 'Live link added. Remember to Archive this Post.');
+       
+        return back();
+    }
+
+    public function archivepost() 
+    {
+
+        //Archive Task
+        $currentTask = Posts::findOrFail(request('task_id'));
+        $currentTask->update(['archived' => '1']);
+        $currentTask->update(['priority' => '0']);
+
+        //Success
+        Session::flash('success', 'Post Archived.');
+       
+        return back();
+    }   
 
 }

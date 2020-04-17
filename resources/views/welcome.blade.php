@@ -19,6 +19,15 @@
     @auth
     <h1><span class="text-success text-medium">Dashboard</span>.</h1>
 
+    <!-- SUCCESS -->
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 350px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading p-1">Success! ✅</h4>
+        <p class="p-1">{{ Session::get('success') }}</p>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-md-8 text-left">
             <!--TOP 3 PRIORTY-->

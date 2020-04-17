@@ -3,39 +3,16 @@ All Ideas
     --Finish Adding Redirects
     --Create newer, bigger dataset
 
-    
+    ## Create KPI Table Functions
+        ☐ Start with Populating all Words where $post->user == $user->id
 
-    ## Individual Post view
-        ☐ Pick Up Task 
-            Set $post->user to Auth::user()->id,
-            Refresh
+    ## Create individual profile view
+        ☐ KPI this month
 
-        ☐ Edit Post
-            Set $post->editor to Auth::user()->id,
-            Refresh  
 
-        ☐ Complete Task
-            onClick($post->progress == 'Complete')    
+=========================================================
 
-        ☐ Add Folder Link to Post
-            Set $post->folder to [input]
-
-        ☐ Add live link to Post
-             Set $post->live to [input]
-
-        ☐ Archive Post (Set priority to 0)
-            Set $post->priority == 0 (Will be hidden from the main view)
-
-    ☐ ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
-
-        Sum of the total KPI points from posts where the user is 
-            Find the user                < that user and the month is               
-            Find the month                < that month
-            if ($users->user == this.user && )
-
-            @foreach ($posts->sort as $post)
-                sum ($post->points where ($post->completed == $currentMonth && $users->user == $currentUser))
-            @endforeach
+Completed Ideas
 
     ## home view
         ✔ Link Assignee with User ID
@@ -46,16 +23,30 @@ All Ideas
         ✔ picture
         ✔ e-mail
         ✔ level
-        ☐ KPI this month
         ✔ Current Posts
         ✔ Edited Posts
         ✔ Completed Posts
 
-=========================================================
-=========================================================
-=========================================================
+    ## Individual Post view
+        ✔ Pick Up Task 
+            Set $post->user to Auth::user()->id,
+            Refresh
 
-Completed Ideas
+        ✔ Edit Post
+            Set $post->editor to Auth::user()->id,
+            Refresh  
+
+        ✔ Complete Task
+            onClick($post->progress == 'Complete')    
+
+        ✔ Add Folder Link to Post
+            Set $post->folder to [input]
+
+        ✔ Add live link to Post
+             Set $post->live to [input]
+
+        ✔ Archive Post (Set priority to 0)
+            Set $post->priority == 0 (Will be hidden from the main view)
 
     -- Changed 'created-by' to 'created_by' so that it can be processed correctly in the submission form.
 

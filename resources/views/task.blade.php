@@ -8,12 +8,12 @@
 
 <div class="container pt-5">
 
-        <!-- SUCCESS PICKUP POST -->
+        <!-- SUCCESS -->
         @if (Session::has('success'))
-        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
+        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 350px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading">⛳</h4>
-        <p>{{ Session::get('success') }}</p>
+        <h4 class="alert-heading p-1">Success! ✅</h4>
+        <p class="p-1">{{ Session::get('success') }}</p>
         </div>
         @endif
     
@@ -48,7 +48,7 @@
 
                     <!-- PICK UP TASK -->
                     @if ($task->user == NULL)
-                    <form action="/pickup" method="POST">
+                    <form class="d-inline-block" action="/pickup" method="POST">
                     @csrf
                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
                     <input type="hidden" name="task_id" value="{{ $task->id }}"/>
@@ -65,7 +65,7 @@
 
                     <!-- BECOME TASK EDITOR -->
                     @if ($task->editor == NULL)
-                    <form action="/editing" method="POST">
+                    <form class="d-inline-block" action="/editing" method="POST">
                     @csrf
                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
                     <input type="hidden" name="task_id" value="{{ $task->id }}"/>
@@ -73,7 +73,7 @@
                     </form>
                     @else
 
-
+                    <!-- DISPLAY EXISTING EDITOR -->
                     @foreach ($users as $user)
 					@if ($task->editor == $user->id)
                     <button type="submit" class="btn btn-warning m-1 mx-auto"><strong>Editor:</strong> {{$user->name}}</button>
@@ -81,10 +81,19 @@
 					@endforeach
                     @endif
 
-                    @if ($task->progress == 'Complete')
-                    <button class="btn btn-success m-1 mx-auto">Complete ✔</button>
+                    <!-- COMPLETE TASK -->
+                    @if ($task->editor == NULL)
+                    <!-- SHOW NO COMPLETE INDICATION -->
+                    @elseif ($task->progress != 'Complete')
+                    <form class="d-inline-block" action="/complete" method="POST">
+                    @csrf
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <button class="btn btn-outline-success m-1 mx-auto" type="submit">Complete ❔</button>
+                    </form>
+
+                    <!-- SHOW COMPLETION -->
                     @else
-                    <button class="btn btn-outline-success m-1 mx-auto">Complete ❔</button>
+                    <button class="btn btn-success m-1 mx-auto">Complete ✔</button>
                     @endif
 
                 @endif
@@ -138,17 +147,16 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-center">
                 <label for="postfolder">Double check your sharing settings</label>
                 <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">https://drive.google.com/</span>
-                    </div>
-                    <input type="text" class="form-control" id="postfolder" aria-describedby="basic-addon3">
+                    <form class="d-inline-block text-center mx-auto" action="/folder" method="POST">
+                    @csrf
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <input type="text" class="form-control mb-2" id="postfolder" name="postfolder" aria-describedby="basic-addon3">
+                    <button type="submit" class="btn btn-primary">Add link</button>
+                    </form>
                 </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Add link</button>
                 </div>
                 </div>
             </div>
@@ -170,18 +178,19 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <label for="live-link">Use a clean url</label>
+                <div class="modal-body text-center">
+                    <label for="livelink">Use a clean url</label>
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">https://example.com/post-name/</span>
-                        </div>
-                        <input type="text" class="form-control" id="live-link" aria-describedby="basic-addon3">
+                    <form class="d-inline-block text-center mx-auto" action="/livelink" method="POST">
+                    @csrf
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <input type="text" class="form-control mb-2" name="livelink" id="livelink" aria-describedby="basic-addon3">
+                    <button type="submit" class="btn btn-primary">Add Link</button>
+                    </form>
+                        
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Add Link</button>
-                </div>
+   
                 </div>
             </div>
         </div>
@@ -190,8 +199,11 @@
 
 
        @if ($task->progress == 'Complete')
-       <button class="btn btn-sm btn-outline-secondary">
-       <a href="#" class="text-muted">😴 Archive Task</a></button>
+       <form class="d-inline-block text-center mx-auto" action="/archivepost" method="POST">
+        @csrf
+            <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+            <button type="submit" class="btn btn-sm btn-outline-secondary">😴 Archive Task</button>
+        </form>
         @endif
         </div>
 

@@ -22,7 +22,7 @@ class Posts extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user');
+        return $this->belongsTo('App\User', 'foreign_key', 'local_key');
     }
 
 }

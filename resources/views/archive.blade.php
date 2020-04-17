@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tasks')
+@section('title', 'Archived Tasks')
 
 @section('content')
 
@@ -8,14 +8,12 @@
 
 <div class="table-container mt-4 px-lg-5">
 
-    <h1 class="mb-4">📃 Task Sheet</h1>
+    <h1 class="mb-4">😴 Archived Tasks</h1>
 
     <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
         <thead class="thead-sm thead-dark text-center">
             <tr scope="row">
-                <th scope="col" id="col-priority">📣</th>
                 <th scope="col" id="col-level">lvl</th>
-                <th scope="col" id="col-due">Due</th>
                 <th scope="col" id="col-user">Assignee</th>
                 <th scope="col" id="col-project">Project<br></th>
                 <th scope="col" id="col-site">Site<br></th>
@@ -31,30 +29,12 @@
 
             <!--BEGIN TABLE SCRIPT-->
 
-            @foreach($posts->sortByDesc('priority') as $task)
-            @if ($task->priority > 0)
+            @foreach($posts->sortByDesc('due') as $task)
+            @if ($task->archived = 1)
             <tr scope="row">
-
-                <!--POST PRIORTY- high prio - text-white bg-danger-->
-	                @if (($task->priority) == 0)
-	                <td class="align-middle bg-dark text-light" id="row-prio">{{ $task->priority }}</td>
-	                @elseif (($task->priority) <= 6) 
-	                <td class="align-middle bg-light" id="row-prio">{{ $task->priority }}</td>
-	                @elseif (($task->priority) <= 8) 
-	                <td class="align-middle bg-warning" id="row-prio">{{ $task->priority }}</td>
-	                @else
-	                <td class="align-middle bg-success text-light" id="row-prio">{{ $task->priority }}</td>
-	                @endif
 
                 <!--POST LEVEL-->
                 	<td class="align-middle text-muted font-weight-light" id="row-id">{{ $task->level }}</td>
-
-                <!--DUE DATE-->
-	                @if (Str::contains(\Carbon\Carbon::parse($task->due)->diffForHumans(), 'from'))
-	                <td class="align-middle" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
-	                @else
-	                <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
-	                @endif
 
                 <!--ASSIGNEE-->
 				
@@ -131,9 +111,6 @@
             @endforeach
             </tbody>
     </table>
-
-    <button class="btn btn-info d-block mb-1"><a href="/home" class="text-light p1">🔃 Refresh List</a></button>
-    <button class="btn btn-outline-info d-block mb-5"><a href="/archive" class="text-info p1">😴 View Archive</a></button>
 
 </div>
 
