@@ -4,11 +4,11 @@ All Ideas
     --Create newer, bigger dataset
 
     ## General
-        ✔ Fix "Trying to Get Property of Non Object"
+        ☐ Added Asana Integration
+        ☐ Add a "create task" function
+        ☐ Add slack notification on task completion
         ☐ Add some info to Top Priority Pickup Tasks
-        ✔ Add details to cards
         ☐ Add CSV to Task Functionality
-        ✔ Remove Recently Completed
         
     ## Projects
 
@@ -30,7 +30,11 @@ All Ideas
 
 Completed Ideas
 
-    ## home view
+    ## General
+
+        ✔ Fix "Trying to Get Property of Non Object"
+        ✔ Add details to cards
+        ✔ Remove Recently Completed
         ✔ Link Assignee with User ID
         ✔ Link Editor with User ID
 

@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Http\Request;
+use Asana\Client;
 
 class PostController extends Controller
 {
@@ -138,5 +139,23 @@ class PostController extends Controller
        
         return back();
     }   
+
+    public function asana()
+    {
+        $token = getenv('1/898650441958819:ee9a906811ddb6d29c939372d5a8b91c');
+
+        // Access Token Instructions:
+        
+        // 1. set your token environment variable to a Personal Access Token found in Asana Account Settings
+        
+        if ($token === false) {
+            dd("Please set the ASANA_ACCESS_TOKEN environment variable.");
+        }
+        
+        // create a $client->with a Personal Access Token
+        $client = Asana\Client::accessToken($token);
+        $me = $client->users->me();
+        dd($client->users->me());
+    }
 
 }

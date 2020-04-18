@@ -7,6 +7,6 @@
         <h4 class="card-title"><a href="/user/{{ $user->id }}" class="text-dark">{{ $user->name }}</a></h4>
         <h6 class="text-success">{{ $user->role }}</h6>
         <p class="card-text"><small class="text-muted">Slack | <a href="mailto:{{ $user->email }}">Email</a> |
-                Asana</small></p>
+                <a href="{{ $client->users->getUser($user->email)->gid }}">Asana</a> </small></p>
     </div>
 </div>
