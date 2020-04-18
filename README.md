@@ -3,10 +3,26 @@ All Ideas
     --Finish Adding Redirects
     --Create newer, bigger dataset
 
+    ## General
+        ✔ Fix "Trying to Get Property of Non Object"
+        ☐ Add some info to Top Priority Pickup Tasks
+        ✔ Add details to cards
+        ☐ Add CSV to Task Functionality
+        ✔ Remove Recently Completed
+        
+    ## Projects
+
+    ## Edit Task
+    
+    ## Edit User
+    
+    ## Edit Project
+
     ## Create KPI Table Functions
-        ☐ Start with Populating all Words where $post->user == $user->id
+        ✔ Start with Populating all Words where $post->user == $user->id
 
     ## Create individual profile view
+        ✔ KPI 
         ☐ KPI this month
 
 

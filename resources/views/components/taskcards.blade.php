@@ -3,15 +3,18 @@
 
             <div class="card text-center card-outline-primary mb-2 shadow-sm">
                 <div class="card-header">
+                
                     <div>
-                    @if (($task->priority) == 0)
-                    <h5 class="card-title"><span class="badge badge-dark">{{ $task->priority }}</span> {{ $task->task }}</h5>
-                    @elseif (($task->priority) <= 5)
+                    @if ($task->progress == 'Complete')
+                    <h5 class="card-title"><span class="badge">{{ $task->priority }}</span> {{ $task->task }}</h5>
+                    @else
+                    @if (($task->priority) <= 5)
                     <h5 class="card-title"><span class="badge">{{ $task->priority }}</span> {{ $task->task }}</h5>
                     @elseif (($task->priority) <= 8)
                     <h5 class="card-title"><span class="badge badge-warning">{{ $task->priority }}</span> {{ $task->task }}</h5>
                     @else
                     <h5 class="card-title"><span class="badge badge-success">{{ $task->priority }}</span> {{ $task->task }}</h5>
+                    @endif
                     @endif
 
                     </div>
@@ -38,12 +41,12 @@
 
                     </div>
                     @isset($task->user)
-                    <h6 class="badge p1 text-light badge-dark mb-1">{{ $task->user }}</h6>
+                    <h6 class="badge badge-info p1 text-light mb-1">{{ !empty($task->owner) ? $task->owner->name:'' }}</h6>
                     @endisset
                 </div>
 
                 <div class="card-footer text-center">
-                    <a href="/post/{{ $task->id }}" class="card-link">View Task</a>
+                <a href="/post/{{ $task->id }}" class="card-link text-dark"><button class="btn">View Task</button></a>
                 </div>
 
             </div>

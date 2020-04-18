@@ -2,7 +2,7 @@
 
 <!--This is the individual Project or Website View-->
 
-@section('title', 'Projects' )
+@section('title', $thisproject->name )
 
 @section('content')
 

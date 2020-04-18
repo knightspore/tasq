@@ -6,6 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    protected $fillable = [
+        'site',
+        'sop',
+        'name',
+        'clientname',
+        'niche',
+        'accountmgr',
+        'upload',
+        'client',
+        'logo'
+        ]; 
+
     protected $table = 'projects';
 
     public function task()

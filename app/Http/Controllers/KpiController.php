@@ -12,10 +12,10 @@ class KpiController extends Controller
     public function index()
     {
 
-        $people = User::all();
+        $users = User::all();
 
         return view('kpi', [
-            'people' => $people
+            'users' => $users
         ]);
 
         return view('kpi');

@@ -27,7 +27,7 @@
             @foreach(array_slice($tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority')->toArray(), 0, 5) as $task)
             <div class="border rounded shadow-sm p-3 mb-2">
             <h4><span class="badge badge-dark">{{ $task['priority'] }}</span> {{ $task['task'] }} <span class="text-muted">| {{ $task['type'] }}</span></h4>
-            <h5 class="text-dark">{{ $task['site'] }}</h5>
+            <h5 class="text-dark"><a href="project/{{ !empty($task->proj) ? $task->proj['id']:'' }}" class="text-dark">{{ $task['site'] }}</a></h5>
             <p>{{$task['user']}}</p>
             <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
                     class="btn btn-sm btn-outline-success shadow-sm">View Task</button></a>

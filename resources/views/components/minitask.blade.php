@@ -30,7 +30,7 @@
 
         <!-- ASSIGNEE IF NOT SELF -->
             @if (($task->user) != Auth::user()->id)
-            <strong>Assigned to:</strong> {{ $task->owner->name }}
+            <strong>Assigned to:</strong> {{ !empty($task->owner) ? $task->owner->name:'' }}
             <br>
             @else
             <strong>Assigned to You</strong>
@@ -39,7 +39,7 @@
 
         <!-- EDITOR -->
             @isset ($task->editor)
-            <strong>Editor: </strong> {{ $task->edited->name }}
+            <strong>Editor: </strong> {{ !empty($task->edited) ? $task->edited->name:'' }}
             @endisset
         </p>
         <a href="/post/{{ $task->id }}" class="btn btn-sm btn-light text-dark">View Task</a>

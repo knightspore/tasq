@@ -15,7 +15,7 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('site');
+            $table->string('site')->default('example.com');
             $table->string('sop')->default('https://drive.google.com');
             $table->string('name');
             $table->string('clientname');

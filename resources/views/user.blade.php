@@ -20,7 +20,7 @@
         <hr>
             <h4><a href="mailto:{{ $user->email }}" class="badge badge-primary">📧 Email</a>
                 <span class="badge badge-success">🌠 Lvl {{ $user->level }}</span>
-                <span class="badge badge-success">🔥 KPI</span>
+                <span class="badge badge-success">🔥 KPI {{ !empty($user->task) ? $user->task->where('progress', 'Complete')->sum('points'):'' }}</span>
                 @if ( $user->id == Auth::user()->id)
                 <span class="badge badge-dark"><a href="/user/edit" class="text-light">Edit Profile</a></span>
                 @endif
@@ -31,15 +31,6 @@
             <h2 class="pb-3">🎯 Working On</h2>
             @foreach($posts as $task)
             @if(($task->user) == $user->id && (($task->progress) != "Complete"))
-
-            @include('components.minitask')
-
-            @endif
-            @endforeach
-        <!--Completed Tasks-->
-            <h2 class="pb-3">✅ Recently Completed</h2>
-            @foreach($user->task as $task)
-            @if (($task->progress) === "Complete" && ($task->priority) > 0)
 
             @include('components.minitask')
 

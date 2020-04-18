@@ -58,16 +58,15 @@
 
 				<!--ASSIGNEE-->
 					<td class="align-middle" id="row-user">
-					@isset ($task->user)
-					<a href="/user/{{ $task->owner->id }}" class="text-dark" style="text-decoration: none;">{{ $task->owner->name }}</a>
-					@endisset
+					<a href="/user/{{ !empty($task->owner) ? $task->owner->id:'' }}" class="text-dark" style="text-decoration: none;">{{ !empty($task->owner) ? $task->owner->name:'' }}
+					</a>
 					</td>
 
                 <!--CLIENT / INTERNAL-->
                 	<td class="align-middle text-muted font-weight-light" id="row-proj">{{ $task->project }}</td>
 
                 <!--SITE-->
-                	<td class="align-middle font-weight-light" id="row-site"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></td>
+                	<td class="align-middle font-weight-light" id="row-site"><a href="project/{{ !empty($task->proj) ? $task->proj->id:'' }}" target="_blank">{{ $task->site }}</a></td>
 
                 <!--TASK NAME-->
 	                @if (($task->progress) == "Not Picked Up")

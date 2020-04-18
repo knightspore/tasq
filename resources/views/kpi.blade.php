@@ -26,21 +26,21 @@
         </tr>
       </thead>
       <tbody>
-      @foreach( $people as $person)
+      @foreach( $users as $user)
         <tr>
-          <th scope="row"><a href="/user/{{ $person->id }}" class="text-white">{{ $person->name }} - <span class="text-muted">{{ $person->role }}</span></a></th>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
-          <td class="bg-light text-dark">0</td>
+          <th scope="row"><a href="/user/{{ $user->id }}" class="text-white">{{ $user->name }} - <span class="text-muted">{{ $user->role }}</span></a></th>
+          <td class="bg-light text-dark text-left">{{ !empty($user->task) ? $user->task->where('progress', 'Complete')->sum('points'):'' }}</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
+          <td class="bg-light text-dark text-left">0</td>
         </tr>
       @endforeach
       </tbody>
