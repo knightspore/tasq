@@ -10,7 +10,7 @@
 
         <!-- SUCCESS -->
         @if (Session::has('success'))
-        <div class="alert alert-succes text-center" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 300px; text-align: center;">
+        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 300px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <h4 class="alert-heading p-1">Success!</h4>
         <p class="p-1">{{ Session::get('success') }}</p>
@@ -43,94 +43,7 @@
             </div>
 
         <hr class="mb-3">
-
-        <div class="m-2">
-
-                    <!-- PICK UP TASK -->
-                    @if ($task->user == NULL)
-                    <form class="d-inline-block" action="/pickup" method="POST">
-                    @csrf
-                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
-                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
-                    <button class="btn btn-outline-secondary" type="submit">➕ Pick up Task</button>
-                    </form>
-                    @else
-
-                    <!-- DISPLAY TASK USER -->
-                    @foreach ($users as $user)
-                    @if ($task->user == $user->id)
-                    <button class="btn btn-outline-primary m-1 mx-auto">🤺 <strong><a href="/user/{{ $task->user }}" target="_blank">{{ $user->name }}</a></strong<></button>
-                    @endif
-                    @endforeach
-
-                    <!-- BECOME TASK EDITOR -->
-                    @if ($task->editor == NULL)
-                    <form class="d-inline-block" action="/editing" method="POST">
-                    @csrf
-                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
-                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
-                    <button class="btn btn-outline-warning m-1 mx-auto" type="submit">Edit ✏</button>
-                    </form>
-                    @else
-
-                    <!-- DISPLAY EXISTING EDITOR -->
-                    @foreach ($users as $user)
-					@if ($task->editor == $user->id)
-                    <button type="submit" class="btn btn-warning m-1 mx-auto"><strong>Editor:</strong> {{$user->name}}</button>
-					@endif
-					@endforeach
-                    @endif
-
-                    <!-- COMPLETE TASK -->
-                    @if ($task->editor == NULL)
-                    <!-- SHOW NO COMPLETE INDICATION -->
-                    @elseif ($task->progress != 'Complete')
-                    <form class="d-inline-block" action="/complete" method="POST">
-                    @csrf
-                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
-                    <button class="btn btn-outline-success m-1 mx-auto" type="submit">Complete ❔</button>
-                    </form>
-
-                    <!-- SHOW COMPLETION -->
-                    @else
-                    <button class="btn btn-success m-1 mx-auto">Complete ✔</button>
-                    @endif
-
-                @endif
-
                 
-
-
-                
-            </div>
-
-            @if (($task->progress) == "Complete")
-            <div class="card m-2">
-            @else
-            <div class="card bg-info text-white m-2">
-            @endif
-
-            <div class="card-body">
-                <h2 class="card-title"><strong>{{ $task->type }}</strong> 🎯 {{ $task->points }} Points</h2>
-                <h4></h4>
-                <p>{{ $task->comment }}</p>
-                <hr>
-                <p><a href="/{{ $task->site }}" class="text-dark" target="_blank">View Site SOP</a></p>
-                @if (Auth::user()->level >= 5)
-                    @foreach ($users as $user)
-                    @if ($user->id == $task->created_by)
-                <p class="text-dark">This task was created by <a href="/user/{{ $user->id }}" class="text-dark">{{ $user->name }}</a>.</p>
-                    @endif
-                    @endforeach
-                <button class="btn btn-light btn-sm shadow-sm">Edit Task</button>
-                @endif
-
-            </div>
-                
-            </div>
-        <hr class="mb-3">
-       
-        
         <div class="d-grid m-2">
         @empty ($task->folder)
         <!-- Button trigger modal -->
@@ -207,6 +120,87 @@
         @endif
         </div>
 
+
+            @if (($task->progress) == "Complete")
+            <div class="card m-2">
+            @else
+            <div class="card bg-dark text-white m-2">
+            @endif
+
+
+
+            <div class="card-body">
+                <h2 class="card-title"><strong>{{ $task->type }}</strong> | {{ $task->points }} Points</h2>
+                <h4></h4>
+                <div class="m-2">
+                    <!-- PICK UP TASK -->
+                    @if ($task->user == NULL)
+                    <form class="d-inline-block" action="/pickup" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <button class="btn btn-secondary" type="submit">➕ Pick up Task</button>
+                    </form>
+                    @else
+
+                    <!-- DISPLAY TASK USER -->
+                    @foreach ($users as $user)
+                    @if ($task->user == $user->id)
+                    <a href="/user/{{ $task->user }}" target="_blank"><button class="btn btn-primary m-1 mx-auto">🤺 <strong>{{ $user->name }}</strong<></button></a>
+                    @endif
+                    @endforeach
+
+                    <!-- BECOME TASK EDITOR -->
+                    @if ($task->editor == NULL)
+                    <form class="d-inline-block" action="/editing" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <button class="btn btn-warning m-1 mx-auto" type="submit"><strong>📝 Edit</strong></button>
+                    </form>
+                    @else
+
+                    <!-- DISPLAY EXISTING EDITOR -->
+                    @foreach ($users as $user)
+					@if ($task->editor == $user->id)
+                    <button type="submit" class="btn btn-warning m-1 mx-auto"><strong>📝 {{$user->name}}</strong></button>
+					@endif
+					@endforeach
+                    @endif
+
+                    <!-- COMPLETE TASK -->
+                    @if ($task->editor == NULL)
+                    <!-- SHOW NO COMPLETE INDICATION -->
+                    @elseif ($task->progress != 'Complete')
+                    <form class="d-inline-block" action="/complete" method="POST">
+                    @csrf
+                    <input type="hidden" name="task_id" value="{{ $task->id }}"/>
+                    <button class="btn btn-success m-1 mx-auto" type="submit"><strong>Complete ❔</strong></button>
+                    </form>
+
+                    <!-- SHOW COMPLETION -->
+                    @else
+                    <button class="btn btn-success m-1 mx-auto">Complete ✔</button>
+                    @endif
+
+                @endif
+
+            </div>
+                <p>{{ $task->comment }}</p>
+                <hr>
+                <p><a href="/{{ $task->site }}" class="text-light" target="_blank">View Site SOP</a></p>
+                @if (Auth::user()->level >= 5)
+                    @foreach ($users as $user)
+                    @if ($user->id == $task->created_by)
+                <p class="text-dark">This task was created by <a href="/user/{{ $user->id }}" class="text-dark">{{ $user->name }}</a>.</p>
+                    @endif
+                    @endforeach
+                <button class="btn btn-light btn-sm shadow-sm">Edit Task</button>
+                @endif
+
+            </div>
+                
+            </div>
 
         
         <hr class="mb-3">

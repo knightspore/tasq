@@ -1,7 +1,8 @@
 All Ideas
 
-    --Finish Adding Redirects
-    --Create newer, bigger dataset
+    -- Create new asana task from newly picked up task
+    -- Send slack message to #content upon completion
+    -- Use newer, bigger dataset
 
     ## General
         ☐ Added Asana Integration
