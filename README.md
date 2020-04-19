@@ -6,6 +6,7 @@ All Ideas
 
     ## General
         ✔ Add Asana Integration
+
         ☐ Add a "create task" function on task assigning
             -- Add new field Asana Task
             -- Create new Asana Task
@@ -15,11 +16,15 @@ All Ideas
                 * due -> due
                 * commet -> comment 
             -- Save Link to Field
-        ☐ Add slack notification on task completion 
+
+        ☐ Add slack notification on task completion & slack integration
             -- send slack message to #test
             -- "$task->name is now complete $task->livelink"
-        ☐ Add some info to Top Priority Pickup Tasks
+
+        ☐ Add Google Login
+
         ☐ Add CSV to Task Functionality
+        
         ☐ KPI this month
         
     ## Projects
