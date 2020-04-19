@@ -5,26 +5,34 @@ All Ideas
     -- Use newer, bigger dataset
 
     ## General
-        ☐ Added Asana Integration
-        ☐ Add a "create task" function
-        ☐ Add slack notification on task completion
+        ✔ Add Asana Integration
+        ☐ Add a "create task" function on task assigning
+            -- Add new field Asana Task
+            -- Create new Asana Task
+                Try to find Template
+                * User -> current
+                * Project -> site
+                * due -> due
+                * commet -> comment 
+            -- Save Link to Field
+        ☐ Add slack notification on task completion 
+            -- send slack message to #test
+            -- "$task->name is now complete $task->livelink"
         ☐ Add some info to Top Priority Pickup Tasks
         ☐ Add CSV to Task Functionality
+        ☐ KPI this month
         
     ## Projects
+        ☐ Clean up database
 
     ## Edit Task
-    
+        ☐ Create edit task page
+
     ## Edit User
+        ☐ Create edit user page
     
     ## Edit Project
-
-    ## Create KPI Table Functions
-        ✔ Start with Populating all Words where $post->user == $user->id
-
-    ## Create individual profile view
-        ✔ KPI 
-        ☐ KPI this month
+        ☐ Create edit project page
 
 
 =========================================================
@@ -47,6 +55,7 @@ Completed Ideas
         ✔ Current Posts
         ✔ Edited Posts
         ✔ Completed Posts
+        ✔ KPI 
 
     ## Individual Post view
         ✔ Pick Up Task 

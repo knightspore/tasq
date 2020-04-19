@@ -38,12 +38,14 @@ class PostController extends Controller
 
     // VIEW INDIVIDUAL POST
     public function view($id) {
+        $client = Client::accessToken('1/898650441958819:ee9a906811ddb6d29c939372d5a8b91c');
         $postId = Posts::findOrFail($id);
         $users = User::all();
 
         return view('task', [
             'task'=>$postId,
-            'users' => $users
+            'users' => $users,
+            'client' => $client
         ]);
     }
 

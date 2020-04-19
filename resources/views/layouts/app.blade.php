@@ -53,11 +53,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/post">Cards</a>
                         </li>
-                        @if (Auth::user()->level >= 4)
+                        <li class="nav-item"><a class="nav-link text-dark" href="/kpi">{{ __('KPI') }}</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="/team">{{ __('Team') }}</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="/archive">{{ __('Archive') }}</a></li>
+                        
                         <li class="nav-item">
                             <a class="nav-link text-success" href="/submit" role="button">+ Create Task</a>
                         </li>
-                        @endif
                         @endauth
                     </ul>
 
@@ -76,9 +78,8 @@
                         @else
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link text-dark dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Menu<span class="caret text-dark"></span>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-success" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-fluid img-thumbnail rounded-circle my-auto mr-2" style="width: 50px; height: auto;"> {{ Auth::user()->name }}<span class="caret text-dark"></span>
                             </a>
 
                             
@@ -86,16 +87,6 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/user/{{ Auth::user()->id }}">
                                     {{ __('Profile') }}
-                                </a>
-                                <a class="dropdown-item" href="/kpi">
-                                    {{ __('KPI') }}
-                                </a>
-                                <a class="dropdown-item" href="/team">
-                                    {{ __('Team') }}
-                                </a>
-                                </a>
-                                <a class="dropdown-item" href="/archive">
-                                    {{ __('Archive') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

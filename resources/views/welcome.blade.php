@@ -25,12 +25,18 @@
             <h2 class="py-3">📫 Top Priority Pickups</h2>
 
             @foreach(array_slice($tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority')->toArray(), 0, 5) as $task)
-            <div class="border rounded shadow-sm p-3 mb-2">
-            <h4><span class="badge badge-dark">{{ $task['priority'] }}</span> {{ $task['task'] }} <span class="text-muted">| {{ $task['type'] }}</span></h4>
+            <div class="border rounded shadow p-3 mb-4">
+            <h3><span class="badge badge-success">{{ $task['priority'] }}</span> {{ $task['task'] }} <span class="text-muted"></span></h3>
+            <h5 class="text-dark">{{ $task['type'] }}</h5>
             <h5 class="text-dark"><a href="project/{{ !empty($task->proj) ? $task->proj['id']:'' }}" class="text-dark">{{ $task['site'] }}</a></h5>
-            <p>{{$task['user']}}</p>
+            @isset($task['comment'])
+            <div class="border rounded shadow-sm mb-2">
+            <p class="p-3">{{$task['comment']}}</p>
+            </div>
+            @endisset
             <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
                     class="btn btn-sm btn-outline-success shadow-sm">View Task</button></a>
+            <div class="badge">This is a level {{$task['level']}} task for {{$task['points']}} points.</div>
             </div>
             @endforeach
 

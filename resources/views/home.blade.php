@@ -11,7 +11,7 @@
     <h1 class="mb-4">📃 Task Sheet</h1>
 
     <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
-        <thead class="thead-sm thead-dark text-center">
+        <thead class="thead thead-dark text-center">
             <tr scope="row">
                 <th scope="col" id="col-priority">📣</th>
                 <th scope="col" id="col-level">lvl</th>
