@@ -9,8 +9,13 @@
     <!--Guest Welcome Area-->
 
     @guest
-    <div style="padding-top: 15em;">
-        <h1 class="">Welcome to <span class="text-success">Travel Tractions</span> Task Manager</h1>
+    <div class="jumbotron jumbotron-fluid rounded shadow-sm bg-white">
+        <h1 class="display-4">Welcome to <span class="text-success">Travel Tractions</span> Task Manager</h1>
+        <p class="lead">Manage your tasks with ease.</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-success btn-lg" href="{{ route('login') }}" role="button">Login</a>
+        </p>
     </div>
     @endguest
 
