@@ -57,9 +57,7 @@
                         <li class="nav-item"><a class="nav-link text-dark" href="/team">{{ __('Team') }}</a></li>
                         <li class="nav-item"><a class="nav-link text-dark" href="/archive">{{ __('Archive') }}</a></li>
                         
-                        <li class="nav-item">
-                            <a class="nav-link text-success" href="/submit" role="button">+ Create Task</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link text-success" href="/submit" role="button">+ Create</a></li>
                         @endauth
                     </ul>
 
@@ -109,6 +107,14 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- ToolTip Script -->
+    <script>
+            $( document ).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+            });
+        </script>
+
 </body>
 
 </html>

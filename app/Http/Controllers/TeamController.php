@@ -25,7 +25,7 @@ class TeamController extends Controller
         // 1. set your token environment variable to a Personal Access Token found in Asana Account Settings
         
         // create a $client->with a Personal Access Token
-        $client = Client::accessToken('1/898650441958819:ee9a906811ddb6d29c939372d5a8b91c');
+        $client = Client::accessToken(env('ASANA_TOKEN'));
 
         return view('team', [
             'posts' => $posts,
