@@ -1,29 +1,29 @@
-All Ideas
+
+# All Ideas
 
 -- Create new asana task from newly picked up task
--- Send slack message to #content upon completion
 -- Use newer, bigger dataset
 
 ## General
-    ✔ Add Asana Integration
-
-    ✔ Fixing array loop in welcome blade
+    ☐ Add CSV to Task Functionality
+    ☐ KPI this month
     
-## Projects
+### Projects
     ☐ Clean up database
 
-## Edit Task
+### Edit Task
     ☐ Create edit task page
 
-## Edit User
+### Edit User
     ☐ Create edit user page
 
-## Edit Project
+### Edit Project
     ☐ Create edit project page
 
-## Notifications
+## Integrations
+Add Integration Functionality
 
-# # # Asana
+### Asana
 
 ☐ Add a "create task" function on task assigning
     -- Add new field Asana Task
@@ -35,19 +35,13 @@ All Ideas
         * commet -> comment 
     -- Save Link to Field
 
-# # # Slack
+### Slack
 
     ✔ Add slack notification on task completion & slack integration
     -- send slack message to #test
     -- "$task->name is now complete $task->livelink"
-    ☐ Pickedup
+    ✔ Pickedup
     ✔ Editing
-
-
-    ☐ Add CSV to Task Functionality
-    
-    ☐ KPI this month
-
 
 =========================================================
 
@@ -55,6 +49,8 @@ Completed Ideas
 
     ## General
 
+        ✔ Add Asana Integration
+        ✔ Fixing array loop in welcome blade
         ✔ Fix "Trying to Get Property of Non Object"
         ✔ Add details to cards
         ✔ Remove Recently Completed
