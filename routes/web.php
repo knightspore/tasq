@@ -31,7 +31,8 @@ Route::get('/post', 'PostController@index')->name('post');                      
 Route::get('/post/{id}', 'PostController@view')->name('task');                      // View Individual Posts
 
 Route::post('pickup', 'PostController@pickup')->name('pickup');                     //Add user to task
-Route::post('archivepost', 'PostController@archivepost')->name('archivepost');      //Add user to task
+
+Route::post('archivepost', 'PostController@archivepost')->name('archivepost');      //Archive Task
 Route::post('editing', 'PostController@editing')->name('editing');                  // Edit Task
 Route::post('complete', 'PostController@complete')->name('complete');               // Complete Task
 Route::post('folder', 'PostController@folder')->name('folder');                     // Add Task Folder

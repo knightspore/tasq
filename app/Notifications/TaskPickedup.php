@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 
-class TaskCompleted extends Notification
+class TaskPickedup extends Notification
 {
     use Queueable;
 
@@ -34,27 +34,18 @@ class TaskCompleted extends Notification
 
     public function toSlack($notifiable)
     {
-
-        $url = $notifiable->live;
+        $inAppLink = url("/");
         $name = $notifiable->owner->name;
-        $editor = $notifiable->edited->name;
-        $inAppLink = url()->full();
 
-        // dd($notifiable);
         return (new SlackMessage)
-                ->to('#test')
-                ->success()
-                ->content(":heavy_check_mark: $name completed a task.")
-                ->attachment(function ($attachment) use ($notifiable, $editor, $inAppLink) {
+                ->to("@$name")
+                ->content(":dart: You picked up $notifiable->task.")
+                ->attachment(function ($attachment) use ($notifiable, $inAppLink) {
                     $attachment->title("$notifiable->task", "$inAppLink/post/$notifiable->id")
                                 ->content("$notifiable->comment")
                                 ->fields([
-                                    'Site' => "$notifiable->site",
-                                    'Info' => "$notifiable->type, $notifiable->points Points",
-                                    'Edited by' => "$editor",
-                                    'Links' => "<$notifiable->folder|📁> - <$notifiable->live|🔗>",
+                                    '' => "for $notifiable->site - $notifiable->points Points.",
                                 ]);
                 });
-
     }
 }

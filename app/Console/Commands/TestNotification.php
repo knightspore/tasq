@@ -6,6 +6,9 @@ use Illuminate\Console\Command;
 use App\User;
 use App\Posts;
 use App\Notifications\TaskCompleted;
+use App\Notifications\TaskEdited;
+use App\Notifications\TaskPickedup;
+use Asana\Client;
 
 class TestNotification extends Command
 {
@@ -40,6 +43,7 @@ class TestNotification extends Command
      */
     public function handle()
     {
-        Posts::find(44)->notify(new TaskCompleted());
+        Posts::find(44)->notify(new TaskPickedup());
+        
     }
 }

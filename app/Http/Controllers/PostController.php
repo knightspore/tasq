@@ -9,6 +9,8 @@ use Session;
 use Illuminate\Http\Request;
 use Asana\Client;
 use App\Notifications\TaskCompleted;
+use App\Notifications\TaskEdited;
+use App\Notifications\TaskPickedup;
 
 class PostController extends Controller
 {
@@ -57,10 +59,12 @@ class PostController extends Controller
         $taskId = request('task_id');
 
         //Fill Post User
-        $currentTask = Posts::findOrFail($taskId);
-        $currentTask->update(['user' => $user]);
-        $currentTask->update(['progress' => 'WIP']);
-        
+        $curTask = Posts::findOrFail($taskId);
+        $curTask->update(['user' => $user]);
+        $curTask->update(['progress' => 'WIP']);
+
+
+
         //Success
         Session::flash('success', 'You picked up a new task.');
        
@@ -78,6 +82,7 @@ class PostController extends Controller
         $currentTask = Posts::findOrFail($taskId);
         $currentTask->update(['editor' => $user]);
         $currentTask->update(['progress' => 'Editing']);
+        $currentTask->notify(new TaskEdited);
 
         //Success
         Session::flash('success', 'You are now the editor.');
@@ -85,6 +90,7 @@ class PostController extends Controller
         return back();
     }
 
+    // COMPLETE TASK
     public function complete() 
     {   
         $taskId = request('task_id');
@@ -149,20 +155,20 @@ class PostController extends Controller
 
     public function asana()
     {
-        $token = getenv('1/898650441958819:ee9a906811ddb6d29c939372d5a8b91c');
+        $token = env("ASANA_TOKEN");
 
         // Access Token Instructions:
         
         // 1. set your token environment variable to a Personal Access Token found in Asana Account Settings
         
         if ($token === false) {
-            dd("Please set the ASANA_ACCESS_TOKEN environment variable.");
+            dd("Token Rejected");
         }
         
         // create a $client->with a Personal Access Token
         $client = Asana\Client::accessToken($token);
         $me = $client->users->me();
-        dd($client->users->me());
+        dd($me);
     }
 
 }
