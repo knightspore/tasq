@@ -38,7 +38,7 @@ class TaskCompleted extends Notification
         $url = $notifiable->live;
         $name = $notifiable->owner->name;
         $editor = $notifiable->edited->name;
-        $inAppLink = url()->full();
+        $inAppLink = url('/');
 
         // dd($notifiable);
         return (new SlackMessage)
