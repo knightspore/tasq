@@ -6,6 +6,9 @@ All Ideas
 
     ## General
         ✔ Add Asana Integration
+        ✔ Fixing array loop in welcome blade
+
+        ☐ Turn Post Editor Into WYSIWYG
 
         ☐ Add a "create task" function on task assigning
             -- Add new field Asana Task
