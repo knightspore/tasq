@@ -36,7 +36,7 @@
 
             <!--Task Website-->
             <div class="form-group col-sm">
-                <label for="postSite">Site</label>
+                <label for="postSite">Site (No http/www)</label>
                 <input name="site" type="text" id="postSite" class="form-control" placeholder="example.com" required>
             </div>
 
@@ -52,16 +52,16 @@
             <div class="form-group col-sm">
                 <label for="postPriority">Priority</label>
                 <select name="priority" class="form-control" id="postPriority" required>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
                     <option>10</option>
+                    <option>9</option>
+                    <option>8</option>
+                    <option>7</option>
+                    <option>6</option>
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
                 </select>
             </div>
 
@@ -83,13 +83,14 @@
                 <select name="type" id="postType" class="form-control" required>
                     <option>Info Post</option>
                     <option>List Post</option>
+                    <option>Guest Post</option>
+                    <option>Affiliate Post</option>
                     <option>Content Mine</option>
                     <option>Optimization</option>
-                    <option>Audit</option>
+                    <option>SEO Audit</option>
                     <option>Design</option>
+                    <option>Development</option>
                     <option>Social Media</option>
-                    <option>Guest Post</option>
-
                 </select>
             </div>
 
@@ -121,7 +122,8 @@
 
         <div class="form-group">
             <label for="postComment">Comments</label>
-            <textarea name="comments" class="form-control" id="postComment" cols="10" rows="3"></textarea>
+
+            <!-- <textarea name="comments" class="form-control" id="postComment" cols="10" rows="3"></textarea> -->
         </div>
 
         <!--Submit Single Task (post)-->
@@ -135,7 +137,7 @@
     <hr>
 
     <h2 class="mt-3">Add Multiple Tasks as CSV</h2>
-    <form>
+    <form class="text-muted">
         <div class="form-group">
             <label for="uploadPostsCsv"><a href="/task-template.csv">Click here</a> for an example .csv file. (Open with Excel or Google Docs)</label>
             <input type="file" class="form-control-file" id="uploadPostsCsv">

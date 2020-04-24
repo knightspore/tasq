@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Posts', 'user');
     }
+
+    public function routeNotificationFor($driver)
+    {
+        return env('SLACK_HOOK');
+    }
 }

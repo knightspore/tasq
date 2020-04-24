@@ -108,6 +108,8 @@
         </main>
     </div>
 
+    <!-- Ion Icons -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <!-- ToolTip Script -->
     <script>
             $( document ).ready(function() {

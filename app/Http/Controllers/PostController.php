@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Http\Request;
 use Asana\Client;
+use App\Notifications\TaskCompleted;
 
 class PostController extends Controller
 {
@@ -92,6 +93,9 @@ class PostController extends Controller
         $currentTask = Posts::findOrFail($taskId);
         $currentTask->update(['progress' => 'Complete']);
 
+        // Send Slack Notification to #content
+        $currentTask->notify(new TaskCompleted);
+
         //Success
         Session::flash('success', 'You marked this task complete.');
        
@@ -123,9 +127,10 @@ class PostController extends Controller
         $currentTask->update(['live' => $livelink]);
 
         //Success
-        Session::flash('success', 'Live link added. Remember to Archive this Post.');
+        Session::flash('success', 'Live link added.');
        
         return back();
+
     }
 
     public function archivepost() 

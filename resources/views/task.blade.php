@@ -73,7 +73,7 @@
                                             @csrf
                                             <input type="hidden" name="task_id" value="{{ $task->id }}" />
                                             <input type="text" class="form-control mb-2" id="postfolder"
-                                                name="postfolder" aria-describedby="basic-addon3">
+                                                name="postfolder" aria-describedby="basic-addon3" placeholder="https://drive.google.com/">
                                             <button type="submit" class="btn btn-primary">Add link</button>
                                         </form>
                                     </div>
@@ -84,6 +84,7 @@
                     @endempty
 
                     @empty ($task->live)
+                    @isset($task->folder)
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal"
                         data-target="#livelink">
@@ -101,14 +102,14 @@
                                     </button>
                                 </div>
                                 <div class="modal-body text-center">
-                                    <label for="livelink">Use a clean url</label>
+                                    <label for="livelink">Use a Clean URL (No Tags)</label>
                                     <div class="input-group mb-3">
                                         <form class="d-inline-block text-center mx-auto" action="/livelink"
                                             method="POST">
                                             @csrf
                                             <input type="hidden" name="task_id" value="{{ $task->id }}" />
                                             <input type="text" class="form-control mb-2" name="livelink" id="livelink"
-                                                aria-describedby="basic-addon3">
+                                                aria-describedby="basic-addon3" placeholder="https://example.com/">
                                             <button type="submit" class="btn btn-primary">Add Link</button>
                                         </form>
 
@@ -118,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-
+                    @endisset
                     @endempty
 
 
