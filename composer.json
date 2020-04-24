@@ -13,11 +13,13 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "~6.0",
+        "laravel-notification-channels/webhook": "^2.0",
         "laravel/framework": "^7.0",
         "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^2.0",
         "nesbot/carbon": "^2.31",
-        "olek/weather": "dev-master"
+        "olek/weather": "dev-master",
+        "spatie/laravel-webhook-server": "^1.9"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

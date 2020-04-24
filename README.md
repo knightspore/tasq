@@ -41,7 +41,7 @@ All Ideas
     -- send slack message to #test
     -- "$task->name is now complete $task->livelink"
     ☐ Pickedup
-    ☐ Editing
+    ✔ Editing
 
 
     ☐ Add CSV to Task Functionality
