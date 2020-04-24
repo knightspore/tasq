@@ -1,8 +1,8 @@
 
 # All Ideas
 
--- Create new asana task from newly picked up task
--- Use newer, bigger dataset
+    -- Create new asana task from newly picked up task
+    -- Use newer, bigger dataset
 
 ## General
     ☐ Add CSV to Task Functionality
@@ -21,11 +21,11 @@
     ☐ Create edit project page
 
 ## Integrations
-Add Integration Functionality
+    Add Integration Functionality
 
 ### Asana
 
-☐ Add a "create task" function on task assigning
+    ☐ Add a "create task" function on task assigning
     -- Add new field Asana Task
     -- Create new Asana Task
         Try to find Template
@@ -45,7 +45,7 @@ Add Integration Functionality
 
 =========================================================
 
-Completed Ideas
+# Completed Ideas
 
     ## General
 
