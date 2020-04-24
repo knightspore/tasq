@@ -64,8 +64,6 @@ class PostController extends Controller
         $curTask->update(['progress' => 'WIP']);
         $curTask->notify(new TaskPickedup);
 
-
-
         //Success
         Session::flash('success', 'You picked up a new task.');
        
