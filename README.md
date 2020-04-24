@@ -1,46 +1,52 @@
 All Ideas
 
-    -- Create new asana task from newly picked up task
-    -- Send slack message to #content upon completion
-    -- Use newer, bigger dataset
+-- Create new asana task from newly picked up task
+-- Send slack message to #content upon completion
+-- Use newer, bigger dataset
 
-    ## General
-        ✔ Add Asana Integration
-        ✔ Fixing array loop in welcome blade
+## General
+    ✔ Add Asana Integration
 
-        ☐ Turn Post Editor Into WYSIWYG
-
-        ☐ Add a "create task" function on task assigning
-            -- Add new field Asana Task
-            -- Create new Asana Task
-                Try to find Template
-                * User -> current
-                * Project -> site
-                * due -> due
-                * commet -> comment 
-            -- Save Link to Field
-
-        ☐ Add slack notification on task completion & slack integration
-            -- send slack message to #test
-            -- "$task->name is now complete $task->livelink"
-
-        ☐ Add Google Login
-
-        ☐ Add CSV to Task Functionality
-        
-        ☐ KPI this month
-        
-    ## Projects
-        ☐ Clean up database
-
-    ## Edit Task
-        ☐ Create edit task page
-
-    ## Edit User
-        ☐ Create edit user page
+    ✔ Fixing array loop in welcome blade
     
-    ## Edit Project
-        ☐ Create edit project page
+## Projects
+    ☐ Clean up database
+
+## Edit Task
+    ☐ Create edit task page
+
+## Edit User
+    ☐ Create edit user page
+
+## Edit Project
+    ☐ Create edit project page
+
+## Notifications
+
+# # # Asana
+
+☐ Add a "create task" function on task assigning
+    -- Add new field Asana Task
+    -- Create new Asana Task
+        Try to find Template
+        * User -> current
+        * Project -> site
+        * due -> due
+        * commet -> comment 
+    -- Save Link to Field
+
+# # # Slack
+
+    ✔ Add slack notification on task completion & slack integration
+    -- send slack message to #test
+    -- "$task->name is now complete $task->livelink"
+    ☐ Pickedup
+    ☐ Editing
+
+
+    ☐ Add CSV to Task Functionality
+    
+    ☐ KPI this month
 
 
 =========================================================

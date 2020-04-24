@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+
 
 class Posts extends Model
 {
+    use Notifiable;
     
     protected $fillable = [
         'user',         // Pickup Post
@@ -33,6 +36,11 @@ class Posts extends Model
     public function proj()
     {
         return $this->belongsTo('App\Project', 'site', 'site');
+    }
+
+    public function routeNotificationFor($driver)
+    {
+        return env('SLACK_HOOK');
     }
 
 }

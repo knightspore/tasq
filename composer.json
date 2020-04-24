@@ -14,6 +14,7 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "~6.0",
         "laravel/framework": "^7.0",
+        "laravel/slack-notification-channel": "^2.0",
         "laravel/tinker": "^2.0",
         "nesbot/carbon": "^2.31",
         "olek/weather": "dev-master"
