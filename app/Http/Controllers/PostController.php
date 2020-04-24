@@ -62,7 +62,7 @@ class PostController extends Controller
         $curTask = Posts::findOrFail($taskId);
         $curTask->update(['user' => $user]);
         $curTask->update(['progress' => 'WIP']);
-        $currentTask->notify(new TaskPickedup);
+        $curTask->notify(new TaskPickedup);
 
 
 
