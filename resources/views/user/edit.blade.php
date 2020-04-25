@@ -42,7 +42,7 @@
                 <div class="row input-group">
                     <div class="form-group col-sm">
                         <label for="username">Name</label>
-                        <input name="username"type="text" id="username" class="form-control" value="{{ $user->name }}" placeholder="First Name">
+                        <input name="username" type="text" id="username" class="form-control" value="{{ $user->name }}" placeholder="First Name">
                     </div>
                     <div class="form-group col-sm">
                         <label for="email">Email</label>
@@ -57,6 +57,10 @@
                     <div class="form-group col-sm">
                         <label for="level">Level</label>
                         <input name="level"type="text" id="level" class="form-control" value="{{ $user->level }}" placeholder="{{ $user->level }}">
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="avatar">Avatar</label>
+                        <input name="avatar" type="text" id="avatar" class="form-control" value="{{ $user->avatar }}" placeholder="Link to Avatar">
                     </div>
                     <div class="form-group col-sm">
                         <label for="slackid">Slack ID</label>

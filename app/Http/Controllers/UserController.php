@@ -45,6 +45,7 @@ class UserController extends Controller
         $email = request('email');
         $role = request('role');
         $level = request('level');
+        $avatar = request('avatar');
 
         //Fill New User Details
         $userToEdit = User::findOrFail($id);
@@ -53,6 +54,7 @@ class UserController extends Controller
         $userToEdit->update(['email' => $email]);
         $userToEdit->update(['role' => $role]);
         $userToEdit->update(['level' => $level]);
+        $userToEdit->update(['avatar' => $avatar]);
 
         // dd($userToEdit);
 

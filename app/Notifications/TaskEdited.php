@@ -48,6 +48,17 @@ class TaskEdited extends Notification
                                     '' => "for $notifiable->site",
                                 ]);
                 });
+
+                return (new SlackMessage)
+                ->to("@Ciaran") //Change to @name in the live version
+                ->warning()
+                ->content(":writing_hand: You are editing $notifiable->task for $name.")
+                ->attachment(function ($attachment) use ($notifiable, $editor, $inAppLink) {
+                    $attachment->title("$notifiable->task", "$inAppLink/post/$notifiable->id")
+                                ->fields([
+                                    '' => "for $notifiable->site",
+                                ]);
+                });
     }
 
 }

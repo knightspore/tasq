@@ -11,10 +11,19 @@ class Posts extends Model
     use Notifiable;
     
     protected $fillable = [
+        'task',
         'user',         // Pickup Post
         'progress',     // General 
         'editor',       // Become Editor
         'live',         // Add Live Link
+        'site',
+        'due',
+        'completed',
+        'level',
+        'type',
+        'points',
+        'project',
+        'comment',
         'folder',       // Add Google Drive Folder
         'priority',     // Archive Post
         'archived',      // Archive Post

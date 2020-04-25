@@ -11,7 +11,7 @@
         @if (Session::has('success'))
         <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading">🎉 Added!</h4>
+        <h4 class="alert-heading">Success!</h4>
         <p>{{ Session::get('success') }}</p>
         </div>
         @endif
@@ -116,10 +116,9 @@
         </div>
 
         <!--Comment-->
-        <!-- NEEDS TO BE FIXED -->
         <div class="form-group">
             <label for="comment">Comments</label>
-            <textarea name="comment" class="form-control" id="comment" cols="10" rows="3" text="{{$task->comment}}"></textarea>
+            <textarea name="comment" class="form-control" id="comment" cols="10" rows="3">{{$task->comment}}</textarea>
         </div>
 
         <div class="row">

@@ -11,12 +11,6 @@
 ### Projects
     ☐ Clean up database
 
-### Edit Task
-    ☐ Create edit task page
-
-### Edit User
-    ☐ Create edit user page
-
 ### Edit Project
     ☐ Create edit project page
 
@@ -38,6 +32,14 @@
 =========================================================
 
 # Completed Ideas
+
+
+### Edit Task
+    ✔ Create edit task page
+
+### Edit User
+    ✔ Create edit user page
+
 
 ## Slack
 
