@@ -122,8 +122,7 @@
 
         <div class="form-group">
             <label for="postComment">Comments</label>
-
-            <!-- <textarea name="comments" class="form-control" id="postComment" cols="10" rows="3"></textarea> -->
+            <textarea name="comments" class="form-control" id="postComment" cols="10" rows="3"></textarea>
         </div>
 
         <!--Submit Single Task (post)-->

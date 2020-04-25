@@ -22,7 +22,7 @@
                 <span class="badge badge-success">🌠 Lvl {{ $user->level }}</span>
                 <span class="badge badge-success">🔥 KPI {{ !empty($user->task) ? $user->task->where('progress', 'Complete')->sum('points'):'' }}</span>
                 @if ( $user->id == Auth::user()->id)
-                <span class="badge badge-dark"><a href="/user/edit" class="text-light">Edit Profile</a></span>
+                <span class="badge badge-dark"><a href="/user/{{ $user->id }}/edit" class="text-light">Edit Profile</a></span>
                 @endif
             </h4>
         </div>

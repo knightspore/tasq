@@ -21,12 +21,34 @@ class UserController extends Controller
             'posts'=>$posts,
             'users'=>$users
         ]);
+    }
 
-        
-        
+    public function edit($id) 
+    {
+        $userId = User::findOrFail($id);
+        $posts = Posts::all();
+        $users = User::all();
 
+        return view('user.edit', [
+            'user'=>$userId,
+            'posts'=>$posts,
+            'users'=>$users
+        ]);
+    }
 
+    public function store($id)
+    {
+        $userToEdit = User::findOrFail($id);
+        $posts = Posts::all();
+        $users = User::all();
 
+        dd($userToEdit);
+
+        return view('user', [
+            'user'=>$userId,
+            'posts'=>$posts,
+            'users'=>$users
+        ]);
     }
 
     

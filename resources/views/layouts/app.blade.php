@@ -14,20 +14,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--Font Imports-->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <!--Social Metia & Opengraph Tags-->
     <!-- Open Graph data -->
     <meta property="og:title" content="@yield('title') · Task Manager" />
     <meta property="og:type" content="app" />
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
     <meta property="og:description" content="" /> 
-    <!-- Twitter Card data -->
-    <meta name="twitter:site" content="@traveltractions">
-    <meta name="twitter:title" content="@yield('title') · Task Manager">
-    <meta name="twitter:description" content="Travel Tractions Task Management App">
-    <meta name="twitter:creator" content="@parabyl">
-    <!-- Twitter Summary card images must be at least 120x120px -->
-    <meta name="twitter:image" content="{{ asset('img/webicon.png') }}"> 
 </head>
 
 <body>

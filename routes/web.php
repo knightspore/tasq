@@ -42,6 +42,8 @@ Route::get('/kpi', 'KpiController@index')->name('kpi');                         
 
 Route::get('/user', 'UserController@index')->name('user');                          // User
 Route::get('/user/{id}', 'UserController@view')->name('profile');                   //View Individual Users
+Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');                   //View Individual Users
+Route::post('/user/{id}/store', 'UserController@store')->name('user.store');                   //View Individual Users
 
 Route::get('/team', 'TeamController@index')->name('team');                          // Team
 
