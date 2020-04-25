@@ -44,7 +44,7 @@
             <div class="form-group col-sm">
                 <label for="user">Owner</label>
                 <select name="user" id="user" class="form-control" placeholder="Task User">
-                    <option value="{{$task->user}}">{{ $task->owner->name }}</option>
+                    <option value="{{$task->user}}">{{ $task->owner->name ?? '' }}</option>
                     @foreach($users as $user)
                     @if($user->id != $task->user)
                     <option value="{{$user->id}}">{{ $user->name }}</option>
@@ -57,7 +57,7 @@
             <div class="form-group col-sm">
                 <label for="editor">Editor</label>
                 <select name="editor" id="editor" class="form-control" placeholder="Task Editor">
-                    <option value="{{$task->editor}}">{{ $task->edited->name }}</option>
+                    <option value="{{$task->editor}}">{{ $task->edited->name ?? '' }}</option>
                     @foreach($users as $user)
                     @if($user->id != $task->editor)
                     <option value="{{$user->id}}">{{ $user->name }}</option>
@@ -116,10 +116,10 @@
         </div>
 
         <!--Comment-->
-
+        <!-- NEEDS TO BE FIXED -->
         <div class="form-group">
             <label for="comment">Comments</label>
-            <textarea name="comment" class="form-control" id="comment" cols="10" rows="3">{{$task->comment}}</textarea>
+            <textarea name="comment" class="form-control" id="comment" cols="10" rows="3" text="{{$task->comment}}"></textarea>
         </div>
 
         <div class="row">
