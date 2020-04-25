@@ -8,8 +8,8 @@
     ☐ Add CSV to Task Functionality
     ☐ KPI this month
     
-### Projects
-    ☐ Clean up database
+### Database
+    ☐ Create Secondary Schema Migrations
 
 ### Edit Project
     ☐ Create edit project page
@@ -19,15 +19,22 @@
 
 ### Asana
 
-    ☐ Add a "create task" function on task assigning
-    -- Add new field Asana Task
-    -- Create new Asana Task
-        Try to find Template
-        * User -> current
-        * Project -> site
-        * due -> due
-        * commet -> comment 
-    -- Save Link to Field
+    ✔ Add a "create task" function on task assigning
+        -- Add new field Asana Task
+        -- Create new Asana Task
+            Try to find Template
+            * User -> current
+            * Project -> site
+            * due -> due
+            * commet -> comment 
+        -- Save Link to Field
+
+    ☐ Add Asana Task to Pickup Message
+
+    ☐ Add Asana Task to Editor Message
+
+    ☐ Add Asana Task to Complete Task Message
+
 
 =========================================================
 

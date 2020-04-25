@@ -40,31 +40,45 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="thisuser" value="{{$user->id}}"/>
                 <div class="row input-group">
-                    <div class="form-group col-sm">
+                    <div class="form-group col-md">
                         <label for="username">Name</label>
                         <input name="username" type="text" id="username" class="form-control" value="{{ $user->name }}" placeholder="First Name">
                     </div>
-                    <div class="form-group col-sm">
+                    <div class="form-group col-md">
                         <label for="email">Email</label>
                         <input name="email"type="text" id="email" class="form-control" value="{{ $user->email }}" placeholder="me@example.com">
                     </div>
-                    <div class="form-group col-sm">
+                    <div class="form-group col-md">
                         <label for="role">Role</label>
                         <input name="role"type="text" id="role" class="form-control" value="{{ $user->role }}" placeholder="Content Intern">
                     </div>
                 </div>
                 <div class="row input-group">
-                    <div class="form-group col-sm">
+                    <div class="form-group col-md">
                         <label for="level">Level</label>
                         <input name="level"type="text" id="level" class="form-control" value="{{ $user->level }}" placeholder="{{ $user->level }}">
                     </div>
-                    <div class="form-group col-sm">
+                    <div class="form-group col-md">
                         <label for="avatar">Avatar</label>
                         <input name="avatar" type="text" id="avatar" class="form-control" value="{{ $user->avatar }}" placeholder="Link to Avatar">
                     </div>
-                    <div class="form-group col-sm">
-                        <label for="slackid">Slack ID</label>
-                        <input name="slackid"type="text" id="slackid" class="form-control" placeholder="{{ $user->slack_id }}">
+                    <div class="form-group col-md">
+                        <label for="slack_id">Slack ID</label>
+                        <input name="slack_id"type="text" id="slack_id" class="form-control" value="{{ $user->slack_id }}" placeholder="{{ $user->slack_id }}">
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="asana_id">Asana ID</label>
+                        <input name="asana_id"type="text" id="asana_id" class="form-control" value="{{ $user->asana_id }}" placeholder="{{ $user->asana_id }}">
+                    </div>
+                </div>
+                <div class="row input-group">
+                    <div class="form-group col-md">
+                        <label for="location">Location</label>
+                        <input name="location"type="text" id="location" class="form-control" value="{{ $user->location }}" placeholder="{{ $user->location }}">
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="personallink">Personal Link</label>
+                        <input name="personallink"type="text" id="personallink" class="form-control" value="{{ $user->personallink }}" placeholder="{{ $user->personallink }}">
                     </div>
                 </div>
                 

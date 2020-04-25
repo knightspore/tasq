@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c5085f4d6a4410c0af55125127b6d1c",
+    "content-hash": "21f2b0a6e1c2be4ac7cb017225835a95",
     "packages": [
         {
             "name": "adoy/oauth2",
@@ -3714,6 +3714,56 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2019-10-24T08:53:34+00:00"
+        },
+        {
+            "name": "torann/laravel-asana",
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Torann/laravel-asana.git",
+                "reference": "898b540b5fff0e968eff12fff279fd3faef27b60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Torann/laravel-asana/zipball/898b540b5fff0e968eff12fff279fd3faef27b60",
+                "reference": "898b540b5fff0e968eff12fff279fd3faef27b60",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0 | ^6.0 | ^7.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Torann\\LaravelAsana\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Stainback",
+                    "email": "torann@gmail.com"
+                }
+            ],
+            "description": "Asana API wrapper for Laravel",
+            "keywords": [
+                "asana",
+                "laravel",
+                "laravel 5"
+            ],
+            "time": "2020-03-09T13:22:33+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

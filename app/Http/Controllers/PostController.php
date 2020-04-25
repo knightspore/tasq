@@ -109,11 +109,25 @@ class PostController extends Controller
         $user = request('user_id');
         $taskId = request('task_id');
 
-        //Fill Post User
+        // Fill Post User
         $curTask = Posts::findOrFail($taskId);
         $curTask->update(['user' => $user]);
         $curTask->update(['progress' => 'WIP']);
         $curTask->notify(new TaskPickedup);
+
+        // Create new Asana Task
+        $name = "$curTask->type | $curTask->task";
+        // $email = User::findOrFail($user)->email;
+        $email = User::findOrFail($user)->email;
+        $notes = "$curTask->site | $curTask->points Points | $curTask->comment";
+        $due_on = $curTask->due;
+
+        asana()->createTask([
+            'name'      => $name, // Name of task
+            'assignee'  => $email, 
+            'notes'     => $notes,
+            'due_on'    => $due_on,
+         ]);
 
         //Success
         Session::flash('success', 'You picked up a new task.');

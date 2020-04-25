@@ -46,6 +46,10 @@ class UserController extends Controller
         $role = request('role');
         $level = request('level');
         $avatar = request('avatar');
+        $slack_id = request('slack_id');
+        $asana_id = request('asana_id');
+        $location = request('location');
+        $personallink = request('personallink');
 
         //Fill New User Details
         $userToEdit = User::findOrFail($id);
@@ -55,6 +59,10 @@ class UserController extends Controller
         $userToEdit->update(['role' => $role]);
         $userToEdit->update(['level' => $level]);
         $userToEdit->update(['avatar' => $avatar]);
+        $userToEdit->update(['slack_id' => $slack_id]);
+        $userToEdit->update(['asana_id' => $asana_id]);
+        $userToEdit->update(['location' => $location]);
+        $userToEdit->update(['personallink' => $personallink]);
 
         // dd($userToEdit);
 

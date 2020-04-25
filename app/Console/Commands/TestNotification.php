@@ -43,7 +43,14 @@ class TestNotification extends Command
      */
     public function handle()
     {
-        Posts::find(44)->notify(new TaskPickedup());
+        // Posts::find(44)->notify(new TaskPickedup());
+
+        $assignee = User::first()->asana_id;
+        $workspace_id = 476947142694091;
+
+        $tasks = asana()->getUserInfo('matt@traveltractions.com')->data;
+
+        dd($tasks);
         
     }
 }

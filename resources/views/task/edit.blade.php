@@ -29,19 +29,19 @@
         <div class="row input-group">
         <input type="hidden" name="updated_by" value="{{Auth::user()->id}}"/>
             <!--Task Name-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="taskname">Task Name</label>
                 <input name="taskname"type="text" id="taskname" class="form-control" value="{{ $task->task }}" placeholder="Enter task name">
             </div>
 
             <!--Task Progress-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="progress">Progress</label>
                 <input name="progress"type="text" id="progress" class="form-control" value="{{ $task->progress }}" placeholder="Task Progress">
             </div>
 
             <!--Task Owner-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="user">Owner</label>
                 <select name="user" id="user" class="form-control" placeholder="Task User">
                     <option value="{{$task->user}}">{{ $task->owner->name ?? '' }}</option>
@@ -54,7 +54,7 @@
             </div>
 
             <!--Task Editor-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="editor">Editor</label>
                 <select name="editor" id="editor" class="form-control" placeholder="Task Editor">
                     <option value="{{$task->editor}}">{{ $task->edited->name ?? '' }}</option>
@@ -67,13 +67,13 @@
             </div>
 
             <!--Task Website-->
-            <div class="form-group col-sm">
-                <label for="site">Site (No http/www)</label>
+            <div class="form-group col-md">
+                <label for="site">Site</label>
                 <input name="site" type="text" id="site" class="form-control" value="{{ $task->site }}" placeholder="example.com">
             </div>
 
             <!--Due-date-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="due">Due Date</label>
                 <input name="due" type="date" id="due" value="{{ $task->due }}" class="form-control">
             </div>
@@ -81,31 +81,31 @@
 
         <div class="row">
             <!--Priority-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="priority">Priority</label>
                 <input name="priority" class="form-control" value="{{ $task->priority }}" id="priority">
             </div>
 
             <!--level-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="level">Level</label>
                 <input name="level" class="form-control" value="{{ $task->level }}"  id="level">
             </div>
 
             <!--Type-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
             <label for="type">Type</label>
             <input name="type" class="form-control" value="{{ $task->type }}" id="type">          
             </div>
 
             <!--Points-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="points">Points</label>
                 <input name="points" type="number" id="points" value="{{ $task->points }}" class="form-control" placeholder="1000">
             </div>
 
             <!--Project-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="project">Client or Internal Project?</label>
                 <select name="project" id="project" class="form-control" value="{{ $task->project }}">
                     <option>Client</option>
@@ -123,19 +123,19 @@
 
         <div class="row">
             <!--Folder-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="folder">Folder</label>
                 <input name="folder" type="text" id="folder" value="{{ $task->folder }}" class="form-control" placeholder="https://drive.google.com/">
             </div>
 
             <!--Live Link-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="live">Live Link</label>
                 <input name="live" type="text" id="live" value="{{ $task->live }}" class="form-control" placeholder="https://example.com/">
             </div>
 
             <!--Post Archived-->
-            <div class="form-group col-sm">
+            <div class="form-group col-md">
                 <label for="archived">Archived</label>
                 <input name="archived" type="text" id="archived" value="{{ $task->archived }}" class="form-control">
             </div>

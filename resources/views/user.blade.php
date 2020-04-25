@@ -18,7 +18,8 @@
         
         <h4 class="text-muted">{{ $user->role }} </h4>
         <hr>
-            <h4><a href="mailto:{{ $user->email }}" class="badge badge-primary">📧 Email</a>
+            <h4><a href="mailto:{{ $user->email }}" class="badge badge-info">📧 Email</a>
+                <span class="badge badge-info">🌍 {{ $user->location }}</span>
                 <span class="badge badge-success">🌠 Lvl {{ $user->level }}</span>
                 <span class="badge badge-success">🔥 KPI {{ !empty($user->task) ? $user->task->where('progress', 'Complete')->sum('points'):'' }}</span>
                 @if ( $user->id == Auth::user()->id)

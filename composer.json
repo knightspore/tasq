@@ -20,7 +20,8 @@
         "nesbot/carbon": "^2.31",
         "olek/weather": "dev-master",
         "spatie/laravel-webhook-server": "^1.9",
-        "te7a-houdini/laravel-trix": "^2.0"
+        "te7a-houdini/laravel-trix": "^2.0",
+        "torann/laravel-asana": "^0.4.3"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
