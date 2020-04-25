@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Posts;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Http\Request;
@@ -42,10 +43,51 @@ class PostController extends Controller
     public function edit($id)
     {
         $task = Posts::findOrFail($id);
+        $users = User::all();
         
         return view('task.edit', [
-            'task' => $task
+            'task' => $task,
+            'users' => $users,
         ]);
+    }
+
+    public function update($id)
+    {
+        $updatedby = request('updated_by');
+        $task = request('taskname');
+        $user = request('user');
+        $editor = request('editor');
+        $site = request('site');
+        $due = request('due');
+        $priority = request('priority');
+        $level = request('level');
+        $type = request('type');
+        $points = request('points');
+        $project = request('project');
+        $comment = request('comment');
+        $folder = request('folder');
+        $live = request('live');
+        $archived = request('archived');
+
+        $selectedTask = Posts::findOrFail($id);  
+        $selectedTask->update(['task' => $task]);
+        $selectedTask->update(['user' => $user]);
+        $selectedTask->update(['editor' => $editor]);
+        $selectedTask->update(['site' => $site]);
+        $selectedTask->update(['due' => $due]);
+        $selectedTask->update(['priority' => $priority]);
+        $selectedTask->update(['level' => $level]);
+        $selectedTask->update(['type' => $type]);
+        $selectedTask->update(['points' => $points]);
+        $selectedTask->update(['comment' => $comment]);
+        $selectedTask->update(['folder' => $folder]);
+        $selectedTask->update(['live' => $live]);
+        $selectedTask->update(['archived' => $archived]);
+
+        
+        Session::flash('success', 'Task Info Updated.');
+
+        return back();
     }
 
     // VIEW INDIVIDUAL POST
@@ -103,9 +145,13 @@ class PostController extends Controller
     {   
         $taskId = request('task_id');
 
+        // Date Processin doesn't work
+        $date = date(Carbon::now());
+
         //Set Status to Complete
         $currentTask = Posts::findOrFail($taskId);
         $currentTask->update(['progress' => 'Complete']);
+        $currentTask->update(['completed' => $date]);
 
         // Send Slack Notification to #content
         $currentTask->notify(new TaskCompleted);

@@ -38,7 +38,7 @@ class TaskPickedup extends Notification
         $name = $notifiable->owner->name;
 
         return (new SlackMessage)
-                ->to("@$name")
+                ->to("@Ciaran")
                 ->content(":dart: You picked up $notifiable->task.")
                 ->attachment(function ($attachment) use ($notifiable, $inAppLink) {
                     $attachment->title("$notifiable->task", "$inAppLink/post/$notifiable->id")

@@ -36,7 +36,7 @@
         <div class="col-md-9 py-3">
         <!--Edit Profile-->
             <h2 class="pb-3">👾 Edit Profile</h2>
-            <form action="/save" method="POST">
+            <form action="save" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="thisuser" value="{{$user->id}}"/>
                 <div class="row input-group">

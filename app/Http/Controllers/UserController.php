@@ -39,16 +39,15 @@ class UserController extends Controller
         ]);
     }
 
-    public function save()
+    public function save($id)
     {
-        $userid = request('thisuser');
         $name = request('username');
         $email = request('email');
         $role = request('role');
         $level = request('level');
 
         //Fill New User Details
-        $userToEdit = User::findOrFail($userid);
+        $userToEdit = User::findOrFail($id);
 
         $userToEdit->update(['name' => $name]);
         $userToEdit->update(['email' => $email]);

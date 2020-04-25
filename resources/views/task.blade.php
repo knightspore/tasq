@@ -211,7 +211,7 @@
                                             class="text-dark">{{ $user->name }}</a>.</p>
                                     @endif
                                     @endforeach
-                                    <button class="btn btn-light btn-sm shadow-sm"><a href="/post/{{ $user->id }}/edit">Edit Task Details</a></button>
+                                    <button class="btn btn-light btn-sm shadow-sm"><a href="/post/{{ $task->id }}/edit">Edit Task Details</a></button>
                                     @endif
                                 </div>
 
