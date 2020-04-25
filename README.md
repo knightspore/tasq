@@ -10,9 +10,23 @@
     
 ### Database
     ☐ Create Secondary Schema Migrations
+        ✔ User
+        -- Posts
+        -- Projects
 
 ### Edit Project
     ☐ Create edit project page
+
+=========================================================
+
+# Completed Ideas
+
+
+### Edit Task
+    ✔ Create edit task page
+
+### Edit User
+    ✔ Create edit user page
 
 ## Integrations
     Add Integration Functionality
@@ -28,25 +42,6 @@
             * due -> due
             * commet -> comment 
         -- Save Link to Field
-
-    ☐ Add Asana Task to Pickup Message
-
-    ☐ Add Asana Task to Editor Message
-
-    ☐ Add Asana Task to Complete Task Message
-
-
-=========================================================
-
-# Completed Ideas
-
-
-### Edit Task
-    ✔ Create edit task page
-
-### Edit User
-    ✔ Create edit user page
-
 
 ## Slack
 
