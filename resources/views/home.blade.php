@@ -124,10 +124,7 @@
             @endforeach
             </tbody>
     </table>
-
-    <button class="btn btn-info d-block mb-1"><a href="/home" class="text-light p1">🔃 Refresh List</a></button>
-    <button class="btn btn-outline-info d-block mb-5"><a href="/archive" class="text-info p1">😴 View Archive</a></button>
-
+	
 </div>
 
 @endsection

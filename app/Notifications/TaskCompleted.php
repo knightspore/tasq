@@ -43,8 +43,9 @@ class TaskCompleted extends Notification
         // dd($notifiable);
         return (new SlackMessage)
                 ->to('#test')
+                ->linkNames()
                 ->success()
-                ->content(":heavy_check_mark: $name completed a task.")
+                ->content(":heavy_check_mark: <@$name> completed a task.")
                 ->attachment(function ($attachment) use ($notifiable, $editor, $inAppLink) {
                     $attachment->title("$notifiable->task", "$inAppLink/post/$notifiable->id")
                                 ->content("$notifiable->comment")

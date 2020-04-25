@@ -19,7 +19,6 @@
     <meta property="og:type" content="app" />
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
-    <meta property="og:description" content="" /> 
 </head>
 
 <body>
