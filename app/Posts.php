@@ -18,7 +18,7 @@ class Posts extends Model
         'folder',       // Add Google Drive Folder
         'priority',     // Archive Post
         'archived',      // Archive Post
-        ]; 
+    ]; 
 
     //Table Associated with the Model
     protected $table = 'posts';

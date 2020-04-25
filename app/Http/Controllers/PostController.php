@@ -39,6 +39,15 @@ class PostController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $task = Posts::findOrFail($id);
+        
+        return view('task.edit', [
+            'task' => $task
+        ]);
+    }
+
     // VIEW INDIVIDUAL POST
     public function view($id) {
         $client = Client::accessToken('1/898650441958819:ee9a906811ddb6d29c939372d5a8b91c');

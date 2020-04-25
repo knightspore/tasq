@@ -29,6 +29,8 @@ Route::post('submit', 'SubmitController@store');                                
 
 Route::get('/post', 'PostController@index')->name('post');                          // Card view Page
 Route::get('/post/{id}', 'PostController@view')->name('task');                      // View Individual Posts
+Route::get('/post/{id}/edit', 'PostController@edit')->name('edittask');             // View Individual Posts
+Route::post('update', 'PostController@update')->name('edittask');                   // Edit Existing Post
 
 Route::post('pickup', 'PostController@pickup')->name('pickup');                     //Add user to task
 
@@ -42,8 +44,8 @@ Route::get('/kpi', 'KpiController@index')->name('kpi');                         
 
 Route::get('/user', 'UserController@index')->name('user');                          // User
 Route::get('/user/{id}', 'UserController@view')->name('profile');                   //View Individual Users
-Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');                   //View Individual Users
-Route::post('/user/{id}/store', 'UserController@store')->name('user.store');                   //View Individual Users
+Route::get('/user/{id}/edit', 'UserController@edit')->name('editprofile');            //View Individual Users
+Route::post('save', 'UserController@save')->name('saveprofile');                      //View Individual Users
 
 Route::get('/team', 'TeamController@index')->name('team');                          // Team
 

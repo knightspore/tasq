@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Posts;
+use Session;
 use Illuminate\Http\Request;
 use Asana\Client;
 
@@ -12,12 +13,14 @@ class UserController extends Controller
     //Setup for /id/ profiles
     public function view($id) {
         //Imports
-        $userId = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $posts = Posts::all();
         $users = User::all();
 
+        // dd($user);
+
         return view('user', [
-            'user'=>$userId,
+            'user'=>$user,
             'posts'=>$posts,
             'users'=>$users
         ]);
@@ -36,19 +39,28 @@ class UserController extends Controller
         ]);
     }
 
-    public function store($id)
+    public function save()
     {
-        $userToEdit = User::findOrFail($id);
-        $posts = Posts::all();
-        $users = User::all();
+        $userid = request('thisuser');
+        $name = request('username');
+        $email = request('email');
+        $role = request('role');
+        $level = request('level');
 
-        dd($userToEdit);
+        //Fill New User Details
+        $userToEdit = User::findOrFail($userid);
 
-        return view('user', [
-            'user'=>$userId,
-            'posts'=>$posts,
-            'users'=>$users
-        ]);
+        $userToEdit->update(['name' => $name]);
+        $userToEdit->update(['email' => $email]);
+        $userToEdit->update(['role' => $role]);
+        $userToEdit->update(['level' => $level]);
+
+        // dd($userToEdit);
+
+        Session::flash('success', 'Profile Updated.');
+
+        return back();
+
     }
 
     
