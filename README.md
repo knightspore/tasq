@@ -4,8 +4,13 @@
     -- Use newer, bigger dataset
 
 ## General
+    ☐ Create Post Page
+
+    ☐ Create Project Page
+
     ☐ Add CSV to Task Functionality
-    ☐ KPI this month
+
+    ☐ KPI by Month
     
 ### Database
     ☐ Create Secondary Schema Migrations
