@@ -24,7 +24,7 @@
         </div>
         @endif
 
-    <form action="update" method="POST">
+    <form action="save" method="POST">
     {{ csrf_field() }}
         <div class="row input-group">
         <input type="hidden" name="updated_by" value="{{Auth::user()->id}}"/>
@@ -142,10 +142,10 @@
 
         </div>
 
-        <!--Submit Single Task (post)-->
+        <!--Save Single Task (post)-->
 
         <div class="mt-3">
-            <button class="btn btn-info" type="submit" id="submit">Update Task</button>
+            <button class="btn btn-info" type="submit" id="submit">Save</button>
         </div>
 
     </form>

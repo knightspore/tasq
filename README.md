@@ -1,7 +1,6 @@
 
 # All Ideas
 
-    -- Create new asana task from newly picked up task
     -- Use newer, bigger dataset
 
 ## General
@@ -14,9 +13,6 @@
         -- Posts
         -- Projects
 
-### Edit Project
-    ☐ Create edit project page
-
 =========================================================
 
 # Completed Ideas
@@ -27,6 +23,9 @@
 
 ### Edit User
     ✔ Create edit user page
+    
+### Edit Project
+    ✔ Create edit project page
 
 ## Integrations
     Add Integration Functionality

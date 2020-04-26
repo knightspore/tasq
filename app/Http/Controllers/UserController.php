@@ -52,23 +52,30 @@ class UserController extends Controller
         $personallink = request('personallink');
 
         //Fill New User Details
-        $userToEdit = User::findOrFail($id);
+        $u = User::findOrFail($id);
 
-        $userToEdit->update(['name' => $name]);
-        $userToEdit->update(['email' => $email]);
-        $userToEdit->update(['role' => $role]);
-        $userToEdit->update(['level' => $level]);
-        $userToEdit->update(['avatar' => $avatar]);
-        $userToEdit->update(['slack_id' => $slack_id]);
-        $userToEdit->update(['asana_id' => $asana_id]);
-        $userToEdit->update(['location' => $location]);
-        $userToEdit->update(['personallink' => $personallink]);
-
-        // dd($userToEdit);
+        $u->update(['name' => $name]);
+        $u->update(['email' => $email]);
+        $u->update(['role' => $role]);
+        $u->update(['level' => $level]);
+        $u->update(['avatar' => $avatar]);
+        $u->update(['slack_id' => $slack_id]);
+        $u->update(['asana_id' => $asana_id]);
+        $u->update(['location' => $location]);
+        $u->update(['personallink' => $personallink]);
 
         Session::flash('success', 'Profile Updated.');
 
-        return back();
+        $posts = Posts::all();
+        $users = User::all();
+
+        // dd($user);
+
+        return view('user', [
+            'user'=>$u,
+            'posts'=>$posts,
+            'users'=>$users
+        ]);
 
     }
 

@@ -51,7 +51,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function update($id)
+    public function save($id)
     {
         $updatedby = request('updated_by');
         $task = request('taskname');
@@ -69,37 +69,41 @@ class PostController extends Controller
         $live = request('live');
         $archived = request('archived');
 
-        $selectedTask = Posts::findOrFail($id);  
-        $selectedTask->update(['task' => $task]);
-        $selectedTask->update(['user' => $user]);
-        $selectedTask->update(['editor' => $editor]);
-        $selectedTask->update(['site' => $site]);
-        $selectedTask->update(['due' => $due]);
-        $selectedTask->update(['priority' => $priority]);
-        $selectedTask->update(['level' => $level]);
-        $selectedTask->update(['type' => $type]);
-        $selectedTask->update(['points' => $points]);
-        $selectedTask->update(['comment' => $comment]);
-        $selectedTask->update(['folder' => $folder]);
-        $selectedTask->update(['live' => $live]);
-        $selectedTask->update(['archived' => $archived]);
+        $t = Posts::findOrFail($id);  
+        $t->update(['task' => $task]);
+        $t->update(['user' => $user]);
+        $t->update(['editor' => $editor]);
+        $t->update(['site' => $site]);
+        $t->update(['due' => $due]);
+        $t->update(['priority' => $priority]);
+        $t->update(['level' => $level]);
+        $t->update(['type' => $type]);
+        $t->update(['points' => $points]);
+        $t->update(['comment' => $comment]);
+        $t->update(['folder' => $folder]);
+        $t->update(['live' => $live]);
+        $t->update(['archived' => $archived]);
 
         
         Session::flash('success', 'Task Info Updated.');
 
-        return back();
+        $users = User::all();
+
+        return view('task', [
+            'task'=>$t,
+            'users' => $users,
+        ]);
+
     }
 
     // VIEW INDIVIDUAL POST
     public function view($id) {
-        $client = Client::accessToken('1/898650441958819:ee9a906811ddb6d29c939372d5a8b91c');
         $postId = Posts::findOrFail($id);
         $users = User::all();
 
         return view('task', [
             'task'=>$postId,
             'users' => $users,
-            'client' => $client
         ]);
     }
 
