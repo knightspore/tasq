@@ -8,22 +8,6 @@
 
     <h1>Edit <span class="text-success">{{ $project->name }}</span></h1>
 
-    @if (Session::has('success'))
-        <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading">Success!</h4>
-        <p>{{ Session::get('success') }}</p>
-        </div>
-        @endif
-
-        @if (Session::has('danger'))
-        <div class="alert alert-danger" role="alert" style="bottom:10px; position: fixed; left:2%; z-index:100">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading">That didn't work... 🤔 Message support if this keeps happening.</h4>
-        <p>{{ Session::get('danger') }}</p>
-        </div>
-        @endif
-
     <form action="save" method="POST">
     {{ csrf_field() }}
         <div class="row input-group">
@@ -63,6 +47,12 @@
                 <label for="niche">Niche</label>
                 <input name="niche"type="text" id="niche" class="form-control" value="{{ $project->niche }}" placeholder="Niche">
         </div>
+
+        <!-- Asana ID -->
+        <div class="form-group col-md">
+                <label for="asana_id">Asana ID</label>
+                <input name="asana_id"type="text" id="asana_id" class="form-control" value="{{ $project->asana_id }}" placeholder="Asana ID">
+        </div>
         </div>
 
         <div class="row input-group">
@@ -76,6 +66,16 @@
                 <label for="clientname">Client Name</label>
                 <input name="clientname"type="text" id="clientname" class="form-control" value="{{ $project->clientname }}" placeholder="Client / Person Name">
         </div>
+        <!-- Email -->
+        <div class="form-group col-md">
+                <label for="email">Email</label>
+                <input name="email"type="text" id="email" class="form-control" value="{{ $project->email }}" placeholder="{{ $project->email }}">
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Comments</label>
+            <textarea name="comment" class="form-control" id="comment" cols="10" rows="3">{{$project->comment}}</textarea>
         </div>
 
         <!-- Save Changes -->

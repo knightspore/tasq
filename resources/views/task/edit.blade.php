@@ -65,7 +65,9 @@
                     @endforeach
                 <select>
             </div>
+        </div>
 
+        <div class="row">
             <!--Task Website-->
             <div class="form-group col-md">
                 <label for="site">Site</label>
@@ -77,9 +79,7 @@
                 <label for="due">Due Date</label>
                 <input name="due" type="date" id="due" value="{{ $task->due }}" class="form-control">
             </div>
-        </div>
 
-        <div class="row">
             <!--Priority-->
             <div class="form-group col-md">
                 <label for="priority">Priority</label>
@@ -91,7 +91,9 @@
                 <label for="level">Level</label>
                 <input name="level" class="form-control" value="{{ $task->level }}"  id="level">
             </div>
+        </div>
 
+        <div class="row">
             <!--Type-->
             <div class="form-group col-md">
             <label for="type">Type</label>
@@ -112,7 +114,6 @@
                     <option>Internal</option>
                 </select>
             </div>
-
         </div>
 
         <!--Comment-->

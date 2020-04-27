@@ -15,7 +15,10 @@ class Project extends Model
         'accountmgr',
         'upload',
         'client',
-        'logo'
+        'logo',
+        'asana_id',
+        'comment',
+        'email',
         ]; 
 
     protected $table = 'projects';

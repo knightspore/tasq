@@ -58,7 +58,7 @@ class SubmitController extends Controller
         
         //Complete
         Session::flash('success', 'Let the team know!');
-        return view('submit');
+        return view('home');
 
     }
 }

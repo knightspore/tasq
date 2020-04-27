@@ -26,14 +26,14 @@ Route::get('/', 'WelcomeController@index')->name('welcome');                    
 Route::get('/home', 'HomeController@index')->name('home');                          // Home Page - Task Sheet View
 Route::get('/post', 'PostController@index')->name('post');                          // Card view Page
 Route::get('/archive', 'ArchiveController@index')->name('archive');                 // Archive View (Posts Below 0)
-Route::get('/team', 'TeamController@index')->name('team');                                      // Team
-
+Route::get('/team', 'TeamController@index')->name('team');                          // Team
+Route::get('/projects', 'ProjectController@all')->name('projects');
 Route::get('/submit', 'SubmitController@index')->name('submit');                    // Add new Post Page
 Route::post('submit', 'SubmitController@store');                                    // Submit Task
 
 Route::get('/post/{id}', 'PostController@view')->name('task');                      // View Individual Posts
 Route::get('/post/{id}/edit', 'PostController@edit')->name('edittask');             // View Individual Posts
-Route::post('/post/{id}/save', 'PostController@save')->name('savetask');        // Edit Existing Post
+Route::post('/post/{id}/save', 'PostController@save')->name('savetask');            // Edit Existing Post
 
 // Individual Task View Interactions
 Route::post('pickup', 'PostController@pickup')->name('pickup');                     //Add user to task
@@ -50,9 +50,8 @@ Route::get('/user/{id}/edit', 'UserController@edit')->name('editprofile');      
 Route::post('/user/{id}/save', 'UserController@save')->name('saveprofile');                     //View Individual Users
 
 
-Route::get('/projects', 'ProjectController@index')->name('Project');                            // User
 Route::get('/project/{id}', 'ProjectController@view')->name('project');                         // View Individual Project
 Route::get('/project/{id}/edit', 'ProjectController@edit')->name('editproject');                // View Individual Project
 Route::post('/project/{id}/save', 'ProjectController@save')->name('saveproject');               // View Individual Project
 
-
+Route::get('/admin', 'AdminController@index')->name('admin');

@@ -4,24 +4,21 @@
     -- Use newer, bigger dataset
 
 ## General
-    ☐ Create Post Page
-
-    ☐ Create Project Page
 
     ☐ Add CSV to Task Functionality
 
     ☐ KPI by Month
-    
-### Database
-    ☐ Create Secondary Schema Migrations
-        ✔ User
-        -- Posts
-        -- Projects
 
 =========================================================
 
 # Completed Ideas
 
+    
+### Database
+    ✔ Create Secondary Schema Migrations
+        ✔ User
+        ✔ Posts
+        ✔ Projects
 
 ### Edit Task
     ✔ Create edit task page

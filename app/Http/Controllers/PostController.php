@@ -31,6 +31,8 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+    // View Task Cards
+
     public function index()
     {
         $tasks = Posts::all();
@@ -39,6 +41,8 @@ class PostController extends Controller
             'tasks' => $tasks
         ]);
     }
+
+    // Edit Post
 
     public function edit($id)
     {
@@ -50,6 +54,8 @@ class PostController extends Controller
             'users' => $users,
         ]);
     }
+
+    // Save Edited Changes
 
     public function save($id)
     {
@@ -96,6 +102,17 @@ class PostController extends Controller
 
     }
 
+    // Create New Post
+
+    public function new() {
+
+        $users = User::all();
+
+        return view('new', [
+            'users' => $users,
+        ]);
+    }
+
     // VIEW INDIVIDUAL POST
     public function view($id) {
         $postId = Posts::findOrFail($id);
@@ -121,7 +138,6 @@ class PostController extends Controller
 
         // Create new Asana Task
         $name = "$curTask->type | $curTask->task";
-        // $email = User::findOrFail($user)->email;
         $email = User::findOrFail($user)->email;
         $notes = "$curTask->site | $curTask->points Points | $curTask->comment";
         $due_on = $curTask->due;
