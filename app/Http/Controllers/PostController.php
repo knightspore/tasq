@@ -115,11 +115,11 @@ class PostController extends Controller
 
     // VIEW INDIVIDUAL POST
     public function view($id) {
-        $postId = Posts::findOrFail($id);
+        $post = Posts::findOrFail($id);
         $users = User::all();
 
         return view('task', [
-            'task'=>$postId,
+            'task'=>$post,
             'users' => $users,
         ]);
     }
@@ -151,8 +151,13 @@ class PostController extends Controller
 
         //Success
         Session::flash('success', 'You picked up a new task.');
-       
-        return back();
+
+        $users = User::all();
+
+        return view('task', [
+            'task'=>$curTask,
+            'users' => $users,
+        ]);
 
     }
 
@@ -163,15 +168,20 @@ class PostController extends Controller
         $taskId = request('task_id');
 
         //Fill Post Editor
-        $currentTask = Posts::findOrFail($taskId);
-        $currentTask->update(['editor' => $user]);
-        $currentTask->update(['progress' => 'Editing']);
-        $currentTask->notify(new TaskEdited);
+        $curTask = Posts::findOrFail($taskId);
+        $curTask->update(['editor' => $user]);
+        $curTask->update(['progress' => 'Editing']);
+        $curTask->notify(new TaskEdited);
 
         //Success
         Session::flash('success', 'You are now the editor.');
        
-        return back();
+        $users = User::all();
+
+        return view('task', [
+            'task'=>$curTask,
+            'users' => $users,
+        ]);
     }
 
     // COMPLETE TASK
@@ -183,17 +193,22 @@ class PostController extends Controller
         $date = date(Carbon::now());
 
         //Set Status to Complete
-        $currentTask = Posts::findOrFail($taskId);
-        $currentTask->update(['progress' => 'Complete']);
-        $currentTask->update(['completed' => $date]);
+        $curTask = Posts::findOrFail($taskId);
+        $curTask->update(['progress' => 'Complete']);
+        $curTask->update(['completed' => $date]);
 
         // Send Slack Notification to #content
-        $currentTask->notify(new TaskCompleted);
+        $curTask->notify(new TaskCompleted);
 
         //Success
         Session::flash('success', 'You marked this task complete.');
        
-        return back();
+        $users = User::all();
+
+        return view('task', [
+            'task'=>$curTask,
+            'users' => $users,
+        ]);
     }
 
     public function folder() 
@@ -202,13 +217,18 @@ class PostController extends Controller
         $folder = request('postfolder');
 
         //Set task folder
-        $currentTask = Posts::findOrFail($taskId);
-        $currentTask->update(['folder' => $folder]);
+        $curTask = Posts::findOrFail($taskId);
+        $curTask->update(['folder' => $folder]);
 
         //Success
         Session::flash('success', 'Folder Link Added.');
+        
+        $users = User::all();
        
-        return back();
+        return view('task', [
+            'task'=>$curTask,
+            'users' => $users,
+        ]);
     }
 
     public function livelink() 
@@ -217,13 +237,18 @@ class PostController extends Controller
         $livelink = request('livelink');
 
         //Set live link
-        $currentTask = Posts::findOrFail($taskId);
-        $currentTask->update(['live' => $livelink]);
+        $curTask = Posts::findOrFail($taskId);
+        $curTask->update(['live' => $livelink]);
 
         //Success
         Session::flash('success', 'Live link added.');
        
-        return back();
+        $users = User::all();
+       
+        return view('task', [
+            'task'=>$curTask,
+            'users' => $users,
+        ]);
 
     }
 
@@ -231,32 +256,19 @@ class PostController extends Controller
     {
 
         //Archive Task
-        $currentTask = Posts::findOrFail(request('task_id'));
-        $currentTask->update(['archived' => '1']);
-        $currentTask->update(['priority' => '0']);
+        $curTask = Posts::findOrFail(request('task_id'));
+        $curTask->update(['archived' => '1']);
+        $curTask->update(['priority' => '0']);
 
         //Success
         Session::flash('success', 'Post Archived.');
        
-        return back();
+        $users = User::all();
+       
+        return view('task', [
+            'task'=>$curTask,
+            'users' => $users,
+        ]);
     }   
-
-    public function asana()
-    {
-        $token = env("ASANA_TOKEN");
-
-        // Access Token Instructions:
-        
-        // 1. set your token environment variable to a Personal Access Token found in Asana Account Settings
-        
-        if ($token === false) {
-            dd("Token Rejected");
-        }
-        
-        // create a $client->with a Personal Access Token
-        $client = Asana\Client::accessToken($token);
-        $me = $client->users->me();
-        dd($me);
-    }
 
 }
