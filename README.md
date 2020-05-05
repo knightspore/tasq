@@ -4,8 +4,6 @@
 
     ☐ Use newer, bigger dataset
 
-    ☐ Make Database Fields Nullable
-    
     ☐ Add new options for post creation
 
     ☐ Add CSV to Task Functionality
@@ -27,6 +25,9 @@
         ✔ User
         ✔ Posts
         ✔ Projects
+
+    ✔ Make Secondary Migrations Nullable
+    
 
 ### Edit Task
     ✔ Create edit task page
