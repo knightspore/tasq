@@ -252,13 +252,13 @@ class PostController extends Controller
 
     }
 
+    // Archive Task 
     public function archivepost() 
     {
-
         //Archive Task
-        $curTask = Posts::findOrFail(request('task_id'));
-        $curTask->update(['archived' => '1']);
-        $curTask->update(['priority' => '0']);
+        $task = Posts::findOrFail(request('task_id'));
+        $task->update(['archived' => '1']);
+        $task->update(['priority' => '0']);
 
         //Success
         Session::flash('success', 'Post Archived.');
@@ -266,7 +266,7 @@ class PostController extends Controller
         $users = User::all();
        
         return view('task', [
-            'task'=>$curTask,
+            'task'=>$task,
             'users' => $users,
         ]);
     }   

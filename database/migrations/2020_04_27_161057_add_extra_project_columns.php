@@ -14,9 +14,9 @@ class AddExtraProjectColumns extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->string('asana_id')->nullable;
-            $table->string('comment')->nullable;
-            $table->string('email')->nullable;
+            $table->string('asana_id')->nullable();
+            $table->string('comment')->nullable();
+            $table->string('email')->nullable();
         });
     }
 
