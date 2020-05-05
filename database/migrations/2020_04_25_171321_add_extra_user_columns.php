@@ -14,12 +14,11 @@ class AddExtraUserColumns extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            Schema::table('users', function (Blueprint $table) {
                 $table->string('slack_id')->nullable();
                 $table->string('location')->nullable();
                 $table->string('personallink')->nullable();
                 $table->string('asana_id')->nullable(); 
-            });
+
         });
     }
 
