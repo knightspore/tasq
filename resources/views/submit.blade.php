@@ -36,7 +36,7 @@
 
             <!--Task Website-->
             <div class="form-group col-sm">
-                <label for="postSite">Site (No http/www)</label>
+                <label for="postSite">Project (No http/www)</label>
                 <input name="site" type="text" id="postSite" class="form-control" placeholder="example.com" required>
             </div>
 
@@ -100,6 +100,20 @@
                 <input name="points" type="number" id="postPoints" class="form-control" placeholder="1000" required>
             </div>
 
+        </div>
+
+        <div class="row input-group">
+            <!--Folder-->
+            <div class="form-group col-sm">
+                <label for="postFolder">Folder</label>
+                <input name="folder"type="text" id="postFolder" class="form-control" placeholder="https://drive.google.com">
+            </div>
+
+            <!--Asana ID-->
+            <div class="form-group col-sm">
+                <label for="postAsana">Asana Task ID</label>
+                <input name="asana_id" type="text" id="postAsana" class="form-control">
+            </div>
         </div>
 
         <!--Project-->
