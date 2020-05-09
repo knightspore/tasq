@@ -2,17 +2,17 @@
 
 ## General
 
-    -- Use newer, bigger dataset
+    ☐ Use newer, bigger dataset
 
-    ☐ Fix submit form and add new options for post creation
+    ☐ Add new options for post creation
 
     ☐ Add CSV to Task Functionality
-        -- Create Template CSV with all required data
-        -- Test Upload on Mobile
+        ☐ Create Template CSV with all required data
+        ☐ Test Upload on Mobile
 
-    ☐ KPI by Month on Profile
-
-    ☐ KPI by Month on KPI View
+    ☐ KPI: Get it Working
+        ☐ KPI by Month on Profile
+        ☐ KPI by Month on KPI View
 
     ☐ Zapier Integration
 
@@ -25,6 +25,9 @@
         ✔ User
         ✔ Posts
         ✔ Projects
+
+    ✔ Make Secondary Migrations Nullable
+    
 
 ### Edit Task
     ✔ Create edit task page

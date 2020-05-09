@@ -14,9 +14,9 @@ class AddExtraPostColumns extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('plagiarism')->nullable;
-            $table->string('asana_id')->nullable;
-            $table->string('uploaded')->nullable;
+            $table->string('plagiarism')->nullable();
+            $table->string('asana_id')->nullable();
+            $table->string('uploaded')->nullable();
         });
     }
 

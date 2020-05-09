@@ -13,9 +13,9 @@
         <div class="mx-auto">
         <img src="{{ $user->avatar }}" alt="{{ $user->name }} Profile Picture" class="responsive-image w-75 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         </div>
-        
+
         <h1><span class="text-success mb-5">{{ $user->name }}</span></h1>
-        
+
         <h4 class="text-muted">{{ $user->role }} </h4>
         <hr>
             <h4><a href="mailto:{{ $user->email }}" class="badge badge-info">📧 Email</a>
@@ -37,7 +37,7 @@
             @include('components.minitask')
 
             @endif
-            @endforeach            
+            @endforeach
 
              <!--Editing Tasks-->
              <h2 class="pb-3">📝 Editing</h2>

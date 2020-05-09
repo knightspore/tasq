@@ -1,6 +1,5 @@
 <!--Generates a simple small user card with contact details-->
 
-
 <div class="card m-2 text-center">
         <div class="card-body border-primary">
         <img class="card-img-top rounded-circle img-thumbnail mb-3" src="{{ $user->avatar }}" alt="{{ $user->name }}">
