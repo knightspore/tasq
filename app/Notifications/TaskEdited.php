@@ -36,10 +36,10 @@ class TaskEdited extends Notification
     {
         $editor = $notifiable->edited->slack_id;
         $inAppLink = url("/");
-        $name = $notifiable->owner->name;
+        $name = $notifiable->owner->slack_id;
 
         return (new SlackMessage)
-                ->to("@Ciaran") //Change to @name in the live version
+                ->to("<@$name>") //Change to @name in the live version
                 ->warning()
                 ->content(":writing_hand: <@$editor> is editing *$notifiable->task* for you.")
                 ->attachment(function ($attachment) use ($notifiable, $inAppLink) {
