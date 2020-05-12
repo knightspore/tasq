@@ -4,8 +4,6 @@
 
     ☐ Use newer, bigger dataset
 
-    ☐ Add new options for post creation
-
     ☐ Add CSV to Task Functionality
         ☐ Create Template CSV with all required data
         ☐ Test Upload on Mobile
@@ -16,9 +14,14 @@
 
     ☐ Zapier Integration
 
+    ☐ Create Client Accounts & View
+
+
 =========================================================
 
 # Completed Ideas
+
+    ✔ Add new options for post creation
     
 ### Database
     ✔ Create Secondary Schema Migrations
