@@ -19,6 +19,15 @@
     <meta property="og:type" content="app" />
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D20YM11PN6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D20YM11PN6');
+    </script>
 </head>
 
 <body>
