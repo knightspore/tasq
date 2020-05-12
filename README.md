@@ -15,6 +15,8 @@
         ☐ KPI by Month on KPI View
 
     ☐ Zapier Integration
+      
+      Add Search Function - https://github.com/spatie/laravel-searchable
 
 =========================================================
 
