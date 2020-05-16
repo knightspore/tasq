@@ -2,7 +2,9 @@
 
 ## General
 
-    ☐ Use newer, bigger dataset
+    ☐  Add Search Function - https://github.com/spatie/laravel-searchable
+    
+    ☐ Add asana subtasks to task view
 
     ☐ Add CSV to Task Functionality
         ☐ Create Template CSV with all required data
@@ -14,7 +16,6 @@
 
     ☐ Zapier Integration
       
-      Add Search Function - https://github.com/spatie/laravel-searchable
 
     ☐ Create Client Accounts & View
 
