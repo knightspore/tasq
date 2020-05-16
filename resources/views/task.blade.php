@@ -131,7 +131,7 @@
                     </form>
                     @endif
                 </div>
-                 
+
                             @if (($task->progress) == "Complete")
                             <div class="card m-2 h-100">
                             @else
@@ -203,6 +203,15 @@
 
                                     <p>{{ $task->comment }}</p>
                                     <hr>
+
+                                    @isset ($task->asana_id)
+                                    <h4>Task Progress</h4>
+                                    @foreach(asana()->getSubTasks($task->asana_id)->data as $subtask)
+                                    <p>>{{ $subtask->name }}</p>
+                                    @endforeach
+                                    <hr>
+                                    @endisset
+
                                     <p><a href="/{{ $task->site }}" class="text-light" target="_blank">View Site SOP</a></p>
                                     @if (Auth::user()->level >= 5)
                                     @foreach ($users as $user)
@@ -223,9 +232,9 @@
 </div>
 
 
-               
 
 
-                
+
+
 
                 @endsection
