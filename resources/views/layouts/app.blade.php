@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') · Task Manager</title>
+    <title>@yield('title') · Tasq</title>
     <meta name="description" content="Travel Tractions Task Management App" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -82,7 +82,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-fluid img-thumbnail rounded-circle my-auto mr-2" style="width: 50px; height: auto;"> {{ Auth::user()->name }}<span class="caret text-dark"></span>
                             </a>
 
-                            
+
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/user/{{ Auth::user()->id }}">

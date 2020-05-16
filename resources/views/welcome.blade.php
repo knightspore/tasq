@@ -10,7 +10,7 @@
 
     @guest
     <div class="jumbotron jumbotron-fluid rounded shadow-sm bg-white">
-        <h1 class="display-5"><span class="text-success">Task</span> Manager</h1>
+        <h1 class="display-5 text-success">Tasq</h1>
         <p class="lead">Manage your tasks with ease.</p>
         <hr class="my-4">
         <p class="lead">
