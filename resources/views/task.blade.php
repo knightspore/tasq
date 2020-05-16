@@ -205,9 +205,9 @@
                                     <hr>
 
                                     @isset ($task->asana_id)
-                                    <h4>Task Progress</h4>
+                                    <h4>Sub Tasks</h4>
                                     @foreach(asana()->getSubTasks($task->asana_id)->data as $subtask)
-                                    <p>>{{ $subtask->name }}</p>
+                                    <p> - {{ $subtask->name }}</p>
                                     @endforeach
                                     <hr>
                                     @endisset
