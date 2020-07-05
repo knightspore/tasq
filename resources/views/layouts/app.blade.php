@@ -51,9 +51,6 @@
                             <a class="nav-link text-dark" href="/home">Sheet</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/post">Cards</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/projects">Projects</a>
                         </li>
                         <li class="nav-item"><a class="nav-link text-dark" href="/team">{{ __('Team') }}</a></li>
