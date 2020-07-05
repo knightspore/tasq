@@ -4,89 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21f2b0a6e1c2be4ac7cb017225835a95",
+    "content-hash": "4cf2f0ba0aaf8993ed0942e41462ded7",
     "packages": [
-        {
-            "name": "adoy/oauth2",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adoy/PHP-OAuth2.git",
-                "reference": "617d8605955cbb0ca929358fda74eab308c39cfa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adoy/PHP-OAuth2/zipball/617d8605955cbb0ca929358fda74eab308c39cfa",
-                "reference": "617d8605955cbb0ca929358fda74eab308c39cfa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "OAuth2": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "authors": [
-                {
-                    "name": "Berejeb Anis",
-                    "email": "anis.berejeb@gmail.com"
-                },
-                {
-                    "name": "Charron Pierrick",
-                    "email": "pierrick@webstart.fr"
-                }
-            ],
-            "description": "Light PHP wrapper for the OAuth 2.0 protocol (based on OAuth 2.0 Authorization Protocol draft-ietf-oauth-v2-15)",
-            "time": "2015-08-03T19:57:06+00:00"
-        },
-        {
-            "name": "asana/asana",
-            "version": "v0.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Asana/php-asana.git",
-                "reference": "22bec8e97fd88eede738e90711263fcad19470e3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Asana/php-asana/zipball/22bec8e97fd88eede738e90711263fcad19470e3",
-                "reference": "22bec8e97fd88eede738e90711263fcad19470e3",
-                "shasum": ""
-            },
-            "require": {
-                "adoy/oauth2": "^1.2.0",
-                "nategood/httpful": "~0.2",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "instaclick/php-code-sniffer": "dev-master",
-                "phpunit/phpunit": "4.5.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Asana\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A PHP client for the Asana API",
-            "homepage": "https://github.com/Asana/php-asana",
-            "keywords": [
-                "asana",
-                "client"
-            ],
-            "time": "2020-02-12T19:21:48+00:00"
-        },
         {
             "name": "asm89/stack-cors",
             "version": "1.3.0",
@@ -1373,56 +1292,6 @@
             "time": "2019-12-20T14:22:59+00:00"
         },
         {
-            "name": "nategood/httpful",
-            "version": "0.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nategood/httpful.git",
-                "reference": "0cded3ea97ba905600de9ceb9ef13f3ab681587c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nategood/httpful/zipball/0cded3ea97ba905600de9ceb9ef13f3ab681587c",
-                "reference": "0cded3ea97ba905600de9ceb9ef13f3ab681587c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Httpful": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nate Good",
-                    "email": "me@nategood.com",
-                    "homepage": "http://nategood.com"
-                }
-            ],
-            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
-            "homepage": "http://github.com/nategood/httpful",
-            "keywords": [
-                "api",
-                "curl",
-                "http",
-                "requests",
-                "rest",
-                "restful"
-            ],
-            "time": "2020-01-25T01:13:13+00:00"
-        },
-        {
             "name": "nesbot/carbon",
             "version": "2.31.0",
             "source": {
@@ -1543,31 +1412,6 @@
                 "php"
             ],
             "time": "2019-11-08T13:50:10+00:00"
-        },
-        {
-            "name": "olek/weather",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/olekjs/laravel-weather.git",
-                "reference": "4d984d27ee2f0cbc4905a1b86e1201c6c44708db"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/olekjs/laravel-weather/zipball/4d984d27ee2f0cbc4905a1b86e1201c6c44708db",
-                "reference": "4d984d27ee2f0cbc4905a1b86e1201c6c44708db",
-                "shasum": ""
-            },
-            "type": "metapackage",
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Olek Kaim",
-                    "email": "kontakt@olekkaim.pl"
-                }
-            ],
-            "description": "Simple weather API",
-            "time": "2018-11-07T14:02:00+00:00"
         },
         {
             "name": "opis/closure",
@@ -3612,59 +3456,6 @@
                 "dump"
             ],
             "time": "2020-02-26T22:30:10+00:00"
-        },
-        {
-            "name": "te7a-houdini/laravel-trix",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Te7a-Houdini/laravel-trix.git",
-                "reference": "495c4637eafc549a3933f9d9d11f4703e9b75967"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Te7a-Houdini/laravel-trix/zipball/495c4637eafc549a3933f9d9d11f4703e9b75967",
-                "reference": "495c4637eafc549a3933f9d9d11f4703e9b75967",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.8.0|~6.0|~7.0",
-                "php": "^7.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.5|~4.0|~5.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Te7aHoudini\\LaravelTrix\\LaravelTrixServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Te7aHoudini\\LaravelTrix\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ahmed Abd El Ftah",
-                    "email": "ahmedabdelftah95165@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "trix editor for laravel inspired by ActionText for rails",
-            "homepage": "https://github.com/te7ahoudini/laravel-trix",
-            "keywords": [
-                "laravel-trix",
-                "te7a-houdini"
-            ],
-            "time": "2020-03-06T15:33:35+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -5926,13 +5717,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "olek/weather": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
