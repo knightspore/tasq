@@ -58,7 +58,6 @@
                         </li>
                         <li class="nav-item"><a class="nav-link text-dark" href="/team">{{ __('Team') }}</a></li>
                         <li class="nav-item"><a class="nav-link text-dark" href="/archive">{{ __('Archive') }}</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="/kpi">{{ __('KPI') }}</a></li>
                         <li class="nav-item"><a class="nav-link text-success" href="/submit" role="button">+ Create</a></li>
                         @endauth
                     </ul>

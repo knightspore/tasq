@@ -3,7 +3,7 @@
 <div class="card mx-auto bg-dark text-light shadow mb-4">
     <img src="" alt="" class="card-image">
     <div class="card-body">
-    
+
         @if (($task->priority) == 0)
         <h5 class="card-title"><span class="badge badge-dark">{{ $task->priority }}</span> {{ $task->task }}</h5>
         @elseif (($task->priority) <= 5)
@@ -26,7 +26,7 @@
         <!-- PROGRESS -->
             <strong>Status:</strong> {{ $task->progress }}
             <br>
-            
+
 
         <!-- ASSIGNEE IF NOT SELF -->
             @if (($task->user) != Auth::user()->id)
