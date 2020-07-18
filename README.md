@@ -1,6 +1,6 @@
 # Tasq
 
-Task is a Laravel web app made for tracking teams of content writers. 
+Task is a Laravel web app made for tracking teams of content writers. It currently uses Bootstrap 4 for UI.
 
 It's currently very buggy but gets the job done - I will be improving it and I'm aiming to release by the end of the year. 
 
@@ -17,26 +17,14 @@ Generate a .ENV and enter your database credentials
 cp .env.example .env
 ```
 
-Install composer dependencies
+Basic Laravel Setup Commands
 ```bash
 composer install
-```
-
-Generate Appkey
-```bash
 php artisan key:generate
-```
-
-Run Database Migraitons
-```bash
 php artisan migrate
 ```
 
-Add your Asana Token and Slack Webhook to the .env file
-```bash
-ASANA_TOKEN=$ASANA_TOKEN
-SLACK_HOOK=$SLACK_HOOK
-```
+Optional: Add your Asana Token and Slack Webhook to the .env file
 
 ## Usage
 
