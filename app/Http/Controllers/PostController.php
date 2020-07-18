@@ -142,19 +142,21 @@ class PostController extends Controller
         $notes = "$curTask->site | $curTask->points Points | $curTask->comment";
         $due_on = $curTask->due;
 
-        asana()->createTask([
-            'name'      => $name, // Name of task
-            'assignee'  => $email, 
-            'notes'     => $notes,
-            'due_on'    => $due_on,
-         ]);
+        if (Auth::user()->asana_id != null) {
+            asana()->createTask([
+                'name'      => $name, 
+                'assignee'  => $email, 
+                'notes'     => $notes,
+                'due_on'    => $due_on,
+            ]);
+        }
 
         //Success
         Session::flash('success', 'You picked up a new task.');
 
         $users = User::all();
 
-        return view('task', [
+        return view('home', [
             'task'=>$curTask,
             'users' => $users,
         ]);
