@@ -20,6 +20,8 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('clientname');
             $table->string('niche');
+            $table->string('comment')->nullable();
+            $table->string('email')->nullable();
             $table->string('accountmgr')->nullable();
             $table->boolean('upload')->default(1);
             $table->boolean('client')->default(0);

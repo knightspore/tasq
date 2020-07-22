@@ -20,7 +20,7 @@
                 <th scope="col" id="col-project">Project<br></th>
                 <th scope="col" id="col-site">Site<br></th>
                 <th scope="col" id="col-task">Task</th>
-                <th scope="col" id="col-points">🎯</th>
+                <th scope="col" id="col-points">🎯 Words</th>
                 <th scope="col" id="col-status">Status<br></th>
                 <th scope="col" id="col-folder"></th>
                 <th scope="col" id="col-editor">Editor</th>
@@ -38,9 +38,9 @@
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
 	                @if (($task->priority) == 0)
 	                <td class="align-middle bg-dark text-light" id="row-prio">{{ $task->priority }}</td>
-	                @elseif (($task->priority) <= 6) 
+	                @elseif (($task->priority) <= 6)
 	                <td class="align-middle bg-light" id="row-prio">{{ $task->priority }}</td>
-	                @elseif (($task->priority) <= 8) 
+	                @elseif (($task->priority) <= 8)
 	                <td class="align-middle bg-warning" id="row-prio">{{ $task->priority }}</td>
 	                @else
 	                <td class="align-middle bg-success text-light" id="row-prio">{{ $task->priority }}</td>
@@ -77,11 +77,11 @@
 	                <td class="align-middle" id="row-task"><a href="/post/{{ $task->id }}"><span class="font-weight-bold text-dark">{{ $task->task }}</span></a> <span class="font-weight-light"> - {{ $task->type }}</span></td>
 	                @endif
 
-                <!--TASK POINTS-->
+                <!--TASK WORDS-->
 	                @if (($task->progress) == "Complete")
 	                <td class="align-middle" id="row-pts">✔</td>
 	                @else
-	                <td class="align-middle text-dark" id="row-pts">{{ $task->points }}</td>
+	                <td class="align-middle text-dark" id="row-pts">{{ $task->words }}</td>
 	                @endif
 
                 <!--PROGRESS STATUS-->
@@ -103,7 +103,7 @@
 					</td>
 
 				<!--EDITOR NAME-->
-					
+
                 	<td class="align-middle" id="row-edtr">
 					@isset($task->editor)
 					<a href="/user/{{ $task->edited->id }}" class="text-dark" style="text-decoration: none;">{{ $task->edited->name }}</a>
@@ -111,20 +111,20 @@
 					</td>
 
                 <!--LIVE LINK-->
-	                
+
 	                <td class="align-middle bg-dark" id="row-live">
 					@isset($task->live)
 					<a href="{{ $task->live }}" target="_blank">🌐</a>
 					@endisset
 	                </td>
-	                
+
 
             </tr>
             @endif
             @endforeach
             </tbody>
     </table>
-	
+
 </div>
 
 @endsection

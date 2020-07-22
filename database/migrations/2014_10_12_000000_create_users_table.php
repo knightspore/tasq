@@ -18,6 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('role')->default('Intern');
+            $table->string('slack_id')->nullable();
+            $table->string('location')->nullable();
+            $table->string('personallink')->nullable();
             $table->string('avatar')->default('https://blaq38zrmy32comx24qdya90-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/tt-blank-avi.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('level')->default('1');

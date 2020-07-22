@@ -15,19 +15,19 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('priority');        //In
-            $table->integer('level');           //In
-            $table->date('due');           //In
+            $table->integer('priority');
+            $table->integer('level');
+            $table->date('due');
             $table->string('user')->nullable();
-            $table->string('project');          //In
-            $table->string('site');             //In
-            $table->string('type');             //In
-            $table->text('task');               //In
-            $table->integer('points');          //In
-            $table->string('progress')->default('Not Picked Up');         
-            $table->string('folder')->nullable();           
-            $table->text('comment')->nullable();            
-            $table->string('editor')->nullable();           
+            $table->string('project');
+            $table->string('site');
+            $table->string('type');
+            $table->text('task');
+            $table->integer('words');
+            $table->string('progress')->default('Not Picked Up');
+            $table->string('folder')->nullable();
+            $table->text('comment')->nullable();
+            $table->string('editor')->nullable();
             $table->date('completed')->nullable();
             $table->string('live')->nullable();
             $table->string('created_by')->nullable();
