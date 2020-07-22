@@ -18,13 +18,10 @@ class CreateProjectsTable extends Migration
             $table->string('site')->default('example.com');
             $table->string('sop')->default('https://drive.google.com');
             $table->string('name');
-            $table->string('clientname');
             $table->string('niche');
             $table->string('comment')->nullable();
             $table->string('email')->nullable();
             $table->string('accountmgr')->nullable();
-            $table->boolean('upload')->default(1);
-            $table->boolean('client')->default(0);
             $table->string('logo')->nullable(); //New
             $table->timestamps();
         });

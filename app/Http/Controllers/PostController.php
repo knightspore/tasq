@@ -67,7 +67,7 @@ class PostController extends Controller
         $priority = request('priority');
         $level = request('level');
         $type = request('type');
-        $points = request('points');
+        $words = request('words');
         $project = request('project');
         $comment = request('comment');
         $folder = request('folder');
@@ -83,7 +83,7 @@ class PostController extends Controller
         $t->update(['priority' => $priority]);
         $t->update(['level' => $level]);
         $t->update(['type' => $type]);
-        $t->update(['points' => $points]);
+        $t->update(['words' => $words]);
         $t->update(['comment' => $comment]);
         $t->update(['folder' => $folder]);
         $t->update(['live' => $live]);

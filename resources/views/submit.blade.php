@@ -87,24 +87,13 @@
             <!--Type-->
             <div class="form-group col-sm">
                 <label for="postType">Task Type</label>
-                <select name="type" id="postType" class="form-control" required>
-                    <option>Info Post</option>
-                    <option>List Post</option>
-                    <option>Guest Post</option>
-                    <option>Affiliate Post</option>
-                    <option>Content Mine</option>
-                    <option>Optimization</option>
-                    <option>SEO Audit</option>
-                    <option>Design</option>
-                    <option>Development</option>
-                    <option>Social Media</option>
-                </select>
+                <input name="type" id="postType" class="form-control" placeholder="Blog Post" required>
             </div>
 
-            <!--Points-->
+            <!--Words-->
             <div class="form-group col-sm">
-                <label for="postPoints">Points</label>
-                <input name="points" type="number" id="postPoints" class="form-control" placeholder="1000" required>
+                <label for="postWords">Words</label>
+                <input name="words" type="number" id="postWords" class="form-control" placeholder="1000" required>
             </div>
 
         </div>

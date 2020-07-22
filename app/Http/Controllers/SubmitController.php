@@ -47,7 +47,7 @@ class SubmitController extends Controller
         $post->due = request('due');
         $post->level = request('level');
         $post->type = request('type');
-        $post->points = request('points');
+        $post->words = request('words');
         $post->progress = "Not Picked Up";
         $post->project = request('inlineRadioOptions');
         $post->comment = request('comments');

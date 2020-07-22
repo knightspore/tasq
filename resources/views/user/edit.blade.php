@@ -7,15 +7,6 @@
 @section('content')
 <div class="container pt-3">
 
-    <!-- SUCCESS -->
-    @if (Session::has('success'))
-    <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 300px;">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h4 class="alert-heading p-1">Success!</h4>
-        <p class="p-1">{{ Session::get('success') }}</p>
-    </div>
-    @endif
-
     <div class="row mt-2">
         <div class="col-md-3 py-3 text-center">
         <div class="mx-auto">
