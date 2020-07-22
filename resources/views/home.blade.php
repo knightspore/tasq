@@ -66,8 +66,7 @@
                 	<td class="align-middle text-muted font-weight-light" id="row-proj">{{ $task->project }}</td>
 
                 <!--SITE-->
-                	<!--<td class="align-middle font-weight-light" id="row-site"><a href="project/{{ !empty($task->proj) ? $task->proj->id:'' }}" target="_blank">{{ $task->site }}</a></td>--!>
-                	<td class="align-middle font-weight-light" id="row-site"><a href="project/replaceme" target="_blank">{{ $task->site }}</a></td>
+                	<td class="align-middle font-weight-light" id="row-site"><a href="project/{{ !empty($task->proj) ? $task->proj->id:'' }}" target="_blank">{{ $task->site }}</a></td>
 
                 <!--TASK NAME-->
 	                @if (($task->progress) == "Not Picked Up")
@@ -107,7 +106,8 @@
 
                 	<td class="align-middle" id="row-edtr">
 					@isset($task->editor)
-					<a href="/user/{{ $task->edited->id }}" class="text-dark" style="text-decoration: none;">{{ $task->edited->name }}</a>
+					<!--<a href="/user/{{ $task->edited->id }}" class="text-dark" style="text-decoration: none;">{{ $task->edited->name }}</a>--!>
+					<a href="#" class="text-dark" style="text-decoration: none;">{{ $task->edited->name }}</a>
 					@endisset
 					</td>
 
