@@ -21,7 +21,7 @@ class ProjectController extends Controller
     }
 
     public function index() {
-        
+
     }
 
     public function view($id) {
@@ -76,10 +76,9 @@ class ProjectController extends Controller
         $niche = request('niche');
         $accountmgr = request('accountmgr');
         $clientname = request('clientname');
-        $asana_id = request('asana_id');
         $comment = request('comment');
         $email = request('email');
-        
+
         $p = Project::findOrFail($id);
         $p->update(['name' => $name]);
         $p->update(['site' => $site]);
@@ -88,7 +87,6 @@ class ProjectController extends Controller
         $p->update(['niche' => $niche]);
         $p->update(['accountmgr' => $accountmgr]);
         $p->update(['clientname' => $clientname]);
-        $p->update(['asana_id' => $asana_id]);
         $p->update(['email' => $email]);
         $p->update(['comment' => $comment]);
         $p->update(['email' => $email]);

@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Http\Request;
-use Asana\Client;
 use App\Notifications\TaskCompleted;
 use App\Notifications\TaskEdited;
 use App\Notifications\TaskPickedup;
@@ -36,7 +35,7 @@ class PostController extends Controller
     public function index()
     {
         $tasks = Posts::all();
-        
+
         return view('post', [
             'tasks' => $tasks
         ]);
@@ -48,7 +47,7 @@ class PostController extends Controller
     {
         $task = Posts::findOrFail($id);
         $users = User::all();
-        
+
         return view('task.edit', [
             'task' => $task,
             'users' => $users,
@@ -75,7 +74,7 @@ class PostController extends Controller
         $live = request('live');
         $archived = request('archived');
 
-        $t = Posts::findOrFail($id);  
+        $t = Posts::findOrFail($id);
         $t->update(['task' => $task]);
         $t->update(['user' => $user]);
         $t->update(['editor' => $editor]);
@@ -90,7 +89,7 @@ class PostController extends Controller
         $t->update(['live' => $live]);
         $t->update(['archived' => $archived]);
 
-        
+
         Session::flash('success', 'Task Info Updated.');
 
         $users = User::all();
@@ -125,7 +124,7 @@ class PostController extends Controller
     }
 
     // ADD USER TO TASK
-    public function pickup() 
+    public function pickup()
     {
         $user = request('user_id');
         $taskId = request('task_id');
@@ -135,21 +134,6 @@ class PostController extends Controller
         $curTask->update(['user' => $user]);
         $curTask->update(['progress' => 'WIP']);
         $curTask->notify(new TaskPickedup);
-
-        // Create new Asana Task
-        $name = "$curTask->type | $curTask->task";
-        $email = User::findOrFail($user)->email;
-        $notes = "$curTask->site | $curTask->points Points | $curTask->comment";
-        $due_on = $curTask->due;
-
-        if (Auth::user()->asana_id != null) {
-            asana()->createTask([
-                'name'      => $name, 
-                'assignee'  => $email, 
-                'notes'     => $notes,
-                'due_on'    => $due_on,
-            ]);
-        }
 
         //Success
         Session::flash('success', 'You picked up a new task.');
@@ -164,7 +148,7 @@ class PostController extends Controller
     }
 
     // ADD EDITOR TO TASK
-    public function editing() 
+    public function editing()
     {
         $user = request('user_id');
         $taskId = request('task_id');
@@ -177,7 +161,7 @@ class PostController extends Controller
 
         //Success
         Session::flash('success', 'You are now the editor.');
-       
+
         $users = User::all();
 
         return view('task', [
@@ -187,8 +171,8 @@ class PostController extends Controller
     }
 
     // COMPLETE TASK
-    public function complete() 
-    {   
+    public function complete()
+    {
         $taskId = request('task_id');
 
         // Date Processin doesn't work
@@ -204,7 +188,7 @@ class PostController extends Controller
 
         //Success
         Session::flash('success', 'You marked this task complete.');
-       
+
         $users = User::all();
 
         return view('task', [
@@ -213,7 +197,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function folder() 
+    public function folder()
     {
         $taskId = request('task_id');
         $folder = request('postfolder');
@@ -224,16 +208,16 @@ class PostController extends Controller
 
         //Success
         Session::flash('success', 'Folder Link Added.');
-        
+
         $users = User::all();
-       
+
         return view('task', [
             'task'=>$curTask,
             'users' => $users,
         ]);
     }
 
-    public function livelink() 
+    public function livelink()
     {
         $taskId = request('task_id');
         $livelink = request('livelink');
@@ -244,9 +228,9 @@ class PostController extends Controller
 
         //Success
         Session::flash('success', 'Live link added.');
-       
+
         $users = User::all();
-       
+
         return view('task', [
             'task'=>$curTask,
             'users' => $users,
@@ -254,8 +238,8 @@ class PostController extends Controller
 
     }
 
-    // Archive Task 
-    public function archivepost() 
+    // Archive Task
+    public function archivepost()
     {
         //Archive Task
         $task = Posts::findOrFail(request('task_id'));
@@ -264,13 +248,13 @@ class PostController extends Controller
 
         //Success
         Session::flash('success', 'Post Archived.');
-       
+
         $users = User::all();
-       
+
         return view('task', [
             'task'=>$task,
             'users' => $users,
         ]);
-    }   
+    }
 
 }

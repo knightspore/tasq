@@ -6,7 +6,6 @@ use App\User;
 use App\Posts;
 use Session;
 use Illuminate\Http\Request;
-use Asana\Client;
 
 class UserController extends Controller
 {
@@ -36,7 +35,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         $userId = User::findOrFail($id);
         $posts = Posts::all();
@@ -57,7 +56,6 @@ class UserController extends Controller
         $level = request('level');
         $avatar = request('avatar');
         $slack_id = request('slack_id');
-        $asana_id = request('asana_id');
         $location = request('location');
         $personallink = request('personallink');
 
@@ -70,7 +68,6 @@ class UserController extends Controller
         $u->update(['level' => $level]);
         $u->update(['avatar' => $avatar]);
         $u->update(['slack_id' => $slack_id]);
-        $u->update(['asana_id' => $asana_id]);
         $u->update(['location' => $location]);
         $u->update(['personallink' => $personallink]);
 
@@ -89,6 +86,6 @@ class UserController extends Controller
 
     }
 
-    
+
 
 }

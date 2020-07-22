@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Posts;
 use Illuminate\Http\Request;
-use Asana\Client;
 
 class TeamController extends Controller
 {
@@ -14,8 +13,8 @@ class TeamController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function index() 
+
+    public function index()
     {
         $users = User::all();
         $posts = Posts::all();
@@ -27,5 +26,5 @@ class TeamController extends Controller
 
         return view('team');
     }
-    
+
 }

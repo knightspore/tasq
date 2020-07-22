@@ -29,9 +29,9 @@ class SubmitController extends Controller
         return view('submit');
     }
 
-    
 
-    public function store() 
+
+    public function store()
     {
         //Create new post
         $post = new Posts();
@@ -51,12 +51,11 @@ class SubmitController extends Controller
         $post->progress = "Not Picked Up";
         $post->project = request('inlineRadioOptions');
         $post->comment = request('comments');
-        $post->asana_id = request('asana_id');
         $post->folder = request('folder');
 
         //Save post values
         $post->save();
-        
+
         //Complete
         Session::flash('success', 'Let the team know!');
         return view('submit');
