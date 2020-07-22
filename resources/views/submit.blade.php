@@ -45,6 +45,13 @@
                 <label for="postDuedate">Due Date</label>
                 <input name="due" type="date" id="postDuedate" class="form-control" required>
             </div>
+
+            <!--Folder-->
+            <div class="form-group col-sm">
+                <label for="postFolder">Folder</label>
+                <input name="folder"type="text" id="postFolder" class="form-control" placeholder="https://drive.google.com">
+            </div>
+
         </div>
 
         <div class="row">
@@ -102,20 +109,6 @@
 
         </div>
 
-        <div class="row input-group">
-            <!--Folder-->
-            <div class="form-group col-sm">
-                <label for="postFolder">Folder</label>
-                <input name="folder"type="text" id="postFolder" class="form-control" placeholder="https://drive.google.com">
-            </div>
-
-            <!--Asana ID-->
-            <div class="form-group col-sm">
-                <label for="postAsana">Asana Task ID</label>
-                <input name="asana_id" type="text" id="postAsana" class="form-control">
-            </div>
-        </div>
-
         <!--Project-->
         <div class="form-group" required>
             <div class="">
@@ -154,7 +147,7 @@
         <div class="form-group">
             <label for="uploadPostsCsv"><a href="/task-template.csv">Click here</a> for an example .csv file. (Open with Excel or Google Docs)</label>
             <input type="file" class="form-control-file" id="uploadPostsCsv">
-            
+
         </div>
 
         <button type="submit" class="btn btn-info" id="btnUpload" href="#">Upload</button>

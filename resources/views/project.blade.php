@@ -33,9 +33,9 @@
         <img src="https://scontent.fcpt1-1.fna.fbcdn.net/v/t1.0-9/52351556_1102226693290301_5029265171558694912_n.png?_nc_cat=106&_nc_sid=85a577&_nc_oc=AQlJ1ZTnLdwLVhcMhR-vtQiBPlUSGSC94jB0ZRjoHb3F8cK2AfKb7UU8jKcFzNPOxdw&_nc_ht=scontent.fcpt1-1.fna&oh=02750184f02d8fefde2ed82e9a0bd19e&oe=5EC01C5F" alt="{{ $thisproject->name }} Logo" class="responsive-image w-25 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         @endisset
         </div>
-        
+
         <h1><span class="text-success mb-5">{{ $thisproject->name }}</span></h1>
-        
+
         <h4><a href="https://{{ $thisproject->site }}" class="text-muted" target="_blank">{{ $thisproject->site }}</a></h4>
         <hr>
         <div class="text-center">
@@ -49,10 +49,9 @@
         <h5><a href="{{ $thisproject->sop }}" class="text-dark">🔗 SOP</a></h5>
         @if (Auth::user()->level >= 5)
         <h6><a href="/project/{{ $thisproject->id }}/edit" class="text-small text-dark">Edit Project</a></h6>
-        <h6>Asana ID: <span class="text-success">{{ $thisproject->asana_id }}</span></h6>
         @endif
         </div>
-            
+
         </div>
         <div class="col-md-7 py-3">
         <!-- About Project -->

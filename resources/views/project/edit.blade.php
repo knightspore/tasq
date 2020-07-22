@@ -48,11 +48,6 @@
                 <input name="niche"type="text" id="niche" class="form-control" value="{{ $project->niche }}" placeholder="Niche">
         </div>
 
-        <!-- Asana ID -->
-        <div class="form-group col-md">
-                <label for="asana_id">Asana ID</label>
-                <input name="asana_id"type="text" id="asana_id" class="form-control" value="{{ $project->asana_id }}" placeholder="Asana ID">
-        </div>
         </div>
 
         <div class="row input-group">

@@ -66,11 +66,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        <!-- @if (Route::has('register'))
+                        @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
-                        @endif -->
+                        @endif
                         @else
 
                         <li class="nav-item dropdown">
@@ -110,15 +110,6 @@
             @yield('content')
         </main>
     </div>
-
-    <!-- Ion Icons -->
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <!-- ToolTip Script -->
-    <script>
-            $( document ).ready(function() {
-                $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
-            });
-        </script>
 
 </body>
 

@@ -5,8 +5,6 @@
 @section('title', $user->name)
 
 @section('content')
-
-
 <div class="container pt-3">
 
     <!-- SUCCESS -->
@@ -23,9 +21,9 @@
         <div class="mx-auto">
         <img src="{{ $user->avatar }}" alt="{{ $user->name }} Profile Picture" class="responsive-image w-75 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         </div>
-        
+
         <h1><span class="text-success mb-5">{{ $user->name }}</span></h1>
-        
+
         <h4 class="text-muted">{{ $user->role }} </h4>
         <hr>
             <h4><a href="mailto:{{ $user->email }}" class="badge badge-primary">📧 Email</a>
@@ -66,10 +64,6 @@
                         <label for="slack_id">Slack ID</label>
                         <input name="slack_id"type="text" id="slack_id" class="form-control" value="{{ $user->slack_id }}" placeholder="{{ $user->slack_id }}">
                     </div>
-                    <div class="form-group col-md">
-                        <label for="asana_id">Asana ID</label>
-                        <input name="asana_id"type="text" id="asana_id" class="form-control" value="{{ $user->asana_id }}" placeholder="{{ $user->asana_id }}">
-                    </div>
                 </div>
                 <div class="row input-group">
                     <div class="form-group col-md">
@@ -81,10 +75,8 @@
                         <input name="personallink"type="text" id="personallink" class="form-control" value="{{ $user->personallink }}" placeholder="{{ $user->personallink }}">
                     </div>
                 </div>
-                
+
                 <div class="mt-3"><button class="btn btn-info" type="submit" id="btnSubmit">Save Changes</button></div>
         </div>
 </div>
-
-
 @endsection

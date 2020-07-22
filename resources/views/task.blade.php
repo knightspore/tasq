@@ -204,14 +204,6 @@
                                     <p>{{ $task->comment }}</p>
                                     <hr>
 
-                                    @isset ($task->asana_id)
-                                    <h4>Sub Tasks</h4>
-                                    @foreach(asana()->getSubTasks($task->asana_id)->data as $subtask)
-                                    <p> - {{ $subtask->name }}</p>
-                                    @endforeach
-                                    <hr>
-                                    @endisset
-
                                     <p><a href="/{{ $task->site }}" class="text-light" target="_blank">View Site SOP</a></p>
                                     @if (Auth::user()->level >= 5)
                                     @foreach ($users as $user)
