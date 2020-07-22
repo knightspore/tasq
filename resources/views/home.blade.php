@@ -51,7 +51,7 @@
 
                 <!--DUE DATE-->
 	                @if (Str::contains(\Carbon\Carbon::parse($task->due)->diffForHumans(), 'from'))
-	                <td class="align-middle" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
+	                <td class="align-middle" id="row-due">{{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</td> <!--This needs to be fixed in the future-->
 	                @else
 	                <td class="align-middle text-muted" id="row-due">  {{\Carbon\Carbon::parse($task->due)->diffForHumans()}} </td> <!--This needs to be fixed in the future-->
 	                @endif

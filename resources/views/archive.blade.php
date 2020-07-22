@@ -13,14 +13,14 @@
     <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
         <thead class="thead-sm thead-dark text-center">
             <tr scope="row">
-                <th scope="col" id="col-level">lvl</th>
+                <th scope="col" id="col-due">Due</th>
                 <th scope="col" id="col-user">Assignee</th>
                 <th scope="col" id="col-project">Project<br></th>
                 <th scope="col" id="col-site">Site<br></th>
                 <th scope="col" id="col-task">Task</th>
-                <th scope="col" id="col-points">🎯</th>
+                <th scope="col" id="col-points">🎯 Words</th>
                 <th scope="col" id="col-status">Status<br></th>
-                <th scope="col" id="col-folder"></th>
+                <th scope="col" id="col-folder">Folder</th>
                 <th scope="col" id="col-editor">Editor</th>
                 <th scope="col" id="col-live">Live</th>
             </tr>
@@ -33,11 +33,11 @@
             @if ($task->archived = 1)
             <tr scope="row">
 
-                <!--POST LEVEL-->
-                	<td class="align-middle text-muted font-weight-light" id="row-id">{{ $task->level }}</td>
+                <!--POST DUE-->
+                	<td class="align-middle text-muted font-weight-light" id="row-id">{{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</td>
 
                 <!--ASSIGNEE-->
-				
+
                 <td class="align-middle" id="row-user">
 				@foreach ($users as $user)
 				@if ($task->user == $user->id)
