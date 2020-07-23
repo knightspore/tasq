@@ -24,7 +24,7 @@ php artisan key:generate
 php artisan migrate
 ```
 
-Optional: Add your Asana Token and Slack Webhook to the .env file
+Optional: Add your Slack Webhook to the .env file for Slack Integrations
 
 ## Usage
 
