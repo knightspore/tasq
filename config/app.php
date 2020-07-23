@@ -175,9 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        // Asana Provider
-        \Torann\LaravelAsana\ServiceProvider::class,
-
     ],
 
     /*
@@ -229,7 +226,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Asana' => 'Torann\LaravelAsana\Facade\Asana',
 
     ],
 

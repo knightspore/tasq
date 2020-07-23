@@ -41,8 +41,6 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
-$app->register(\Torann\LaravelAsana\ServiceProvider::class);
-
 /*
 |--------------------------------------------------------------------------
 | Return The Application
