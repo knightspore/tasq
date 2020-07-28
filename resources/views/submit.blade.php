@@ -6,8 +6,7 @@
 
 <div class="upload container p-3">
 
-    <h1>Add a new task</h1>
-    <hr>
+    <h1 class="text-center mb-2">Create a new <span class="text-success">tasq</span>.</h1>
         @if (Session::has('success'))
         <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -27,36 +26,30 @@
     <form action="submit" method="POST">
     {{ csrf_field() }}
         <div class="row input-group">
-        <input type="hidden" name="created_by" value="{{Auth::user()->id}}"/>
+            <input type="hidden" name="created_by" value="{{Auth::user()->id}}"/>
             <!--Task Name-->
-            <div class="form-group col-sm">
+            <div class="form-group col-lg">
                 <label for="postTask">Task Name</label>
                 <input name="taskname"type="text" id="postTask" class="form-control" placeholder="Enter task name" required>
             </div>
 
             <!--Task Website-->
-            <div class="form-group col-sm">
-                <label for="postSite">Project (No http/www)</label>
+            <div class="form-group col-lg">
+                <label for="postSite">Project</label>
                 <input name="site" type="text" id="postSite" class="form-control" placeholder="example.com" required>
             </div>
 
             <!--Due-date-->
-            <div class="form-group col-sm">
+            <div class="form-group col-lg">
                 <label for="postDuedate">Due Date</label>
                 <input name="due" type="date" id="postDuedate" class="form-control" required>
             </div>
 
-            <!--Folder-->
-            <div class="form-group col-sm">
-                <label for="postFolder">Folder</label>
-                <input name="folder"type="text" id="postFolder" class="form-control" placeholder="https://drive.google.com">
-            </div>
-
         </div>
 
-        <div class="row">
+        <div class="row input-group">
             <!--Priority-->
-            <div class="form-group col-sm">
+            <div class="form-group col-lg">
                 <label for="postPriority">Priority</label>
                 <select name="priority" class="form-control" id="postPriority" required>
                     <option>10</option>
@@ -73,7 +66,7 @@
             </div>
 
             <!--level-->
-            <div class="form-group col-sm">
+            <div class="form-group col-lg">
                 <label for="postLevel">Level</label>
                 <select name="level" id="postLevel" class="form-control" required>
                     <option>1</option>
@@ -85,13 +78,13 @@
             </div>
 
             <!--Type-->
-            <div class="form-group col-sm">
+            <div class="form-group col-lg">
                 <label for="postType">Task Type</label>
                 <input name="type" id="postType" class="form-control" placeholder="Blog Post" required>
             </div>
 
             <!--Words-->
-            <div class="form-group col-sm">
+            <div class="form-group col-lg">
                 <label for="postWords">Words</label>
                 <input name="words" type="number" id="postWords" class="form-control" placeholder="1000" required>
             </div>
