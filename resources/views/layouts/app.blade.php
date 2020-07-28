@@ -81,7 +81,7 @@
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-success" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-fluid img-thumbnail rounded-circle my-auto mr-2" style="width: 50px; height: auto;"> {{ Auth::user()->name }}<span class="caret text-dark"></span>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-fluid img-thumbnail rounded-circle my-auto mr-2" style="width: 50px; height: 50px;"> {{ Auth::user()->name }}<span class="caret text-dark"></span>
                             </a>
 
 

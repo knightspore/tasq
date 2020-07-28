@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Add new Task')
+@section('title', 'Create a Tasq')
 
 @section('content')
+<h1 class="text-center mb-4">Create a <span class="text-success">Tasq</span>.</h1>
 
 <div class="upload container p-3">
 
-    <h1 class="text-center mb-2">Create a new <span class="text-success">tasq</span>.</h1>
         @if (Session::has('success'))
         <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 200px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

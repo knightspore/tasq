@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'All Projects')
+@section('title', 'Projects')
 
 @section('content')
 
+<h1 class="mb-4 text-center">💫 Projects</h1>
 
 <div class="table-container mt-4 px-lg-5">
 
-    <h1 class="mb-4">💫 All Projects</h1>
 
 <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
         <thead class="thead thead-dark text-center">
@@ -19,7 +19,7 @@
                 <th scope="col" id="col-priority">SOP Link</th>
                 </tr>
         </thead>
-        
+
         <tobody>
         @foreach($projects as $project)
 
