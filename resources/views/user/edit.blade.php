@@ -19,7 +19,6 @@
         <hr>
             <h4><a href="mailto:{{ $user->email }}" class="badge badge-primary">📧 Email</a>
                 <span class="badge badge-success">🌠 Lvl {{ $user->level }}</span>
-                <span class="badge badge-success">🔥 KPI {{ !empty($user->task) ? $user->task->where('progress', 'Complete')->sum('points'):'' }}</span>
             </h4>
         </div>
         <div class="col-md-9 py-3">

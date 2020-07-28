@@ -26,12 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
-        $posts = Posts::all();
+        $tasks = Posts::all()->where('priority', '!=', '0')->sortByDesc('priority');
 
         return view('home', [
-            'posts' => $posts,
-            'users' => $users
-        ]);    
-    }   
+            'tasks' => $tasks,
+            'users' => $users,
+        ]);
+    }
 
 }

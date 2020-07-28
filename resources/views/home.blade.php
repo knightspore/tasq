@@ -1,16 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Tasks')
+@section('title', 'All Tasqs')
 
 @section('content')
 
-<!--Main Task Table-->
-
 <div class="table-container mt-4 px-lg-5">
 
-    <h1 class="mb-4">📃 Task Sheet</h1>
+    <h1 class="mb-4 text-center">📃 Tasqs</h1>
 
-    <table class="table table-bordered table-sm table-hover table-responsive-lg shadow bg-light">
+    <table class="table table-bordered table-sm table-hover shadow bg-light">
         <thead class="thead thead-dark text-center">
             <tr scope="row">
                 <th scope="col" id="col-priority">📣</th>
@@ -20,31 +18,22 @@
                 <th scope="col" id="col-project">Project<br></th>
                 <th scope="col" id="col-site">Site<br></th>
                 <th scope="col" id="col-task">Task</th>
-                <th scope="col" id="col-points">🎯 Words</th>
+                <th scope="col" id="col-points">Words</th>
                 <th scope="col" id="col-status">Status<br></th>
-                <th scope="col" id="col-folder"></th>
+                <th scope="col" id="col-folder">📁</th>
                 <th scope="col" id="col-editor">Editor</th>
                 <th scope="col" id="col-live">Live</th>
             </tr>
         </thead>
-        <tobdy>
+        <tbody>
 
             <!--BEGIN TABLE SCRIPT-->
 
-            @foreach($posts->sortByDesc('priority') as $task)
-            @if ($task->priority > 0)
+            @foreach($tasks as $task)
             <tr scope="row">
 
                 <!--POST PRIORTY- high prio - text-white bg-danger-->
-	                @if (($task->priority) == 0)
-	                <td class="align-middle bg-dark text-light" id="row-prio">{{ $task->priority }}</td>
-	                @elseif (($task->priority) <= 6)
-	                <td class="align-middle bg-light" id="row-prio">{{ $task->priority }}</td>
-	                @elseif (($task->priority) <= 8)
-	                <td class="align-middle bg-warning" id="row-prio">{{ $task->priority }}</td>
-	                @else
-	                <td class="align-middle bg-success text-light" id="row-prio">{{ $task->priority }}</td>
-	                @endif
+                <td class="align-middle @if (($task->priority) == 0) bg-dark text-light @elseif (($task->priority) <= 6) bg-light @elseif (($task->priority) <= 8) bg-warning @else bg-success text-light @endif" id="row-prio">{{ $task->priority }}</td>
 
                 <!--POST LEVEL-->
                 	<td class="align-middle text-muted font-weight-light" id="row-id">{{ $task->level }}</td>
@@ -79,9 +68,9 @@
 
                 <!--TASK WORDS-->
 	                @if (($task->progress) == "Complete")
-	                <td class="align-middle" id="row-pts">✔</td>
+	                <td class="align-middle" id="row-words">✔</td>
 	                @else
-	                <td class="align-middle text-dark" id="row-pts">{{ $task->words }}</td>
+	                <td class="align-middle text-dark" id="row-words">{{ $task->words }}</td>
 	                @endif
 
                 <!--PROGRESS STATUS-->
@@ -121,7 +110,6 @@
 
 
             </tr>
-            @endif
             @endforeach
             </tbody>
     </table>
