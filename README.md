@@ -42,6 +42,8 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
 
 ## To Do
 
+    ☐ Create Faker data
+
     ☐  Add [Search Function](https://github.com/spatie/laravel-searchable)
     
     ☐ Add CSV Upload Functionality
@@ -49,6 +51,7 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
     ☐ Zapier Integration - Post into Database from Zapier
       
     ☐ Create Client Accounts & View
+    
 
 ## Contributing
 
