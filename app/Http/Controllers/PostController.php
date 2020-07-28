@@ -139,9 +139,10 @@ class PostController extends Controller
         Session::flash('success', 'You picked up a new task.');
 
         $users = User::all();
+        $posts = Posts::all();
 
         return view('home', [
-            'task'=>$curTask,
+            'posts'=>$posts,
             'users' => $users,
         ]);
 
