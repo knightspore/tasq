@@ -5,5 +5,10 @@ $font-family-sans-serif: 'Jost', -apple-system, system-ui, BlinkMacSystemFont, "
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
 
+.navbar-toggler-icon {
+    border: .2em solid #343a40;
+    border-radius: 50%;
+}
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

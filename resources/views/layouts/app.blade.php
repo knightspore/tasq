@@ -40,7 +40,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon bg-dark rounded-circle text-center"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
@@ -48,13 +48,20 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/home">Sheet</a>
+                            <a class="nav-link text-dark" href="/">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/projects">Projects</a>
+                            <a class="nav-link text-dark" href="/home">{{ __('Tasqs') }}</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="/team">{{ __('Team') }}</a></li>
-                        <li class="nav-item"><a class="nav-link text-success" href="/submit" role="button">+ Create</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/projects">{{ __('Projects') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/team">{{ __('Team') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success" href="/submit" role="button">+ Create</a>
+                        </li>
                         @endauth
                     </ul>
 
