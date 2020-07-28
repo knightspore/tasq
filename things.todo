@@ -15,7 +15,7 @@ All Ideas
         ✔ Fix Broken Columns @done (2020/03/17, 19:56:55)
 
     ✔ Remove styling @done (2020/03/17, 20:08:53)
-    
+
     Customize styling with conditions
     ✔ Folder / Link on/off based on null value @done (2020/03/18, 15:20:10)
     ✔ Colour Coded Priority and Status @done (2020/03/18, 15:35:37)
@@ -30,13 +30,13 @@ All Ideas
     Build Post View
     ✔ Create individual post ID view
         ✔ All cols except ID and time
-    
+
         ☐ Start linking Databases with between posts and users
-        
+
         ADD NEW KPI TABLE WITH SUM AND USER DEPENDENT VALUES?
 
-            Sum of the total KPI points from posts where the user is 
-                Find the user                < that user and the month is               
+            Sum of the total KPI points from posts where the user is
+                Find the user                < that user and the month is
                 Find the month                < that month
                 if ($users->user == this.user && )
 
@@ -49,7 +49,7 @@ All Ideas
         ☐ Add Folder Link to Post
         ☐ Add live link to Post
         ☐ Edit Post Form
-    
+
 
     ☐ Create individual profile view
         ☐ name
