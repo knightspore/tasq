@@ -12,18 +12,18 @@
     @auth
     <!--User Dashboard-->
     <div class="row">
-        <div class="col-md-8 text-left">
-            <h2 class="py-3 text-center">🎯 Tasks you're working on</h2>
+        <div class="col-lg-8 text-left">
+            <h2 class="py-3 text-center">🎯 Your Queue</h2>
                 @if(Auth::user()->task == '[]')
                     <h3 class="text-center">Your queue is empty.</h3>
                 @else
-                    @foreach($myTasks->where('archived', '==', '0') as $task)
+                    @foreach($userTasks as $task)
                     @include('components.minitask')
                     @endforeach
                 @endif
         </div>
-        <div class="col-md-4 text-left">
-            <h4 class="pt-4 pb-3 text-center">📫 Top Priority Pickups</h4>
+        <div class="col-lg-4 text-left">
+            <h4 class="pt-4 pb-3 text-center">📫 Top Priority</h4>
             @foreach( $topTen as $task )
                 @if ($loop->iteration <= 5)
                 @include('components.minitask')
