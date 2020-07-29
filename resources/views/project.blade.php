@@ -27,7 +27,7 @@
         <div class="col-md-5 py-3 text-center">
         <div class="mx-auto">
         @isset($thisproject->logo)
-        <img src="{{ $thisproject->logo }}" alt="{{ $thisproject->name }} Logo" class="responsive-image w-25 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
+        <img src="{{ $thisproject->logo }}" alt="{{ $thisproject->name }} Logo" class="responsive-image w-50 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         @else
         <img src="https://scontent.fcpt1-1.fna.fbcdn.net/v/t1.0-9/52351556_1102226693290301_5029265171558694912_n.png?_nc_cat=106&_nc_sid=85a577&_nc_oc=AQlJ1ZTnLdwLVhcMhR-vtQiBPlUSGSC94jB0ZRjoHb3F8cK2AfKb7UU8jKcFzNPOxdw&_nc_ht=scontent.fcpt1-1.fna&oh=02750184f02d8fefde2ed82e9a0bd19e&oe=5EC01C5F" alt="{{ $thisproject->name }} Logo" class="responsive-image w-25 mx-auto d-block rounded-circle mb-4 shadow-sm img-thumbnail">
         @endisset
@@ -55,6 +55,9 @@
         <div class="col-md-7 py-3">
         {{-- About Project --}}
             <h2 class="pb-3">🧰 Project Info</h2>
+            @isset($thisproject->comment)
+            <p>{{ $thisproject->comment }}</p>
+            @endisset
         {{-- Assigned Tasks --}}
             <h2 class="pb-3">🙌🏽 Tasks</h2>
             @foreach($tasks as $task)

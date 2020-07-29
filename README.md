@@ -23,6 +23,11 @@ php artisan key:generate
 php artisan migrate
 ```
 
+If you want to generate some test data, I've set up fakers
+```bash
+php artisan db:seed
+```
+
 Optional: Add your Slack Webhook to the .env file for Slack Integrations
 
 ## Usage
@@ -44,9 +49,9 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
 
     ☐ Create Faker data
 
-    ☐  Add [Search Function](https://github.com/spatie/laravel-searchable)
-    
     ☐ Add CSV Upload Functionality
+    
+    ☐  Add [Search Function](https://github.com/spatie/laravel-searchable)
 
     ☐ Zapier Integration - Post into Database from Zapier
       
