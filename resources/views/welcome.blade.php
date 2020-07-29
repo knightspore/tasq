@@ -1,3 +1,4 @@
+{{-- Dashboard / Login --}}
 @extends('layouts.app')
 
 @section('title', 'Home')
@@ -10,7 +11,7 @@
     @endguest
 
     @auth
-    <!--User Dashboard-->
+    {{-- User Dashboard --}}
     <div class="row">
         <div class="col-lg-8 text-left">
             <h2 class="py-3 text-center">🎯 Your Queue</h2>

@@ -1,6 +1,5 @@
+{{-- Individual Project View --}}
 @extends('layouts.app')
-
-<!--This is the individual Project or Website View-->
 
 @section('title', $thisproject->name )
 
@@ -54,9 +53,9 @@
 
         </div>
         <div class="col-md-7 py-3">
-        <!-- About Project -->
+        {{-- About Project --}}
             <h2 class="pb-3">🧰 Project Info</h2>
-        <!--Assigned Tasks-->
+        {{-- Assigned Tasks --}}
             <h2 class="pb-3">🙌🏽 Tasks</h2>
             @foreach($tasks as $task)
             @if($task->site == $thisproject->site)

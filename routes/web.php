@@ -21,10 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 // Main Pages
-
 Route::get('/', 'WelcomeController@index')->name('welcome');                        // Dashboard Welcome Page
 Route::get('/home', 'HomeController@index')->name('home');                          // Home Page - Task Sheet View
-Route::get('/post', 'PostController@index')->name('post');                          // Card view Page
 Route::get('/archive', 'ArchiveController@index')->name('archive');                 // Archive View (Posts Below 0)
 Route::get('/team', 'TeamController@index')->name('team');                          // Team
 Route::get('/projects', 'ProjectController@all')->name('projects');
@@ -43,15 +41,16 @@ Route::post('complete', 'PostController@complete')->name('complete');           
 Route::post('folder', 'PostController@folder')->name('folder');                     // Add Task Folder
 Route::post('livelink', 'PostController@livelink')->name('livelink');               // Add Live Link
 
-Route::get('/kpi', 'KpiController@index')->name('kpi');                             // KPI Page
+// User Routes
 Route::get('/user', 'UserController@index')->name('user');                          // User
 Route::get('/user/{id}', 'UserController@view')->name('profile');                   //View Individual Users
 Route::get('/user/{id}/edit', 'UserController@edit')->name('editprofile');                      //View Individual Users
 Route::post('/user/{id}/save', 'UserController@save')->name('saveprofile');                     //View Individual Users
 
-
+// Project Routes
 Route::get('/project/{id}', 'ProjectController@view')->name('project');                         // View Individual Project
 Route::get('/project/{id}/edit', 'ProjectController@edit')->name('editproject');                // View Individual Project
 Route::post('/project/{id}/save', 'ProjectController@save')->name('saveproject');               // View Individual Project
 
+// Extra
 Route::get('/admin', 'AdminController@index')->name('admin');

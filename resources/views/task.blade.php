@@ -1,6 +1,5 @@
+{{-- Individual Task View --}}
 @extends('layouts.app')
-
-<!--This is the individual Task or "Post Listing" View-->
 
 @section('title', $task->task )
 
@@ -8,7 +7,7 @@
 
 <div class="container pt-5">
 
-    <!-- SUCCESS -->
+    {{-- Success Alert --}}
     @if (Session::has('success'))
     <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 300px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -17,7 +16,7 @@
     </div>
     @endif
 
-    <!-- POST PRIORITY & NAME-->
+    {{-- Post Priority & Name --}}
     @if (($task->priority) == 0)
     <h1>
         <badge class="badge badge-dark">{{ $task->priority}}</badge> {{ $task->task }} 📋
@@ -34,7 +33,7 @@
                 </h1>
                 @endif
 
-                <!-- DUE DATE, SITE, FOLDER, LIVE LINK -->
+                {{-- Date, Site, Folder, Live Link --}}
                 <h3>Due {{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</h3>
                 <h3 class="text-primary"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></h3>
                 <div class="">
@@ -50,12 +49,12 @@
 
                 <div class="d-grid m-2">
                     @empty ($task->folder)
-                    <!-- Button trigger modal -->
+                    {{-- Button to trigger Modal --}}
                     <button type="button" class="btn btn-sm btn-outline-info" data-toggle="modal"
                         data-target="#postfolder">
                         📁 Add Task Folder
                     </button>
-                    <!--Modal Popup-->
+                    {{-- Modal --}}
                     <div class="modal fade" id="postfolder" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -85,12 +84,12 @@
 
                     @empty ($task->live)
                     @isset($task->folder)
-                    <!-- Button trigger modal -->
+                    {{-- Button to trigger Modal --}}
                     <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal"
                         data-target="#livelink">
                         🔗 Add Live Link
                     </button>
-                    <!--Modal Popup-->
+                    {{-- Modal --}}
                     <div class="modal fade" id="livelink" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -137,12 +136,12 @@
                             @else
                             <div class="card bg-dark text-white m-2">
                                 @endif
-                                <!-- TASK CARD -->
+                               {{-- TASK CARD --}}
                                 <div class="card-body">
                                     <h2 class="card-title"><strong>{{ $task->type }}</strong> | {{ $task->points }} Points</h2>
-                                    <!-- ASSIGN & STATUS BUTTONS -->
+                                   {{-- ASSIGN & STATUS BUTTONS --}}
                                     <div class="m-2">
-                                        <!-- PICK UP TASK -->
+                                       {{-- PICK UP TASK --}}
                                         @if ($task->user == NULL)
                                         <form class="d-inline-block" action="/pickup" method="POST">
                                             @csrf
@@ -152,7 +151,7 @@
                                         </form>
                                         @else
 
-                                        <!-- DISPLAY TASK USER -->
+                                       {{-- DISPLAY TASK USER --}}
                                         @foreach ($users as $user)
                                         @if ($task->user == $user->id)
                                         <a href="/user/{{ $task->user }}" target="_blank"><button
@@ -161,7 +160,7 @@
                                         @endif
                                         @endforeach
 
-                                        <!-- BECOME TASK EDITOR -->
+                                       {{-- BECOME TASK EDITOR --}}
                                         @if ($task->editor == NULL)
                                         <form class="d-inline-block" action="/editing" method="POST">
                                             @csrf
@@ -172,7 +171,7 @@
                                         </form>
                                         @else
 
-                                        <!-- DISPLAY EXISTING EDITOR -->
+                                       {{-- DISPLAY EXISTING EDITOR --}}
                                         @foreach ($users as $user)
                                         @if ($task->editor == $user->id)
                                         <button type="submit" class="btn btn-warning m-1 mx-auto"><strong>📝
@@ -181,9 +180,9 @@
                                         @endforeach
                                         @endif
 
-                                        <!-- COMPLETE TASK -->
+                                       {{-- COMPLETE TASK --}}
                                         @if ($task->editor == NULL)
-                                        <!-- SHOW NO COMPLETE INDICATION -->
+                                       {{-- SHOW NO COMPLETE INDICATION --}}
                                         @elseif ($task->progress != 'Complete')
                                         <form class="d-inline-block" action="/complete" method="POST">
                                             @csrf
@@ -192,7 +191,7 @@
                                                     ❔</strong></button>
                                         </form>
 
-                                        <!-- SHOW COMPLETION -->
+                                       {{-- SHOW COMPLETION --}}
                                         @else
                                         <button class="btn btn-success m-1 mx-auto">Complete ✔</button>
                                         @endif

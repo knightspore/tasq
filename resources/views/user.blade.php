@@ -1,6 +1,6 @@
-@extends('layouts.app')
+{{-- Individual User Profile View --}}
 
-<!--Individual User Profile View-->
+@extends('layouts.app')
 
 @section('title', $user->name)
 
@@ -8,7 +8,7 @@
 
 <div class="container pt-3">
 
-    <!-- SUCCESS -->
+    {{-- Success Alert --}}
     @if (Session::has('success'))
     <div class="alert alert-success" role="alert" style="top:2%; position: fixed; left:2%; z-index:100; width: 300px;">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -36,7 +36,7 @@
 
         </div>
         <div class="col-md-5 py-3">
-        <!--Assigned Tasks-->
+        {{-- Assigned Tasks --}}
             <h2 class="pb-3">🎯 Working On</h2>
             @foreach($posts as $task)
             @if(($task->user) == $user->id && (($task->progress) != "Complete"))
@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-md-4 py-3">
-             <!--Editing Tasks-->
+             {{-- Editing Tasks --}}
              <h2 class="pb-3">📝 Editing</h2>
             @foreach($posts as $task)
             @if (($task->editor) == $user->id && (($task->progress) != "Complete"))

@@ -1,3 +1,4 @@
+{{-- Admin Panel - Generated for Users Level 5 and Up --}}
 @extends('layouts.app')
 
 @section('title', 'Admin Panel')
@@ -6,7 +7,6 @@
 
 <div class="upload container p-3">
 
-    <!-- Intro Panel -->
     <div class="row"></div>
 
 </div>

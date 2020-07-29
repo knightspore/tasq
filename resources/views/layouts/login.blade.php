@@ -1,4 +1,4 @@
-<!--Guest Welcome Area-->
+{{-- Guest Welcome Area --}}
 <div class="jumbotron jumbotron-fluid rounded shadow-sm bg-white">
     <h1 class="display-5 text-success">Tasq</h1>
     <p class="lead">Manage your writing team with ease.</p>

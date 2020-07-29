@@ -1,3 +1,4 @@
+{{-- 404 Page --}}
 @extends('layouts.app')
 
 @section('title', 'Not Found')

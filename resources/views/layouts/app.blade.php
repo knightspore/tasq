@@ -4,18 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') · Tasq</title>
     <meta name="description" content="Travel Tractions Task Management App" />
-    <!-- Scripts -->
+    <!-- Scripts & Styles -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!--Font Imports-->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Open Graph data -->
-    <meta property="og:title" content="@yield('title') · Task Manager" />
+    <!-- MetaData -->
+    <meta property="og:title" content="@yield('title') · Tasq" />
+    <meta property="og:description" content="Manage your tasks with ease." />
     <meta property="og:type" content="app" />
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
@@ -44,7 +43,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
@@ -65,9 +64,9 @@
                         @endauth
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    {{-- Right Side Of Navbar --}}
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        {{-- Authentication Links --}}
                         @guest
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>

@@ -1,3 +1,4 @@
+{{-- Create new Tasq --}}
 @extends('layouts.app')
 
 @section('title', 'Create a Tasq')
@@ -27,19 +28,19 @@
     {{ csrf_field() }}
         <div class="row input-group">
             <input type="hidden" name="created_by" value="{{Auth::user()->id}}"/>
-            <!--Task Name-->
+            {{--Task Name--}}
             <div class="form-group col-lg">
                 <label for="postTask">Task Name</label>
                 <input name="taskname"type="text" id="postTask" class="form-control" placeholder="Enter task name" required>
             </div>
 
-            <!--Task Website-->
+            {{--Task Website--}}
             <div class="form-group col-lg">
                 <label for="postSite">Project</label>
                 <input name="site" type="text" id="postSite" class="form-control" placeholder="example.com" required>
             </div>
 
-            <!--Due-date-->
+            {{--Due-date--}}
             <div class="form-group col-lg">
                 <label for="postDuedate">Due Date</label>
                 <input name="due" type="date" id="postDuedate" class="form-control" required>
@@ -48,7 +49,7 @@
         </div>
 
         <div class="row input-group">
-            <!--Priority-->
+            {{--Priority--}}
             <div class="form-group col-lg">
                 <label for="postPriority">Priority</label>
                 <select name="priority" class="form-control" id="postPriority" required>
@@ -65,7 +66,7 @@
                 </select>
             </div>
 
-            <!--level-->
+            {{--level--}}
             <div class="form-group col-lg">
                 <label for="postLevel">Level</label>
                 <select name="level" id="postLevel" class="form-control" required>
@@ -77,13 +78,13 @@
                 </select>
             </div>
 
-            <!--Type-->
+            {{--Type--}}
             <div class="form-group col-lg">
                 <label for="postType">Task Type</label>
                 <input name="type" id="postType" class="form-control" placeholder="Blog Post" required>
             </div>
 
-            <!--Words-->
+            {{--Words--}}
             <div class="form-group col-lg">
                 <label for="postWords">Words</label>
                 <input name="words" type="number" id="postWords" class="form-control" placeholder="1000" required>
@@ -91,7 +92,7 @@
 
         </div>
 
-        <!--Project-->
+        {{--Project--}}
         <div class="form-group" required>
             <div class="">
                 <label>Client or Internal Project?</label></div>
@@ -107,14 +108,14 @@
             </div>
         </div>
 
-        <!--Comment-->
+        {{--Comment--}}
 
         <div class="form-group">
             <label for="postComment">Comments</label>
             <textarea name="comments" class="form-control" id="postComment" cols="10" rows="3"></textarea>
         </div>
 
-        <!--Submit Single Task (post)-->
+        {{--Submit Single Task (post)--}}
 
         <div class="mt-3">
             <button class="btn btn-info" type="submit" id="btnSubmit">Submit</button>

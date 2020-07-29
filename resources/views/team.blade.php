@@ -1,3 +1,4 @@
+{{-- Team View --}}
 @extends('layouts.app')
 
 @section('title', 'Team')

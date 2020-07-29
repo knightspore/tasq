@@ -1,3 +1,4 @@
+{{-- Edit Task --}}
 @extends('layouts.app')
 
 @section('title', $task->task)
@@ -97,7 +98,7 @@
             <!--Type-->
             <div class="form-group col-md">
             <label for="type">Type</label>
-            <input name="type" class="form-control" value="{{ $task->type }}" id="type">          
+            <input name="type" class="form-control" value="{{ $task->type }}" id="type">
             </div>
 
             <!--Points-->

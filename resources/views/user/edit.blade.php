@@ -1,6 +1,5 @@
+{{--Edit User Profile --}}
 @extends('layouts.app')
-
-<!--Edit User Profile View-->
 
 @section('title', $user->name)
 
@@ -22,7 +21,7 @@
             </h4>
         </div>
         <div class="col-md-9 py-3">
-        <!--Edit Profile-->
+        {{--Edit Profile--}}
             <h2 class="pb-3">👾 Edit Profile</h2>
             <form action="save" method="POST">
                 {{ csrf_field() }}
