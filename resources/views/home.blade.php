@@ -7,10 +7,10 @@
 
 <h1 class="mb-4 text-center">📃 Tasqs</h1>
 
-    {{-- @if (desktop) --}}
-    @include('components.home.table')
-    {{-- @else --}}
+    @if ($agent->isMobile() or $agent->isTablet())
     @include('components.home.card')
-    {{-- @endif --}}
+    @else
+    @include('components.home.table')
+    @endif
 
 @endsection
