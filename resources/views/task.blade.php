@@ -16,7 +16,7 @@
     </div>
     @endif
 
-    {{-- Post Priority & Name --}}
+    {{-- Task Priority & Name --}}
     @if (($task->priority) == 0)
     <h1>
         <badge class="badge badge-dark">{{ $task->priority}}</badge> {{ $task->task }} 📋
@@ -138,7 +138,7 @@
                                 @endif
                                {{-- TASK CARD --}}
                                 <div class="card-body">
-                                    <h2 class="card-title"><strong>{{ $task->type }}</strong> | {{ $task->points }} Points</h2>
+                                    <h2 class="card-title"><strong>{{ $task->type }}</strong> | {{ $task->words }} Words</h2>
                                    {{-- ASSIGN & STATUS BUTTONS --}}
                                     <div class="m-2">
                                        {{-- PICK UP TASK --}}
