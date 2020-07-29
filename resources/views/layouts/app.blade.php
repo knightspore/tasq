@@ -47,10 +47,7 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/home">{{ __('Tasqs') }}</a>
+                            <a class="nav-link text-dark" href="/home">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/projects">{{ __('Projects') }}</a>
