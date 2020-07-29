@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Posts;
+use App\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,8 +13,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        DB::table('users')->insert([
+            'name' => 'Ciaran',
+            'role' => 'Head Developer',
+            'location' => 'Cape Town, South Africa',
+            'email' => 'test@test.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('testtest'),
+            'remember_token' => Str::random(10),
+            ]);
+
         factory(\App\User::class, 5)->create();
         factory(\App\Project::class, 5)->create();
         factory(\App\Posts::class, 20)->create();
+
+        $wip = Posts::all()->where('progress', '==', 'WIP');
+
+        foreach($wip as $w) {
+            $w->user = User::all()->random()->id;
+            $w->save();
+        };
     }
 }
