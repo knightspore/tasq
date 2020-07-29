@@ -35,7 +35,7 @@
 
                 {{-- Date, Site, Folder, Live Link --}}
                 <h3>Due {{\Carbon\Carbon::parse($task->due)->diffForHumans()}}</h3>
-                <h3 class="text-primary"><a href="https://{{ $task->site }}" target="_blank">{{ $task->site }}</a></h3>
+                <h3 class="text-primary"><a href="/project/{{ !empty($task->proj) ? $task->proj->id:'' }}" target="_blank">{{ $task->site }}</a></h3>
                 <div class="">
                     @isset ($task->folder)
                     <h6><a class="mr-sm-2" href="{{ $task->folder }} " target="_blank">📁 View Folder</a></h6>

@@ -42,7 +42,7 @@
                 	<td class="align-middle text-muted font-weight-light" id="row-proj">{{ $task->project }}</td>
 
                 <!--SITE-->
-                	<td class="align-middle font-weight-light" id="row-site"><a href="project/{{ !empty($task->proj) ? $task->proj->id:'' }}" target="_blank">{{ $task->site }}</a></td>
+                	<td class="align-middle font-weight-light" id="row-site"><a href="/project/{{ !empty($task->proj) ? $task->proj->id:'' }}" target="_blank">{{ $task->site }}</a></td>
 
                 <!--TASK NAME-->
 	                @if (($task->progress) == "Not Picked Up")

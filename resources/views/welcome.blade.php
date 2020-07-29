@@ -25,8 +25,8 @@
         </div>
         <div class="col-lg-4 text-left">
             <h4 class="pt-4 pb-3 text-center">📫 Top Priority</h4>
-            @foreach( $topTen as $task )
-                @if ($loop->iteration <= 5)
+            @foreach( $newTasks as $task )
+                @if ($loop->iteration <= 3)
                 @include('components.minitask')
                 @endif
             @endforeach

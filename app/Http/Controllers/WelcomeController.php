@@ -15,13 +15,13 @@ class WelcomeController extends Controller
             return view('welcome');
         } else {
             $tasks = Posts::all();
-            $topTen = $tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority');
+            $newTasks = $tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority');
             $userTasks = $tasks->where('user', '==', Auth::user()->id)->where('archived', '==', '0');
 
             return view('welcome', [
                 'tasks' => $tasks,
                 'userTasks' => $userTasks,
-                'topTen' => $topTen,
+                'newTasks' => $newTasks,
             ]);
         }
     }

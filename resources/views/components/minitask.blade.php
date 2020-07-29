@@ -7,11 +7,13 @@
     @else
     <h6><strong>Not picked up.</strong></h6>
     @endif
+    @if($task->progress == 'WIP')
     @isset($task->comment)
         <hr>
         <p>{{$task->comment}}</p>
         <hr>
     @endisset
+    @endif
     <div class="text-center">
     <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
             class="btn btn-outline-success shadow-sm">View</button></a></div>
