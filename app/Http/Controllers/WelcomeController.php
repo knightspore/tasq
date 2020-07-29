@@ -11,14 +11,18 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $tasks = Posts::all();
-        $userTasks = $tasks->where('user', '==', Auth::user()->id)->where('archived', '==', '0');
-        $topTen = $tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority');
+        if(Auth::guest()) {
+            return view('welcome');
+        } else {
+            $tasks = Posts::all();
+            $topTen = $tasks->where('progress', '==', 'Not Picked Up')->sortByDesc('priority');
+            $userTasks = $tasks->where('user', '==', Auth::user()->id)->where('archived', '==', '0');
 
-        return view('welcome', [
-            'tasks' => $tasks,
-            'userTasks' => $userTasks,
-            'topTen' => $topTen,
-        ]);
+            return view('welcome', [
+                'tasks' => $tasks,
+                'userTasks' => $userTasks,
+                'topTen' => $topTen,
+            ]);
+        }
     }
 }
