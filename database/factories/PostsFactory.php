@@ -15,7 +15,7 @@ $factory->define(Posts::class, function (Faker $faker) {
     return [
         'priority' => rand(4,10),
         'level' => rand(1,5),
-        'due' => '2020-'.$faker->month.'-'.$faker->dayOfMonth,
+        'due' => $faker->dateTimeThisYear(),
         'project' => 'Client',
         'progress' => $faker->randomElement($prog),
         'site' => Project::all()->random()->site,
