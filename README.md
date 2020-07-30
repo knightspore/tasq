@@ -1,4 +1,3 @@
-
 # Tasq
 
 Task is a Laravel web app made for tracking teams of content writers. It currently uses Bootstrap 4 for UI. It's still in the very early stages of development - a MVP with a strong idea of what the app should do and how it should do it.
@@ -28,6 +27,8 @@ If you want to generate some test data, I've set up fakers
 php artisan db:seed
 ```
 
+Note: if you're running in production mode, ```db:seed``` will not work - so I've included it as a migration called 'factory'. This migration needs to be removed if you're using Tasq as an actual live production.
+
 Optional: Add your Slack Webhook to the .env file for Slack Integrations
 
 ## Usage
@@ -46,8 +47,6 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
 
 
 ## To Do
-
-    ☐ Create Faker data
 
     ☐ Add CSV Upload Functionality
     
