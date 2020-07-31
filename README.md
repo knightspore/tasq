@@ -50,6 +50,10 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
 
     ☐ Fix Comment Formatting
 
+    ☐ Slack Notification Error Handling
+
+    ☐ Change Redirect Routes after Edit
+
     ☐ Create Project Cards
 
     ☐ Add CSV Upload Functionality

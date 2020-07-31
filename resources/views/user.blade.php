@@ -38,7 +38,7 @@
                 <span class="badge badge-dark"><a href="/user/{{ $user->id }}/edit" class="text-light">Edit Profile</a></span>
                 @endif
         </div>
-        <div class="col-md-5 py-3">
+        <div class="col-lg-5 col-md-9 py-3">
         {{-- Assigned Tasks --}}
             <h2 class="pb-3">🎯 Working On</h2>
             @foreach($posts as $task)
@@ -50,7 +50,7 @@
             @endforeach
         </div>
 
-        <div class="col-md-4 py-3">
+        <div class="col-lg-4 py-3">
              {{-- Editing Tasks --}}
              <h2 class="pb-3">📝 Editing</h2>
             @foreach($posts as $task)

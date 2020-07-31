@@ -34,28 +34,34 @@ class TaskCompleted extends Notification
 
     public function toSlack($notifiable)
     {
-
-        $url = $notifiable->live;
-        $name = $notifiable->owner->slack_id;
+        $name = $notifiable->owner->name;
         $editor = $notifiable->edited->name;
         $inAppLink = url('/');
+        $f = $notifiable->folder;
+        $l = $notifiable->live;
 
-        // dd($notifiable);
+
+
+        if (!$f) {
+            $f = $inAppLink;
+        }
+
+        if (!$l) {
+            $l = $inAppLink;
+        }
+
         return (new SlackMessage)
-                ->to('#test')
-                ->linkNames()
                 ->success()
-                ->content(":heavy_check_mark: <@$name> completed a task.")
-                ->attachment(function ($attachment) use ($notifiable, $editor, $inAppLink) {
+                ->content(":heavy_check_mark: $name completed a task.")
+                ->attachment(function ($attachment) use ($notifiable, $editor, $inAppLink, $f, $l) {
                     $attachment->title("$notifiable->task", "$inAppLink/post/$notifiable->id")
                                 ->content("$notifiable->comment")
                                 ->fields([
                                     'Site' => "$notifiable->site",
                                     'Info' => "$notifiable->type, $notifiable->points Points",
                                     'Edited by' => "$editor",
-                                    'Links' => "<$notifiable->folder|📁> - <$notifiable->live|🔗>",
+                                    'Links' => "<$f|📁> - <$l|🔗>",
                                 ]);
                 });
-
     }
 }
