@@ -129,12 +129,12 @@
     <form class="text-muted">
         <div class="form-group">
             <label for="uploadPostsCsv"><a href="/task-template.csv">Click here</a> for an example .csv file. (Open with Excel or Google Docs)</label>
-            <input type="file" class="form-control-file" id="uploadPostsCsv">
-
+            <input type="file" class="form-control-file" name="uploadPostsCsv" id="uploadPostsCsv">
+            <br>
+            <label for="csvHeaders"><p>Headers included in CSV</p></label>
+            <input type="checkbox" name="csvHeaders" id="csvHeaders">
         </div>
-
         <button type="submit" class="btn btn-info" id="btnUpload" href="#">Upload</button>
-
     </form>
 
 </div>

@@ -27,13 +27,16 @@
 
         <h4 class="text-muted">{{ $user->role }} </h4>
         <hr>
-            <h4><a href="mailto:{{ $user->email }}" class="badge badge-info">📧 Email</a>
+                <a href="mailto:{{ $user->email }}" class="badge badge-info">📧 Email</a>
+                @isset($user->location)
                 <span class="badge badge-info">🌍 {{ $user->location }}</span>
+                @endisset
+                @isset($user->personallink)
+                <a href="https://{{$user->personallink}}" class="badge badge-info" target="_blank">🌐 Personal</a>
+                @endisset
                 @if ( $user->id == Auth::user()->id)
                 <span class="badge badge-dark"><a href="/user/{{ $user->id }}/edit" class="text-light">Edit Profile</a></span>
                 @endif
-            </h4>
-
         </div>
         <div class="col-md-5 py-3">
         {{-- Assigned Tasks --}}
