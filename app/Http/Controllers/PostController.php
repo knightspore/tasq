@@ -129,7 +129,7 @@ class PostController extends Controller
         $user = request('user_id');
         $taskId = request('task_id');
 
-        // Fill Post User
+        // Update Task
         $curTask = Posts::findOrFail($taskId);
         $curTask->update(['user' => $user]);
         $curTask->update(['progress' => 'WIP']);
@@ -138,13 +138,7 @@ class PostController extends Controller
         //Success
         Session::flash('success', 'You picked up a new task.');
 
-        $users = User::all();
-        $posts = Posts::all();
-
-        return view('home', [
-            'posts'=>$posts,
-            'users' => $users,
-        ]);
+        return redirect()->route('welcome');
 
     }
 

@@ -15,6 +15,6 @@
     @endisset
     @endif
     <div class="text-center">
-    <a href="/post/{{ $task['id'] }}" class="text-secondary" target="_blank"><button
+    <a href="/post/{{ $task['id'] }}" class="text-secondary"><button
             class="btn btn-outline-success shadow-sm">View</button></a></div>
 </div>
