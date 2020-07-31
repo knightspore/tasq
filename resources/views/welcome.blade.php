@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('title', 'Home')
+@section('description', 'Tasq Dashboard')
 
 @section('content')
 

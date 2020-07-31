@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('title', $task->task )
+@section('description', $task->comment )
 
 @section('content')
 
@@ -203,7 +204,6 @@
                                     <p>{{ $task->comment }}</p>
                                     <hr>
 
-                                    <p><a href="/{{ $task->site }}" class="text-light" target="_blank">View Site SOP</a></p>
                                     @if (Auth::user()->level >= 5)
                                     @foreach ($users as $user)
                                     @if ($user->id == $task->created_by)

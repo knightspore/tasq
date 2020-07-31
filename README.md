@@ -48,11 +48,13 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
 
 ## To Do
 
+    ☐ Fix Comment Formatting
+
+    ☐ Create Project Cards
+
     ☐ Add CSV Upload Functionality
     
     ☐  Add [Search Function](https://github.com/spatie/laravel-searchable)
-
-    ☐ Zapier Integration - Post into Database from Zapier
       
     ☐ Create Client Accounts & View
     

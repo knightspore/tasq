@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- MetaData -->
     <meta property="og:title" content="@yield('title') · Tasq" />
-    <meta property="og:description" content="Manage your tasks with ease." />
+    <meta property="og:description" content="@yield('description')" />
     <meta property="og:type" content="app" />
     <meta property="og:url" content="{{ asset('') }}" />
     <meta property="og:image" content="{{ asset('img/webicon.png') }}" />
