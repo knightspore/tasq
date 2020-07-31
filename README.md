@@ -48,11 +48,9 @@ If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task D
 
 ## To Do
 
-    ☐ Fix Comment Formatting
-
     ☐ Slack Notification Error Handling
 
-    ☐ Change Redirect Routes after Edit
+    ☐ Change Redirect Routes after Edit Blades
 
     ☐ Create Project Cards
 
