@@ -22,6 +22,11 @@ php artisan key:generate
 php artisan migrate
 ```
 
+Setup NPM Dependencies
+```bash
+npm install && npm run dev
+```
+
 If you want to generate some test data, I've set up fakers
 ```bash
 php artisan db:seed
@@ -44,4 +49,3 @@ Completed tasks are marked as Priority 0 and moved to the archive sheet.
 If you are over Level 5 (Profile > Edit profile) you will be able to Edit Task Details for each task. 
 
 [Read more about how to use Tasq](https://ciaran.co.za/) or tweet me if you want to chat (@parabyl)
-
