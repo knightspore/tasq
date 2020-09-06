@@ -29,7 +29,7 @@ export default {
     },
     mounted () {
         axios
-        .get('http://localhost/api/users')
+        .get('http://10.0.0.12/api/users')
         .then(response => (this.users = response['data']['data']))
     }
 }

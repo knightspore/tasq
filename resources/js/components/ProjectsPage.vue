@@ -31,7 +31,7 @@ export default {
     },
     mounted () {
         axios
-        .get('http://localhost/api/projects')
+        .get('http://10.0.0.12/api/projects')
         .then(response => (this.projects = response['data']['data']))
     }
 }

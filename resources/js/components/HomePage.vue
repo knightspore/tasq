@@ -32,7 +32,7 @@ export default {
     },
     mounted () {
         axios
-        .get('http://localhost/api/tasks')
+        .get('http://10.0.0.12/api/tasks')
         .then(response => (this.tasks = response['data']['data']))
 
         console.log(this.tasks);
