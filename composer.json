@@ -15,7 +15,8 @@
         "laravel/framework": "^7.24",
         "laravel/slack-notification-channel": "^2.2",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.2"
+        "laravel/ui": "^2.2",
+        "ext-pdo_sqlite": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
