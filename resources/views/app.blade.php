@@ -13,10 +13,6 @@
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
 </head>
 <body>
     <div id="app">

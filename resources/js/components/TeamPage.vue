@@ -25,13 +25,12 @@ export default {
     data () {
         return {
         users: null,
-        apiUrl: process.env.MIX_API_URL,
         }
     },
     mounted () {
         axios
-        .get(apiUrl + '/api/users')
-        .then(response => (this.users = response['data']['data']))
+        .get('/api/users')
+        .then(response => (this.users = response.data.data))
     }
 }
 </script>

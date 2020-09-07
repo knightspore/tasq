@@ -55,17 +55,18 @@ export default {
     data () {
         return {
         tasks: null,
+        loading: true,
         }
     },
     mounted () {
         axios
-        .get('http://10.0.0.12/api/tasks')
-        .then(response => (this.tasks = response['data']['data']))
+        .get('/api/tasks')
+        .then(response => (this.tasks = response.data.data))
     }
 }
 </script>
 
-<style>
+<style scoped>
 th, td {
     @apply py-4;
 }

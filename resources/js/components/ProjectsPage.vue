@@ -27,13 +27,12 @@ export default {
         return {
             projects: null,
             shown: false,
-            apiUrl: process.env.MIX_API_URL,
         }
     },
     mounted () {
         axios
-        .get(apiUrl + '/api/projects')
-        .then(response => (this.projects = response['data']['data']))
+        .get('/api/projects')
+        .then(response => (this.projects = response.data.data))
     }
 }
 </script>
