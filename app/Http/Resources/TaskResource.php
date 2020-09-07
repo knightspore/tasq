@@ -19,7 +19,7 @@ class TaskResource extends JsonResource
             'id' => $this->id,
             'priority' => $this->priority,
             'due' => Carbon::parse($this->due)->shortRelativeDiffForHumans(),
-            'user' => $this->user,
+            'user' => $this->owner,
             'site' => $this->site,
             'type' => $this->type,
             'name' => $this->name,

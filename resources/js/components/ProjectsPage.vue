@@ -26,12 +26,13 @@ export default {
     data () {
         return {
             projects: null,
-            shown: false
+            shown: false,
+            apiUrl: process.env.MIX_API_URL,
         }
     },
     mounted () {
         axios
-        .get('http://10.0.0.12/api/projects')
+        .get(apiUrl + '/api/projects')
         .then(response => (this.projects = response['data']['data']))
     }
 }

@@ -25,11 +25,12 @@ export default {
     data () {
         return {
         users: null,
+        apiUrl: process.env.MIX_API_URL,
         }
     },
     mounted () {
         axios
-        .get('http://10.0.0.12/api/users')
+        .get(apiUrl + '/api/users')
         .then(response => (this.users = response['data']['data']))
     }
 }
