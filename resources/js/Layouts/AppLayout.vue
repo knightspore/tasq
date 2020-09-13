@@ -18,11 +18,6 @@
                                 Dashboard
                             </jet-nav-link>
 
-                            <jet-nav-link href="/tasks" :active="$page.currentRouteName == 'tasks.show'">
-                                Tasks
-                            </jet-nav-link>
-
-
                             <jet-nav-link href="/projects" :active="$page.currentRouteName == 'projects.show'">
                                 Projects
                             </jet-nav-link>

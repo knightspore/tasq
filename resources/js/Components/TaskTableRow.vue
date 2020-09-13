@@ -8,11 +8,11 @@
         <td>{{task.due | moment("from")}}</td>
 
         <!-- Task User -->
-        <td v-if="user">{{user.name}}</td>
+        <td v-if="user" class="text-center">{{user.name}}</td>
         <td v-else></td>
 
         <!-- Site -->
-        <td v-if="project">{{project.name}}</td>
+        <td v-if="project" class="text-center">{{project.name}}</td>
         <td v-else></td>
 
     </tr>

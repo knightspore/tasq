@@ -12,15 +12,15 @@ class DashboardController extends Controller
 {
     public function show()
     {
-        $totalNew = Task::get()->where('progress', '==', 'Not Picked Up')->count();
-        $totalWip = Task::get()->where('progress', '==', 'WIP')->count();
-        $totalEdit = Task::get()->where('progress', '==', 'Editing')->count();
+        $new = Task::get()->where('progress', '==', 'Not Picked Up')->count();
+        $wip = Task::get()->where('progress', '==', 'WIP')->count();
+        $edit = Task::get()->where('progress', '==', 'Editing')->count();
 
-        $totals = [$totalNew, $totalWip, $totalEdit];
+        $totals = [$new, $wip, $edit];
 
         return Inertia::render('Dashboard', [
-            'tasks' => Task::orderBy('due', 'desc')->get(['id', 'due', 'user', 'site', 'name', 'progress', 'words', 'type']),
-            'users' => User::get(['id', 'name']),
+            'tasks' => Task::orderBy('due', 'desc')->get(),
+            'users' => User::get(['id', 'name', 'email']),
             'projects' => Project::get(),
             'totals' => $totals,
         ]);

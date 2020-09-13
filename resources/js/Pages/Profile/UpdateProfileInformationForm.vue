@@ -92,7 +92,7 @@
             JetSecondaryButton,
         },
 
-        props: ['name', 'email'],
+        props: ['name', 'email', 'role'],
 
         data() {
             return {
@@ -100,6 +100,7 @@
                     '_method': 'PUT',
                     name: this.name,
                     email: this.email,
+                    role: this.role,
                     photo: null,
                 }, {
                     bag: 'updateProfileInformation',
