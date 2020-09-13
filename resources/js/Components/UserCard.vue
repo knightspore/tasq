@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="w-full h-auto bg-white flex flex-row shadow-md m-auto">
 
         <CardStatusStripe status="etc"/>
@@ -30,12 +31,12 @@
                 </div>
             </div>
         </div>
-    <div v-if="show">
+    </div>
+
+    <div class="p-2 shadow-inner bg-gray-300" v-if="show">
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto quae ut magni earum quia dolore! Blanditiis fugiat quia provident reiciendis harum illo error ipsam consequuntur. Incidunt quod quisquam assumenda quis.</p>
     </div>
-  </div>
-
-
+    </div>
 </template>
 
 <script>
@@ -46,7 +47,7 @@ import CardTitle from './Parts/CardTitle'
 export default {
     name: 'UserCard',
     props: {
-        user: Array
+        user: Object
     },
     components: {
         CardTitle,
