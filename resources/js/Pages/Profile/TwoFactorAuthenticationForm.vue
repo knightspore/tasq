@@ -42,7 +42,7 @@
                         </p>
                     </div>
 
-                    <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
+                    <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100">
                         <div v-for="code in recoveryCodes">
                             {{ code }}
                         </div>

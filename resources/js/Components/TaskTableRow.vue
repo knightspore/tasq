@@ -2,7 +2,7 @@
     <tr class="text-left border-t border-gray-200 text-gray-600 hover:bg-gray-100 transition-color duration-150">
 
         <!-- Task Name -->
-        <a :href="'/tasks/'+task.id"><td class="font-bold flex gap-x-4 text-gray-900"><Indicator :colour="priorityColour"/> {{ task.name }}</td></a>
+        <a :href="'/tasks/'+task.id+/view/"><td class="font-bold flex gap-x-4 text-gray-900"><Indicator :colour="priorityColour"/> {{ task.name }}</td></a>
 
         <!-- Due -->
         <td>{{task.due | moment("from")}}</td>

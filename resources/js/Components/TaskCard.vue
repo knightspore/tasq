@@ -1,12 +1,14 @@
 <template>
   <div class="w-full mx-auto flex flex-col text-left bg-white shadow-md">
-      <div class="h-1" :class="this.taskColour"></div>
+      <CardStatusStripe :status="task.progress"/>
       <div class="p-6">
       <p class="mb-2 text-sm font-bold text-gray-500" v-if="site">{{site.name}}</p>
+      <a :href="'/tasks/' + task.id + '/view/'">
         <CardTitle
         :title='task.name'
         :info='task.comment'
-        :comment="false"/>
+        :comment="comment"/>
+      </a>
       <div class="mt-4 flex flex-row gap-2">
           <CardTag>{{task.type}}</CardTag>
           <CardTag>{{task.words}}</CardTag>
@@ -17,12 +19,14 @@
 </template>
 
 <script>
+import CardStatusStripe from './Parts/CardStatusStripe'
 import CardTitle from './Parts/CardTitle'
 import CardTag from './Parts/CardTag'
 
 export default {
   name: 'TaskCard',
   components: {
+      CardStatusStripe,
       CardTitle,
       CardTag
   },
@@ -31,19 +35,5 @@ export default {
     comment: Boolean,
     site: Object,
   },
-  data () {
-      return {
-          taskColour: '',
-      }
-  },
-  mounted () {
-      if (this.task.progress === 'Not Picked Up') {
-          this.taskColour = 'bg-green-400';
-      } else if (this.task.progress === 'WIP') {
-          this.taskColour = 'bg-yellow-200';
-      } else {
-          this.taskColour = 'bg-blue-300';
-      };
-  }
 }
 </script>

@@ -26,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 
 // Tasks
 Route::middleware(['auth:sanctum', 'verified'])->get('/tasks', [TaskController::class, 'show'])->name('tasks.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('tasks/{task}/view', [TaskController::class, 'view'])->name('tasks.view');
 
 // Projects
 Route::middleware(['auth:sanctum', 'verified'])->get('/projects', [ProjectController::class, 'show'])->name('projects.show');
