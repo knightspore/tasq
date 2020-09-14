@@ -1,5 +1,5 @@
 <template>
-    <span class="py-2 px-2 font-bold text-gray-600 text-xs w-auto rounded-lg bg-gray-300"><slot/></span>
+    <span class="p-3 font-black m-auto sm:m-0 text-center text-gray-600 text-xs w-auto rounded-lg bg-gray-300"><slot/></span>
 </template>
 
 <script>

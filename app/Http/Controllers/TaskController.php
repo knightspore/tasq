@@ -10,26 +10,23 @@ use Inertia\Inertia;
 
 class TaskController extends Controller
 {
-    public function show()
-    {
-        return Inertia::render('Tasks/Show', [
-            'tasks' => Task::orderBy('due', 'desc')->get(['id', 'due', 'user', 'site', 'name', 'progress']),
-            'users' => User::get(),
-            'projects' => Project::get()
-        ]);
-    }
-
     public function view($id) {
         $task = Task::find($id);
         $user = User::find($task->user);
-        $editor = User::find($task->editor);
-        $project = Project::find($task->site);
+        $editor = User::find($task->edited);
+        $project = Project::find($task->proj);
 
-        return Inertia::render('Tasks/View', [
-            'task' => $task,
-            'user' => $user,
-            'project' => $project,
-            'editor' => $editor,
-        ]);
+        if ($task->progress == 'Not Picked Up') {
+            return Inertia::render('Tasks/View', [
+                'task' => $task,
+            ]);
+        } else {
+            return Inertia::render('Tasks/View', [
+                'task' => $task,
+                'user' => $user,
+                'project' => $project,
+                'editor' => $editor,
+            ]);
+        };
     }
 }

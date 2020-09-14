@@ -17,7 +17,7 @@
             </a>
 
             <div class="flex-1 flex justify-end gap-2">
-                <div class="my-auto"  @click.prevent="show = !show">
+                <div class="my-auto"  @click.prevent="show = !show" v-if="tasks">
                 <SimpleIcon>
                     <svg v-if="!show" class="w-6 h-6" aria-label="View Tasks" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
                     <svg v-if="show" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
@@ -80,6 +80,6 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: scale(0)
+  transform: scale(.5)
 }
 </style>

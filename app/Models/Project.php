@@ -26,6 +26,6 @@ class Project extends Model
 
     public function task()
     {
-        return $this->hasMany('App\Models\Task', 'site', 'site');
+        return $this->hasMany('App\Models\Task', 'site', 'id');
     }
 }

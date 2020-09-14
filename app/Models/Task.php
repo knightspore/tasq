@@ -42,6 +42,6 @@ class Task extends Model
 
     public function proj()
     {
-        return $this->belongsTo('App\Models\Project', 'site', 'site');
+        return $this->belongsTo('App\Models\Project', 'id', 'site');
     }
 }
