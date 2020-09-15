@@ -9,11 +9,15 @@ export default {
       labels: ['New: ' + this.totals[0] , 'In Progress: ' + this.totals[1], 'Editing: ' + this.totals[2]], // Reference our new labelsArray
       datasets: [
         {
-          label: 'Ratio',
-          backgroundColor: ['#68D391', '#FEFCBF', '#81E6D9'],
+          label: 'Task Progress',
+          backgroundColor: ['#48BB78', '#F6E05E', '#4FD1C5'],
           data: this.totals, // And our new totalsArray
         }
-      ]
+      ],
+        options: {
+        responsive: true,
+        maintainAspectRatio: false
+        }
     })
   }
 }

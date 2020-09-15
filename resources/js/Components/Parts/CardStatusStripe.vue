@@ -1,13 +1,13 @@
 <template>
-      <div v-if="status" :class="taskColor"></div>
+      <div v-if="status" class="h-1" :class="taskColor"></div>
 </template>
 
 <script>
 export default {
     name: 'CardStatusStripe',
-    props: {
-        status: String
-    },
+    props: [
+        'status'
+    ],
     data () {
         return {
             taskColor: '',
@@ -15,13 +15,13 @@ export default {
     },
     mounted () {
         if (this.status === 'Not Picked Up') {
-            this.taskColor = 'bg-green-400 h-1';
+            this.taskColor = 'bg-green-400';
         } else if (this.status === 'WIP') {
-            this.taskColor = 'bg-yellow-200 h-1';
-        } else if (this.status === 'etc') {
-            this.taskColor = 'bg-purple-700 w-1';
+            this.taskColor = 'bg-yellow-200';
+        } else if (this.status == 'Complete') {
+            this.taskColor = 'bg-gray-400'
         } else {
-            this.taskColor = 'bg-blue-300 h-1';
+            this.taskColor = 'bg-blue-300';
         };
     }
 }

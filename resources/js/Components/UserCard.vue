@@ -1,8 +1,8 @@
 <template>
-    <div class="shadow-inner bg-gray-300">
+    <div class="shadow-inner bg-gray-300 h-auto">
     <div class="w-full h-auto bg-white flex flex-row shadow-md m-auto">
 
-        <CardStatusStripe status="etc"/>
+        <div class="bg-purple-700 w-1"></div>
 
         <div class="p-4 w-full flex">
             <div class="mr-4 image flex w-12 h-12 bg-gray-200 rounded-full">
@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import CardStatusStripe from './Parts/CardStatusStripe'
 import CardTitle from './Parts/CardTitle'
 import TaskCard from './TaskCard'
 import SimpleIcon from './Parts/SimpleIcon'
@@ -54,32 +53,28 @@ export default {
     name: 'UserCard',
     props: {
         user: Object,
-        tasks: Array
+        tasks: Object,
     },
     components: {
         CardTitle,
-        CardStatusStripe,
         TaskCard,
         SimpleIcon
     },
     data () {
         return {
             show: false,
-            userTasks: [],
         }
     },
-    mounted () {
-
-    }
 }
 </script>
 
 <style>
 .fade-enter-active, .fade-leave-active {
-  transition: all .25s ease-in;
+  transition: all .3s ease;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: scale(.5)
+  transform: translateY(-10%);
+  scale: .8
 }
 </style>

@@ -9,10 +9,10 @@
         :info='task.comment'
         :comment="comment"/>
       </a>
-      <div class="mt-4 flex flex-row gap-2">
+      <div class="mt-4 flex flex-row flex-wrap justify-left gap-2">
+          <CardTag>{{task.progress}}</CardTag>
           <CardTag>{{task.type}}</CardTag>
-          <CardTag>{{task.words}}</CardTag>
-          <CardTag>Due {{task.due | moment("from")}}</CardTag>
+          <CardTag> {{task.due | moment('Do MMM YY')}}</CardTag>
       </div>
       </div>
   </div>

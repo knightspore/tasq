@@ -23,8 +23,8 @@
                             </jet-nav-link>
 
 
-                            <jet-nav-link class="text-green-400" href="/tasks/create" :active="$page.currentRouteName == 'tasks.create'">
-                                + Create
+                            <jet-nav-link class="text-green-400" href="/tasks/new" :active="$page.currentRouteName == 'tasks.new'">
+                                + New
                             </jet-nav-link>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="ml-3 relative">
                             <jet-dropdown align="right" width="48">
                                 <template #trigger>
-                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <button class="flex text-sm border-2 border-transparent focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                         <img class="h-8 w-8" :src="$page.user.profile_photo_url" alt="" />
                                     </button>
                                 </template>
@@ -121,16 +121,12 @@
                         Dashboard
                     </jet-responsive-nav-link>
 
-                    <jet-responsive-nav-link href="/tasks" :active="$page.currentRouteName == 'tasks.show'">
-                        Tasks
-                    </jet-responsive-nav-link>
-
                     <jet-responsive-nav-link href="/projects" :active="$page.currentRouteName == 'projects.show'">
                         Projects
                     </jet-responsive-nav-link>
 
-                    <jet-responsive-nav-link class="font-bold" href="/tasks/create" :active="$page.currentRouteName == 'tasks.create'">
-                        + Create
+                    <jet-responsive-nav-link class="font-bold" href="/tasks/new" :active="$page.currentRouteName == 'tasks.new'">
+                        + New Task
                     </jet-responsive-nav-link>
                 </div>
 
@@ -261,3 +257,4 @@
         }
     }
 </script>
+
