@@ -13,23 +13,11 @@ use Inertia\Inertia;
 class TaskController extends Controller
 {
     public function view($id) {
-        $task = Task::find($id);
-        $user = User::find($task->user);
-        $editor = User::find($task->edited);
-        $project = Project::find($task->proj);
+        $task = Task::with(['owner', 'edited', 'proj'])->find($id);
 
-        if ($task->progress == 'Not Picked Up') {
-            return Inertia::render('Tasks/View', [
-                'task' => $task,
-            ]);
-        } else {
-            return Inertia::render('Tasks/View', [
-                'task' => $task,
-                'user' => $user,
-                'project' => $project,
-                'editor' => $editor,
-            ]);
-        };
+        return Inertia::render('Tasks/View', [
+            'task' => $task,
+        ]);
     }
 
     public function new()

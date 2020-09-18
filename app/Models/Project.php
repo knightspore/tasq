@@ -24,7 +24,7 @@ class Project extends Model
 
     protected $table = 'projects';
 
-    public function task()
+    public function tasks()
     {
         return $this->hasMany('App\Models\Task', 'site', 'id');
     }

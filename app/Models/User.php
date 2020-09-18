@@ -58,7 +58,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function task()
+    public function tasks()
     {
         return $this->hasMany('App\Models\Task', 'user');
     }

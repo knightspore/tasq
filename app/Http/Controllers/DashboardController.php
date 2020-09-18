@@ -19,7 +19,8 @@ class DashboardController extends Controller
         $totals = [$new, $wip, $edit];
 
         return Inertia::render('Dashboard', [
-            'tasks' => Task::orderBy('progress', 'asc')->get()->where('archived', '==', '0'),
+            'tasks' => Task::with(['owner', 'edited', 'proj'])->orderBy('progress', 'asc')->get()->where('archived', '==', '0'),
+            'users' => User::with('tasks')->get(),
             'totals' => $totals,
         ]);
     }

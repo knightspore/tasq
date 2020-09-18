@@ -4,7 +4,7 @@
         <!-- Users -->
         <div class="space-y-4">
         <h2>Team</h2>
-        <UserCard v-for="user of $page.global.userinfo" :key="user.id" :user="user" :tasks="$page.tasks"/>
+        <UserCard v-for="user of $page.users" :user="user" :key="user.id"/>
         </div>
 
         <!-- Stats Dashboard -->

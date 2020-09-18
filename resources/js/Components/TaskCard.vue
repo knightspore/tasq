@@ -1,6 +1,6 @@
 <template>
     <CardBase :status="task.progress">
-        <p class="mb-2 text-sm font-bold text-gray-500">{{$page.global.projectinfo[task.site-1].name}}</p>
+        <p v-if="task.proj" class="mb-2 text-sm font-bold text-gray-500">{{task.proj.name}}</p>
 
         <a :href="'/tasks/' + task.id + '/view/'">
             <CardTitle
@@ -10,8 +10,8 @@
         </a>
 
         <div class="mt-4 flex flex-row flex-wrap justify-left gap-2">
-            <CardTag v-if="task.user">{{$page.global.userinfo[task.user-1].name}}</CardTag>
-            <CardTag v-if="task.editor">{{$page.global.userinfo[task.editor-1].name}}</CardTag>
+            <CardTag v-if="task.owner">{{task.owner.name}}</CardTag>
+            <CardTag v-if="task.edited">{{task.edited.name}}</CardTag>
             <CardTag>{{task.progress}}</CardTag>
             <CardTag>{{task.type}}</CardTag>
             <CardTag>{{task.due | moment('Do MMM YY')}}</CardTag>

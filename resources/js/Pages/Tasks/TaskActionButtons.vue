@@ -10,11 +10,11 @@
             Pickup Task
         </card-button>
 
-        <card-button v-if="$page.task.progress != 'Not Picked Up'" color="blue" :route="'/user/'+$page.task.user+'/view/'">
+        <card-button v-if="$page.task.progress != 'Not Picked Up'" color="blue" :route="'/user/'+$page.task.owner.id+'/view/'">
             <SimpleIcon>
             <svg class="m-auto text-white w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
             </SimpleIcon>
-            {{$page.global.userinfo[$page.task.user-1].name}}
+            {{$page.task.owner.name}}
         </card-button>
 
 
@@ -26,11 +26,11 @@
             Edit Task
         </card-button>
 
-        <card-button v-if="$page.task.progress != 'Not Picked Up' && $page.task.progress != 'WIP'" color="yellow" :route="'/user/'+$page.task.editor+'/view/'">
+        <card-button v-if="$page.task.progress != 'Not Picked Up' && $page.task.progress != 'WIP'" color="yellow" :route="'/user/'+$page.task.edited.id+'/view/'">
             <SimpleIcon>
             <svg class="m-auto text-white w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path></svg>
             </SimpleIcon>
-            {{$page.global.userinfo[$page.task.editor-1].name}}
+            {{$page.task.edited.name}}
         </card-button>
 
 

@@ -45,8 +45,6 @@ export default {
     },
     props: {
         task: Object,
-        user: Object,
-        editor: Array,
     },
     data () {
         return {

@@ -2317,7 +2317,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2325,8 +2324,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'UserCard',
   props: {
-    user: Object,
-    tasks: Object
+    user: Object
   },
   components: {
     CardBase: _Parts_CardBase__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -3858,6 +3856,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TaskTableRow',
@@ -5187,9 +5189,7 @@ __webpack_require__.r(__webpack_exports__);
     TaskDeleteForm: _TaskDeleteForm__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
-    task: Object,
-    user: Object,
-    editor: Array
+    task: Object
   },
   data: function data() {
     return {
@@ -22148,7 +22148,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n  transition: all .3s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0;\n  transform: translateY(-10%);\n}\n", ""]);
+exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n  transition: all .3s ease;\n}\n.fade-enter, .fade-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -63984,9 +63984,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("CardBase", { attrs: { status: _vm.task.progress } }, [
-    _c("p", { staticClass: "mb-2 text-sm font-bold text-gray-500" }, [
-      _vm._v(_vm._s(_vm.$page.global.projectinfo[_vm.task.site - 1].name))
-    ]),
+    _vm.task.proj
+      ? _c("p", { staticClass: "mb-2 text-sm font-bold text-gray-500" }, [
+          _vm._v(_vm._s(_vm.task.proj.name))
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "a",
@@ -64007,18 +64009,12 @@ var render = function() {
       "div",
       { staticClass: "mt-4 flex flex-row flex-wrap justify-left gap-2" },
       [
-        _vm.task.user
-          ? _c("CardTag", [
-              _vm._v(_vm._s(_vm.$page.global.userinfo[_vm.task.user - 1].name))
-            ])
+        _vm.task.owner
+          ? _c("CardTag", [_vm._v(_vm._s(_vm.task.owner.name))])
           : _vm._e(),
         _vm._v(" "),
-        _vm.task.editor
-          ? _c("CardTag", [
-              _vm._v(
-                _vm._s(_vm.$page.global.userinfo[_vm.task.editor - 1].name)
-              )
-            ])
+        _vm.task.edited
+          ? _c("CardTag", [_vm._v(_vm._s(_vm.task.edited.name))])
           : _vm._e(),
         _vm._v(" "),
         _c("CardTag", [_vm._v(_vm._s(_vm.task.progress))]),
@@ -64092,7 +64088,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "flex-1 flex justify-end gap-2" }, [
-            _vm.tasks
+            _vm.user.tasks.length >= 1
               ? _c(
                   "div",
                   {
@@ -64168,13 +64164,11 @@ var render = function() {
           ? _c(
               "div",
               { staticClass: "py-8 space-y-4" },
-              _vm._l(_vm.tasks, function(task) {
-                return task.user == _vm.user.id
-                  ? _c("TaskCard", {
-                      key: task.id,
-                      attrs: { comment: true, task: task }
-                    })
-                  : _vm._e()
+              _vm._l(_vm.user.tasks, function(task) {
+                return _c("TaskCard", {
+                  key: task.id,
+                  attrs: { comment: true, task: task }
+                })
               }),
               1
             )
@@ -66715,11 +66709,8 @@ var render = function() {
       [
         _c("h2", [_vm._v("Team")]),
         _vm._v(" "),
-        _vm._l(_vm.$page.global.userinfo, function(user) {
-          return _c("UserCard", {
-            key: user.id,
-            attrs: { user: user, tasks: _vm.$page.tasks }
-          })
+        _vm._l(_vm.$page.users, function(user) {
+          return _c("UserCard", { key: user.id, attrs: { user: user } })
         })
       ],
       2
@@ -66922,20 +66913,20 @@ var render = function() {
           [
             _c("StatusIndicator", { attrs: { status: _vm.task.progress } }),
             _vm._v(" " + _vm._s(_vm.task.name) + " "),
-            _c("span", { staticClass: "text-gray-400 text-sm" }, [
-              _vm._v(
-                _vm._s(_vm.$page.global.projectinfo[_vm.task.site - 1].name)
-              )
-            ])
+            _vm.task.proj
+              ? _c("span", { staticClass: "text-gray-400 text-sm" }, [
+                  _vm._v(_vm._s(_vm.task.proj.name))
+                ])
+              : _vm._e()
           ],
           1
         )
       ]),
       _vm._v(" "),
-      _vm.task.user
+      _vm.task.owner
         ? _c("td", { staticClass: "text-center" }, [
-            _c("a", { attrs: { href: /users/ + _vm.task.user + /view/ } }, [
-              _vm._v(_vm._s(_vm.$page.global.userinfo[_vm.task.user - 1].name))
+            _c("a", { attrs: { href: /user/ + _vm.task.owner.id + /view/ } }, [
+              _vm._v(_vm._s(_vm.task.owner.name))
             ])
           ])
         : _c("td"),
@@ -68536,7 +68527,7 @@ var render = function() {
               {
                 attrs: {
                   color: "blue",
-                  route: "/user/" + _vm.$page.task.user + "/view/"
+                  route: "/user/" + _vm.$page.task.owner.id + "/view/"
                 }
               },
               [
@@ -68562,11 +68553,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(
-                  "\n        " +
-                    _vm._s(
-                      _vm.$page.global.userinfo[_vm.$page.task.user - 1].name
-                    ) +
-                    "\n    "
+                  "\n        " + _vm._s(_vm.$page.task.owner.name) + "\n    "
                 )
               ],
               1
@@ -68617,7 +68604,7 @@ var render = function() {
               {
                 attrs: {
                   color: "yellow",
-                  route: "/user/" + _vm.$page.task.editor + "/view/"
+                  route: "/user/" + _vm.$page.task.edited.id + "/view/"
                 }
               },
               [
@@ -68643,11 +68630,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(
-                  "\n        " +
-                    _vm._s(
-                      _vm.$page.global.userinfo[_vm.$page.task.editor - 1].name
-                    ) +
-                    "\n    "
+                  "\n        " + _vm._s(_vm.$page.task.edited.name) + "\n    "
                 )
               ],
               1

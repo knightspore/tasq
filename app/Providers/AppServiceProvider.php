@@ -27,10 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Inertia::share('global', [
-            'taskinfo' => Task::all(['id', 'site', 'name', 'user', 'editor']),
-            'userinfo' => User::all(['id', 'name']),
-            'projectinfo' => Project::all(['id', 'site', 'name']),
-        ]);
+        //
     }
 }
