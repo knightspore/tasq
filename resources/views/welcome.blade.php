@@ -20,16 +20,15 @@
             }
         </style>
     </head>
-    <body class="antialiased bg-gray-100 dark:bg-gray-900">
-        <div class="text-center flex flex-col justify-center min-h-screen sm:items-center sm:pt-0">
-            <h2 class="text-gray-700 dark:text-gray-500">Welcome to Tasq</h2>
+    <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100">
+        <div class="text-center flex justify-center min-h-screen items-center">
+            <h2>Welcome to Tasq</h2>
             @if (Route::has('login'))
-            <div class="hidden px-6 py-4 sm:block">
+            <div class="px-6 py-4 flex flex-col">
                 @auth
                 <a href="{{ url('/dashboard') }}" class="text-gray-700 hover:text-gray-500 underline">Dashboard</a>
                 @else
                 <a href="{{ route('login') }}" class="text-gray-700 hover:text-gray-500 underline">Login</a>
-
                 @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="ml-4 text-gray-700 underline">Register</a>
                 @endif

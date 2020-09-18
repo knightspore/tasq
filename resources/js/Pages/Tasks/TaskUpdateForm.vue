@@ -109,14 +109,14 @@
 </template>
 
 <script>
-import JetButton from './../Jetstream/Button'
-import JetSecondaryButton from './../Jetstream/SecondaryButton'
-import JetFormSection from './../Jetstream/FormSection'
-import JetActionMessage from './../Jetstream/ActionMessage'
-import JetInput from './../Jetstream/Input'
-import JetTextArea from './../Jetstream/TextArea'
-import JetInputError from './../Jetstream/InputError'
-import JetLabel from './../Jetstream/Label'
+import JetButton from './../../Jetstream/Button'
+import JetSecondaryButton from './../../Jetstream/SecondaryButton'
+import JetFormSection from './../../Jetstream/FormSection'
+import JetActionMessage from './../../Jetstream/ActionMessage'
+import JetInput from './../../Jetstream/Input'
+import JetTextArea from './../../Jetstream/TextArea'
+import JetInputError from './../../Jetstream/InputError'
+import JetLabel from './../../Jetstream/Label'
 
 export default {
     name: 'TaskUpdateForm',
@@ -130,29 +130,24 @@ export default {
             JetLabel,
             JetSecondaryButton,
     },
-    props: ['task', 'user', 'editor', 'project'],
     data () {
         return {
-            form: this.$inertia.form({
-                '_method': 'PUT',
-                name: this.task.name,
-                priority: this.task.priority,
-                due: this.task.due,
-                user: this.user.name,
-                site: this.task.site,
-                type: this.task.type,
-                words: this.task.words,
-                progress: this.task.progress,
-                comment: this.task.comment,
-                editor: this.task.edited,
-                folder: this.task.folder,
-                live_link: this.task.live_link,
-                completed: this.task.completed,
-                archived: this.task.archived,
-            }, {
-                bag: 'updateProfileInformation',
-                resetOnSuccess: false,
-            }),
+            form: {
+                name: this.$page.task.name,
+                priority: this.$page.task.priority,
+                due: this.$page.task.due,
+                user: this.$page.user.name,
+                site: this.$page.task.site,
+                type: this.$page.task.type,
+                words: this.$page.task.words,
+                progress: this.$page.task.progress,
+                comment: this.$page.task.comment,
+                editor: this.$page.task.edited,
+                folder: this.$page.task.folder,
+                live_link: this.$page.task.live_link,
+                completed: this.$page.task.completed,
+                archived: this.$page.task.archived,
+            },
         }
     }
 }

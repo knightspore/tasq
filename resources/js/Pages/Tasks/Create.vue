@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <div class="p-8 space-y-4">
+        <div class="m-auto lg:w-5/12 p-8 space-y-4">
             <h2>Create a new Task</h2>
             <div class="p-4 bg-white shadow-md">
 
@@ -86,7 +86,7 @@ export default {
                 site: null,
                 type: null,
                 words: null,
-                is__client: 1,
+                is_client: 1,
                 progress: 'Not Picked Up',
                 comment: null,
             }

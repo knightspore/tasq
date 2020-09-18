@@ -1,14 +1,14 @@
 <template>
-    <div class="shadow-inner bg-gray-300 h-auto">
-    <div class="w-full h-auto bg-white flex flex-row shadow-md m-auto">
+    <div>
+    <CardBase class="z-50">
+    <div class="flex flex-row">
 
-        <div class="bg-purple-700 w-1"></div>
-
-        <div class="p-4 w-full flex">
+            <!-- Avatar -->
             <div class="mr-4 image flex w-12 h-12 bg-gray-200 rounded-full">
                 <img class="m-auto p-1 w-18 h-18 rounded-full" :src="user.profile_photo_url" :alt="user.name + ' profile picture.'"/>
             </div>
 
+            <!-- Name -->
             <a class="flex" :href="'/user/' + user.id + '/view/'">
                 <CardTitle
                 class="m-auto text-lg"
@@ -16,6 +16,7 @@
                 :comment="false"/>
             </a>
 
+            <!-- User Tasks Toggle -->
             <div class="flex-1 flex justify-end gap-2">
                 <div class="my-auto"  @click.prevent="show = !show" v-if="tasks">
                 <SimpleIcon>
@@ -23,15 +24,12 @@
                     <svg v-if="show" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
                 </SimpleIcon>
                 </div>
-                <SimpleIcon>
-                    <svg viewBox="0 0 20 20" fill="currentColor" class="mail w-6 h-6"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                </SimpleIcon>
             </div>
-        </div>
-    </div>
 
+    </div>
+    </CardBase>
     <transition name="fade">
-        <div class="p-8 space-y-4" v-if="show">
+        <div class="py-8 space-y-4" v-if="show">
             <TaskCard
             v-for="task of tasks"
             v-if="task.user == user.id"
@@ -39,11 +37,12 @@
             :key="task.id"
             :task="task"/>
         </div>
-     </transition>
+    </transition>
     </div>
 </template>
 
 <script>
+import CardBase from './Parts/CardBase'
 import CardTitle from './Parts/CardTitle'
 import TaskCard from './TaskCard'
 import SimpleIcon from './Parts/SimpleIcon'
@@ -56,6 +55,7 @@ export default {
         tasks: Object,
     },
     components: {
+        CardBase,
         CardTitle,
         TaskCard,
         SimpleIcon
@@ -75,6 +75,5 @@ export default {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
   transform: translateY(-10%);
-  scale: .8
 }
 </style>

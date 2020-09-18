@@ -3,15 +3,14 @@ import { Pie } from 'vue-chartjs'
 
 export default {
   extends: Pie,
-  props: ['totals'],
   mounted() {
    this.renderChart({
-      labels: ['New: ' + this.totals[0] , 'In Progress: ' + this.totals[1], 'Editing: ' + this.totals[2]], // Reference our new labelsArray
+      labels: ['New: ' + this.$page.totals[0] , 'In Progress: ' + this.$page.totals[1], 'Editing: ' + this.$page.totals[2]], // Reference our new labelsArray
       datasets: [
         {
           label: 'Task Progress',
           backgroundColor: ['#48BB78', '#F6E05E', '#4FD1C5'],
-          data: this.totals, // And our new totalsArray
+          data: this.$page.totals, // And our new totalsArray
         }
       ],
         options: {

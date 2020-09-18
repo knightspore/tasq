@@ -41,47 +41,25 @@ class TaskController extends Controller
 
     public function create(Request $request)
     {
-        $t = Task::create($request->all());
+        $t = new Task();
 
-        dd($request->all(), $t->all());
+        $t->name = $request->name;
+        $t->priority = $request->priority;
+        $t->due = $request->due;
+        $t->site = $request->site;
+        $t->type = $request->type;
+        $t->words = $request->words;
+        $t->is_client = $request->is_client;
+        $t->progress = $request->progress;
+        $t->comment = $request->comment;
 
+        $t->save();
 
-
-        Task::create($request->all());
-
-        return Redirect::route('dashboard');
+        return Redirect::route('tasks.view', $t->id);
     }
 
     public function update($id)
     {
-
-    }
-
-    public function complete($id)
-    {
-        $task = Task::find($id);
-        $task->progress = 'Complete';
-        $task->completed = 1;
-        $task->save();
-
-        return Redirect::route('tasks.view', $id);
-    }
-
-    public function archive($id)
-    {
-        $task = Task::find($id);
-        $task->archived = 1;
-        $task->save();
-
-        return Redirect::route('tasks.view', $id);
-    }
-
-    public function delete($id)
-    {
-        $task = Task::find($id);
-        $task->delete();
-
-        return Redirect::route('dashboard');
 
     }
 }

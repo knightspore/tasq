@@ -1,8 +1,8 @@
 <template>
     <app-layout>
-        <div class="p-8 space-y-4">
+        <div class="m-auto lg:w-5/12 p-8 space-y-4">
             <UserCard :user="user" :tasks="userTasks" forceshow="true"/>
-            <div class="bg-white p-4 text-sm space-y-2">
+            <div class="bg-white p-4 text-sm space-y-2 shadow-md">
                 <p class="text-light"><strong class="pr-2">Email:</strong> {{user.email}}</p>
                 <p class="text-light"><strong class="pr-2">Role:</strong> {{user.role}}</p>
                 <p class="text-light"><strong class="pr-2">Personal Link:</strong> {{user.personallink}}</p>

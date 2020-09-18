@@ -6,10 +6,10 @@
 
             <h2>Tasks</h2>
             <SearchBar />
-            <TaskTable :tasks="tasks"/>
+            <TaskTable/>
             <div class="space-y-4 block lg:hidden">
                 <TaskCard
-                v-for="task of tasks"
+                v-for="task of $page.tasks"
                 :comment="true"
                 :key="task.id"
                 :task="task"/>
@@ -31,8 +31,5 @@ export default {
         TaskTable,
         TaskCard,
     },
-    props: [
-        'tasks'
-    ]
 }
 </script>

@@ -21,7 +21,7 @@
 
         <tbody class="bg-gray-50 text-sm">
             <TaskTableRow
-            v-for="task in tasks"
+            v-for="task in $page.tasks"
             :key="task.id"
             :task="task"/>
         </tbody>
@@ -38,9 +38,6 @@ export default {
         SimpleIcon,
         TaskTableRow,
     },
-    props: [
-        'tasks'
-    ]
 }
 </script>
 

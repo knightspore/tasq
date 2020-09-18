@@ -20,16 +20,12 @@ export default {
     },
     data () {
         return {
-            buttonColor: '',
             blue: ' bg-blue-400 hover:bg-blue-500 active:bg-blue-500 focus:outline-none focus:border-blue-500 focus:shadow-outline-blue',
             green: 'bg-green-400 border hover:bg-green-500 active:bg-green-500 focus:outline-none focus:border-green-500 focus:shadow-outline-green',
             yellow: 'bg-yellow-300 border hover:bg-yellow-400 active:bg-yellow-300 focus:outline-none focus:border-yellow-300 focus:shadow-outline-yellow',
             gray: 'bg-gray-800 border hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray',
         }
     },
-    mounted () {
-        this.buttonColor = this.colors[color]
-    }
 
 }
 </script>

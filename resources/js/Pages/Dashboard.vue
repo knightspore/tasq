@@ -1,17 +1,14 @@
 <template>
     <app-layout>
         <div class="m-auto flex flex-col justify-center lg:flex-row p-8 gap-x-8">
-
             <!-- Left (Bottom Mobile) -->
             <div class="lg:w-1/3 mb-8">
-                <DashLeftBottom :tasks="tasks" :totals="totals"/>
+                <DashLeftBottom/>
             </div>
-
             <!-- Tasks (Top Mobile) -->
             <div class="lg:w-auto mb-8">
-                <DashRightTop :tasks="tasks"/>
+                <DashRightTop/>
             </div>
-
         </div>
     </app-layout>
 </template>
