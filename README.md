@@ -1,4 +1,4 @@
-# Tasq
+# Tasq - Manage your Content Writing Team
 
 Task is a Laravel web app made for tracking teams of content writers. No one likes spreadsheets and it's nice to be able to see what everyone's doing, in one place, with ease.
 
