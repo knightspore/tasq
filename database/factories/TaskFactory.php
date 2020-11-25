@@ -27,11 +27,9 @@ class TaskFactory extends Factory
         $prog = ['Not Picked Up', 'WIP'];
 
         return [
-            'priority' => rand(4,10),
             'due' => $this->faker->dateTimeThisYear(),
-            'is_client' => 1,
             'progress' => $this->faker->randomElement($prog),
-            'site' => Project::all()->random()->id,
+            'project' => Project::all()->random()->id,
             'type' => $this->faker->randomElement(array('List Post','Blog Post','General Content', 'Web Copy')),
             'name' => $this->faker->randomElement($taskTitles).$this->faker->city,
             'words' => $this->faker->randomDigitNot(0).'000',
