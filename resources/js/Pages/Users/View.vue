@@ -22,7 +22,7 @@ export default {
         UserCard
     },
     props: {
-        user: Array,
+        user: Object,
         userTasks: Array,
     }
 }

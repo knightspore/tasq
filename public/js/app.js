@@ -63648,7 +63648,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "z-0 w-full mx-auto flex flex-col text-left bg-white shadow-md"
+        "z-0 w-full mx-auto flex flex-col text-left bg-white shadow-md rounded"
     },
     [
       _c("CardStatusStripe", { attrs: { status: _vm.status } }),
